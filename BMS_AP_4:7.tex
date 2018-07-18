@@ -1,0 +1,1781 @@
+%\documentclass[12pt]{article}
+
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+             
+\usepackage{jheppub} % for details on the use of the package, please
+                     % see the JHEP-author-manual             
+
+\usepackage{amsmath}
+\usepackage{esvect} 
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{amsfonts}
+%\usepackage{cite}
+%\usepackage[margin=1in]{geometry}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\usepackage{epic}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{hyperref}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{multicol} 
+\usepackage{seqsplit}
+\usepackage{mathrsfs}
+\usepackage{comment}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage[affil-it]{authblk}
+\usepackage{tikz-cd}
+\numberwithin{equation}{section}
+\usepackage{braket}
+\allowdisplaybreaks[4]
+
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+
+
+\definecolor{darkpastelgreen}{rgb}{0.01, 0.75, 0.24 }
+\definecolor{hooker\'sgreen}{rgb}{0.0, 0.44, 0.0}
+\definecolor{indiagreen}{rgb}{0.07, 0.53, 0.03}
+\definecolor{islamicgreen}{rgb}{0.0, 0.56, 0.0}
+
+%\setlength\parindent{18pt}
+
+%\begin{document}
+\title{A BMS Approach to $AdS_4$}
+
+\author{Aaron Poole}
+\author{Kostas Skenderis}
+\author{ and Marika Taylor}
+%\date{}
+\affiliation{Mathematical Sciences and STAG Research Centre, University of Southampton \\
+Highfield, Southampton SO17 1BJ, United Kingdom.}
+%\maketitle
+\emailAdd{a.poole@soton.ac.uk}
+\emailAdd{k.skenderis@soton.ac.uk}
+\emailAdd{m.m.taylor@soton.ac.uk}
+
+%\begin{center}
+%\textbf{Abstract} 
+%\end{center}
+\abstract{}
+
+\begin{document}
+
+%\newpage
+\maketitle
+\flushbottom
+
+%\tableofcontents
+%\newpage 
+
+\section{Introduction}
+
+
+\section{Bondi-Sachs Metrics} \label{sec: Bondi-Sachs_metrics}
+
+
+We begin this section with an introduction to the Bondi-Sachs gauge and explain its advantages in studying asymptotically flat space-times. We then give a brief introduction to $AdS$ asymptotics with the aim of continuing the discussion of Bondi gauged metrics to this new case.
+
+\subsection{Null Hypersurfaces}
+
+Bondi-Sachs metrics were first introduced in the famous works \cite{Bondi:1962px, Sachs:1962wk}, in the context of studying gravitational waves. The Bondi-Sachs method involves foliating the spacetime manifold by null hypersurfaces. Following the procedure of \cite{Sachs:1962wk}; one chooses a Bondi Sachs coordinate system as follows. We consider a Lorentzian $4$-manifold, $\mathcal{M}$, equipped with a metric $g_{\mu \nu}(x^{\alpha})$ of signature $(-+++)$. We assume the existence of a scalar field $f$ dependent upon the space-time coordinates $f=f(x^{\alpha})$ such that the normal co-vector to $f$, $\partial_{\mu} f,$ is null: 
+\begin{equation}
+g^{\mu \nu}( \partial_{\mu} f)( \partial_{\nu} f)=0.
+\end{equation} 
+This criterion means that we can describe null hypersurfaces (3-surfaces), $\mathcal{N}_a$, in terms of the level sets of $f$ i.e. 
+\begin{equation}
+\mathcal{N}_a=\{x^{\alpha} \in L \, | \, f(x^{\alpha})=a\} 
+\end{equation} 
+and we can foliate (at least locally) the space-time $(L, g_{\mu \nu})$ using the null hypersurfaces, namely
+\begin{equation}
+\mathcal{M}=\{\mathcal{N}_a \, | \, a \in \text{Ran}(f)\}.
+\end{equation}
+
+The motivation for choosing null hypersurfaces can best be illustrated by looking at their interesting geometrical properties. Let us consider an arbitrary surface $\mathcal{N}_a \subset \mathcal{M}$ and the integral curves in the spacetime of the vector field $t^{\mu}=g^{\mu \nu} \partial_{\nu} f$. These curves are clearly null and normal to $\mathcal{N}_a$ and are commonly referred to as \textit{null rays}. The importance of null rays lies in the fact that they are also geodesic curves contained within $\mathcal{N}_a$ %\cite{Townsend:1997ku}
+\begin{equation}
+t^{\mu} \nabla_{\mu} t^{\nu}= g(x^{\alpha}) t^{\nu}.
+\end{equation}
+By a suitable (affine) parametrisation we can ensure $g=0$ and thus the null rays will also be the null generators of $\mathcal{N}_a$. This outlines the overall picture of this procedure as being a way to work from space-time $\rightarrow$ null hypersurface $\rightarrow$ null ray $\rightarrow$ null geodesic.
+
+In order to work with a metric describing this situation we would like to choose an adapted coordinate system. Typically, one works in \textit{retarded Bondi coordinates} $(u,r,\Theta^1,\Theta^2)$, which we will briefly explain. The coordinate $u$ is a retarded time coordinate which plays the role of labelling the null hypersurfaces $\mathcal{N}_a$ ($u=f$ from above equations). This coordinate is commonly referred to as the \textit{Bondi time} and takes values in $\mathbb{R}$. The $\Theta^A$ are angular coordinates which are defined so as to be constant along null rays:
+\begin{equation}
+t^{\mu} \partial_{\mu} \Theta^1=t^{\mu} \partial_{\mu} \Theta^2 = 0.
+\end{equation}
+This condition means that rays take the form $c^{\mu}(\lambda)=(u_0, r(\lambda),\Theta^1_0, \Theta^2_0)$ and thus we have an interpretation of the coordinate $r$ as a radial distance coordinate measuring the distance along a null ray.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.66\linewidth]{Fig_1.pdf}
+	\caption{Penrose diagram of null hypersurfaces, $\color{islamicgreen}{\mathcal{N}_{u_i}}$, 	foliating future null infinity, $\mathscr{I^+}$, of an asymptotically flat spacetime. As indicated 	by the \textcolor{red}{red} axis, the retarded time coordinate $\color{red}{u}$ ranges from $(-	\infty, \infty)$ along $\mathscr{I^+}$ and thus the \textcolor{islamicgreen}{green} lines 		represent the $u=\text{constant}$ hypersurfaces. (The arrows show the direction of increasing 	radial coordinate $r$). The \textcolor{blue}{blue} curves represent timelike hypersurfaces of 	constant $\textcolor{blue}{r}$. }
+\end{center}	
+\end{figure}
+
+
+\subsection{The Bondi Gauge}
+Following closely the notation of \cite{Strominger:2017zoo}, the most general line-element which satisfies the previously discussed coordinate conditions is
+\begin{equation}
+ds^2=-X du^2 -2e^{2\beta}dudr+ h_{AB}\left(d\Theta^A+\frac{1}{2}U^{A}du\right)\left(d\Theta^B+\frac{1}{2}U^{B}du\right),
+\end{equation} 
+it is usual to impose in addition the following four gauge conditions:
+\begin{equation}
+\partial_r \det\left(\frac{h_{AB}}{r^2}\right)=0, \qquad g_{rr}=g_{rA}=0.
+\end{equation}
+This metric together with the gauge conditions is know as the \textit{Bondi gauge} (or Bondi-Sachs gauge) and any space-time metric can be locally written in this form. It is the most commonly used approach to analyse the null hypersurface set up that we introduced above, although there are alternatives based on the Newman-Penrose formalism \cite{Newman:1961qr}, which invokes a null tetrad as opposed to a metric (e.g. \cite{Barnich:2016lyg}).
+
+The capital Roman indices $A,B$ take values $\{1,2\}$ which together with the symmetry of $h_{AB}$, na\"{i}vely gives us seven unknown functions in the line-element: $(X, \beta, h_{AB}, U^A)$, all of which depend upon the spacetime coordinates $(u, r, \Theta^1, \Theta^2)$. The gauge condition which restricts the determinant of $h_{AB}$ now reduces the number of unknown functions in the metric to six, all of which are determined by the Einstein equations. The latter are solved subject to asymptotic data ($ r \rightarrow \infty$) for the metric functions.  
+
+One may choose to retain general covariance in the angular coordinates \cite{Flanagan:2015pxa} although it is often useful to consider a local choice. For the purpose of this paper we will commonly utilise the usual $(\theta, \phi)$ of the spherical coordinate system as well as complex coordinates  $(z, \bar{z})$, related by
+\begin{equation}
+z=e^{i\phi}\cot\left(\frac{\theta}{2}\right), \qquad \bar{z}=e^{-i\phi}\cot\left(\frac{\theta}{2}\right).
+\end{equation}
+
+\subsection{Asymptotic Flatness}
+
+In the original work by BMS and much of what has followed since, the Bondi-gauge has been the ideal choice to study asymptotically flat spacetimes and their symmetries. Asymptotic flatness may be viewed as the property that the spacetime tends to Minkowski spacetime as $r \rightarrow \infty$. This imprecise statement can be given a rigorous topological definition \cite{Wald:1984rg, Hawking:1973uf} but for the purpose of our analysis we can impose suitable fall-off conditions upon the metric components at large $r$. 
+
+The Minkowski metric in retarded coordinates $(u,r,z,\bar{z})$ \footnote{This form of the metric is suitable for analysis near $\mathscr{I^+}$, although not for $\mathscr{I^-}$. To look at neighbourhoods of $\mathscr{I^-}$ we would instead write the metric in \textit{advanced} coordinates $(v,r,z,\bar{z})$ as opposed to retarded ones.} is given by 
+\begin{equation}
+ds_{M}^2=-du^2-2dudr+2r^2\gamma_{z \bar{z}}dzd\bar{z}
+\end{equation} 
+where 
+\begin{equation}
+u=t-r , \qquad \gamma_{z \bar{z}}=\frac{2}{(1+z\bar{z})^2}.
+\end{equation}
+$u$ is again a retarded time coordinate and $\gamma_{z\bar{z}}$ is the round metric on $S^2$. We notice that this is already in the Bondi-gauge with function choices corresponding to $h_{zz}=h_{\bar{z} \bar{z}}= \beta= U^A=0$, $X=1$, $h_{z \bar{z}}=r^2 \gamma_{z \bar{z}}$. 
+
+For a general asymptotically flat metric the metric functions to admit power series expansions in $r$ with the leading order term being that of the Minkowski metric. The review \cite{Strominger:2017zoo} discusses what should be considered suitable fall-off conditions on the subleading terms in the series: the fall-off should include gravitational wave emitting solutions, as was the motivation in \cite{Bondi:1962px}. These criteria were imposed in \cite{Bondi:1962px, Sachs:1962wk} and if we combine this with the following fall-off of the Weyl curvature tensor components at large $r$
+\begin{equation}
+C_{rzrz} \sim O(r^{-3}), \quad C_{rurz} \sim O(r^{-3}), \quad C_{rur\bar{z}} \sim O(r^{-3})
+\end{equation}
+as in \cite{Strominger:2017zoo} then we obtain the class of asymptotically flat metrics in the Bondi gauge as 
+\begin{align}
+\begin{split}
+ds^2=&\, ds_{M}^2+\frac{2m_B}{r}du^2+rC_{zz}dz^2+rC_{\bar{z} \bar{z}}d\bar{z}^2+D^zC_{zz}dud\bar{z}+D^{\bar{z}}C_{\bar{z}\bar{z}}dud\bar{z} \\
+& +\frac{1}{r}\left(\frac{4}{3}(N_z+u\partial_z m_B -\frac{1}{4}\partial_z(C_{zz}C^{zz})\right)dudz + c.c.+ \ldots.
+\end{split}
+\end{align}
+where $D_A$ is the covariant derivative with respect to the metric of the round sphere $\gamma_{AB}$ and the first term in the equation is just the Minkowski metric. The rest of the terms in the first line are the first order sub-leading terms in powers of $r$. Notice that although these terms have different powers of $r$ preceding them, they all all subleading as $r \rightarrow \infty$ when compared to the Minkowski metric. The second line of the equation contains some of the second order subleading terms, included here as these terms contain some physically interesting functions. \par
+
+At $\mathcal{O}(1/r)$ in $g_{uu}$ is a function $m_B=m_B(u,z,\bar{z})$ is known as the \textit{Bondi mass aspect}. One of the key results of \cite{Bondi:1962px} tells us that we can integrate the Bondi mass aspect over the unit $S^2$ to give the total \textit{Bondi mass} $\mathcal{M}_B$ of the system at time $u$ 
+\begin{equation} \label{eq: Bondi_mass_time_u}
+\mathcal{M}_B=\frac{1}{4\pi}\int_{S^2} m_B=\frac{1}{4\pi}\int d^2z \, \gamma_{z\bar{z}} \, m_B. 
+\end{equation}
+The Bondi mass is a natural way to define the mass of a system at $\mathscr{I^+}$, and is an alternative to the ADM mass which is defined as an integral at spatial infinity $i^0$.  
+
+Contained in the $1/r$ suppressed terms relative to the Minkowski metric is $C_{AB}(u,z,\bar{z})$; a symmetric and traceless tensor of type $[0,2]$. This tensor describes the gravitational waves in the spacetime (recall we wanted the fall-off conditions to include these solutions) and it motivates the definition of another key concept in the Bondi gauge, the \textit{Bondi news tensor}, $N_{AB}$, 
+\begin{equation}
+N_{AB}(u,z,\bar{z})=\partial_{u}C_{AB}(u,z,\bar{z}).
+\end{equation}
+The news tensor is again a symmetric and traceless tensor of type $[0,2]$. The name ``news" for this tensor can be best explained by imposing Einstein's equations (with $\Lambda=0$) upon the metric 
+\begin{equation}
+R_{\mu \nu}-\frac{1}{2}g_{\mu \nu}R=8\pi T_{\mu \nu}, \qquad \lim_{r \rightarrow \infty} T_{\mu \nu} =0
+\end{equation}
+where the limit condition on the stress energy tensor is typically enforced such that $\Omega^{-1} T_{ab}$ has a smooth conformal completion to $\mathscr{I^+}= \{\Omega = 0\}$ \cite{Ashtekar:2014zfa}. This condition is a requirement for asymptotic flatness. We solve the field equations by expanding in large $r$ and solving the equations that arise at each order. The leading order ($\mathcal{O}(r^{-2})$) of the $(uu)$ component of the Einstein equations then reads (see discussions in \cite{Strominger:2017zoo,Flanagan:2015pxa}) 
+\begin{equation}
+\partial_u m_B=\frac{1}{4}[D^2_zN^{zz}+D^2_{\bar{z}}N^{\bar{z}\bar{z}}-N_{zz}N^{zz}]-4\pi  \lim_{r\rightarrow \infty} r^2T_{uu}.
+\end{equation}
+Thus the news tensor, along with the stress tensor, governs the change in the Bondi mass aspect - it provides the ``news'' regarding the change in the mass aspect. If the space-time under consideration is vacuum (as in \cite{Bondi:1962px}) then the news entirely governs the change in mass.
+
+The final interesting term is the $N^A$ which appears in the subleading terms in the second line. This vector is named the \textit{angular momentum aspect} and - in a similar fashion to the mass aspect - can be used to define the total angular momentum at $\mathscr{I^+}$ via a suitable integral. Both the mass aspect and angular momentum aspect arise as functions of integration in the full set of Einstein field equations, although the field equations do contain evolution equations for these \cite{Flanagan:2015pxa, Strominger:2013jfa, Pasterski:2015tva, Barnich:2010eb} which we will discuss in detail later.
+
+Before we begin with the discussion of the Anti-de Sitter case, we compare the general Bondi-gauge and our asymptotically flat metric to in order to write down the fall-off conditions on the functions in the metric 
+\begin{align}
+\begin{split}
+&X=1-\frac{2m_B}{r}+O(r^{-2}), \qquad \beta=O(r^{-2}), \\ 
+&g_{AB}=r^2\gamma_{AB}+rC_{AB}+O_{1}, \qquad U_A=\frac{1}{r^2}D^{B}C_{AB}+O(r^{-3}).
+\end{split}
+\end{align}
+These are the restrictions upon asymptotically flat spacetimes. The infinite dimensional symmetry group of all coordinate transformations which preserves these fall-offs as well as the gauge itself is known as the BMS group \cite{Sachs:1962zza}.
+
+\subsection{Anti-de Sitter Asymptotics}  \label{subseq: AdS_asymptotics}
+
+We now move to Anti-de Sitter asymptotics. First of all, we can clearly write the $AdS_4$ metric in Bondi gauge as 
+\begin{equation}
+ds_{AdS}^2=-\left(1+\frac{r^2}{l^2}\right)du^2-2dudr+r^2d\Omega^2
+\end{equation}
+where $l=\sqrt{-3/\Lambda}$ is referred to as the \textit{AdS radius} of the spacetime; we will set $l=1$ from now on. 
+
+To understand the appropriate notion of asymptotically (locally) $AdS$, we should use the fact that an \textit{asymptotically locally AdS} metric is a \textit{conformally compact Einstein metric}, see  \cite{Skenderis:2002wp}. 
+First let us recall the notion of a conformally compact metric. Consider a manifold with boundary $\bar{\mathcal{X}}=\mathcal{X} \cup \partial \mathcal{X}$ where $\partial \mathcal{X}$ is the boundary. We call a metric $g_{\mu \nu}$ \textit{conformally compact} if it has a pole of order two at $\partial \mathcal{X}$ and there exists a defining function $y$ which satisfies 
+\begin{equation}
+y(\partial \mathcal{X})=0, \qquad dy(\partial \mathcal{X}) \neq 0, \qquad y(\mathcal{X}) > 0  
+\end{equation} 
+and the metric $\tilde{g}$ defined by 
+\begin{equation}
+\tilde{g}_{\mu \nu}=y^2 g_{\mu \nu} 
+ \label{eq: double_pole_metric}
+\end{equation}
+smoothly extends to $\bar{\mathcal{X}}$, i.e. $\tilde{g}|_{\partial \mathcal{X}}=g_{(0)}$ and $g_{(0)}$ is non-degenerate. This tells us that the metric at $\partial \mathcal{X}$, $g_{(0)}$, is defined up to a conformal class of metrics. \par
+
+Enforcing the  Einstein equations (with negative cosmological constant) implies that the Riemann tensor $R_{\alpha \beta \gamma \delta}$ of our conformally compact metric $g_{\mu \nu}$ is identical to the Riemann tensor of $AdS$ near $\partial \mathcal{X}$
+\begin{equation}
+R_{\alpha \beta \gamma \delta}[g]=(g_{\alpha \gamma} g_{\beta \delta} - g_{\beta \gamma} g_{\alpha \delta})+\mathcal{O}(y^{-3})
+\end{equation}
+where we note the leading order term is $\mathcal{O}(y^{-4})$. 
+
+This provides a clear definition of an asymptotically locally $AdS$ metric but this definition doesn't enforce any restriction on the topology of $\partial \mathcal{X}$ or the metric $g_{0}$ induced at $\partial \mathcal{X}$. If we take the metric for $AdS_4$ then we find that the conformal boundary has the topology of $\mathbb{R} \times S^2$ and the metric $g_{(0)}$ is conformally flat. Due to this, we call asymptotically locally $AdS$ space-times with these properties \textit{asymptotically AdS space-times}.
+ 
+$\{ \text{asymptotically} \: AdS \: \text{space-times} \} \subset \{ \text{asymptotically locally} \: AdS \: \text{space-times} \}$ so if we had followed the flat case by replacing the Minkowski metric with pure $AdS$ we would have missed out on all of the potentially interesting solutions which are merely locally $AdS$. Instead we will begin our approach from the Einstein equations themselves, solve them, and then look at the conformal compactness property by using a special coordinate system near the conformal boundary, the \textit{Fefferman-Graham system} \cite{Fefferman:1985zza}.
+
+Indicated on the diagram below is a rough idea of how we want to locally foliate the conformal boundary of an asymptotically locally $AdS$ spacetime using the null hypersurface technique that we have discussed in the previous sections: \newpage
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{Fig_2.pdf}
+	\caption{Penrose diagram of the asymptotic region of an asymptotically locally $AdS$ space-	time, where the \textit{timelike} boundary manifold $\partial \mathcal{X}$ is traditionally 		denoted $\mathscr{I}$. The \textcolor{islamicgreen}{green} curves again represent null 		hypersurfaces $\color{islamicgreen}{\mathcal{N}_{u_i}} =\{ u= u_i \, | \, u_i = \text{constant} \}$  	and the blue curves timelike surfaces of constant $\color{blue}{r}.$}
+\end{center}	
+\end{figure}
+
+
+
+\section{The Einstein Field Equations}
+
+In this section we will set up and solve the vacuum Einstein equations in the presence of a negative cosmological constant for an axisymmetric, $\phi$-reflection symmetric Bondi metric. The techniques employed in doing this are very similar to that of \cite{Bondi:1962px} and we shall see that a lot of the properties of the original method carry over to the $AdS$ setup. The mathematica file relevant to these equations is \textcolor{red}{mathematica file `$AdS$ smooth solutions'}
+
+\subsection{General Considerations}
+Before diving straight into the Einstein equations; we apply some simplifications to the general Bondi gauge metric. Working in coordinates $(u , r, \theta, \phi)$, we enforce both axi-symmetry ($\partial/\partial \phi$ a Killing vector field) and reflection symmetry in $\phi$ (so the metric is invariant under $d\phi \rightarrow -d\phi$). In Bondi function notation, this means we set $h_{\theta \phi}=h_{\phi \theta}=U^{\phi}=0$, reducing the number of unknown functions to four. These choices are made for computational simplifications in what follows.
+
+Following \cite{Bondi:1962px}, we now write the remaining functions in the form;
+\begin{equation}
+X=Vr^{-1}e^{2\beta}, \qquad \beta=\beta, \qquad h_{\theta \theta}=r^2e^{2\gamma}, \qquad h_{\phi \phi}=r^2\sin^2\theta e^{-2\gamma}, \qquad U^{\theta}=-2U
+\end{equation}
+giving us the line element 
+\begin{equation}  \label{eq: Bondi_Metric}
+ds^2=-(Vr^{-1}e^{2\beta}-U^2r^2e^{2\gamma})du^2-2e^{2\beta}dudr-2Ur^2e^{2\gamma}dud\theta+r^2(e^{2\gamma}d\theta^2+e^{-2\gamma}\sin^2\theta d\phi^2).
+\end{equation}
+This choice of metric has the extra determinant restriction that $\text{det}(h_{AB}/r^2)=\sin^2\theta$ which we will see coming into play in later computations. We are now ready to solve Einstein's equations for our four metric functions $\gamma(u,r,\theta)$, $\beta(u, r, \theta)$, $U(u,r,\theta)$, $V(u,r,\theta)$. \par
+
+For our choice of metric ansatz above, we want to solve the Einstein vacuum equations with a negative cosmological constant ($\Lambda=-3$ with curvature radius one):
+\begin{equation} \label{eq:2.1}
+R_{\mu \nu}=-3 g_{\mu \nu}. 
+\end{equation}
+Instead of solving the vacuum Einstein equations, one could choose to solve the equations with ``asymptotically vacuum'' matter ($\lim_{r \rightarrow \infty} T_{\mu \nu} =0$). An eaxmple of this is \cite{Flanagan:2015pxa}, which uses a power series expansion in negative powers of $r$. As is well known in holography, the presence of matter generically affects the powers arising in the asymptotic expansions. For this work we will restrict to the vacuum case but the generalization to include matter would be straightforward. 
+
+%The treatment of the matter fields was carefully considered in \cite{Chrusciel:2016oux} and it was shown that the fields have the potential to add logarithmic terms into the metric functions. As we shall see later, the existence of these terms is not allowed in the Fefferman-Graham expansion, thus we will restrict our study to the vacuum case. \par
+
+Following \cite{Bondi:1962px}; we separate Einstein's Equations into four `main equations'
+\begin{equation} \label{eq:2.3}
+R_{rr}=R_{r\theta}=0, \quad R_{\theta \theta}=-3 r^2e^{2 \gamma}, \quad R_{\phi \phi}=-3r^2e^{-2\gamma}\sin^2\theta 
+\end{equation}
+which we can rewrite in the following form 
+\begin{subequations}
+\begin{align} 
+0 & =-R_{rr} = -4\left[\beta_r-\frac{1}{2}r\gamma_r^2\right]r^{-1} \label{eq: AdS_me1} \\
+0 & =2r^2R_{r\theta} =[r^4e^{2(\gamma-\beta)}U_r]_r- 2r^2[\beta_{r\theta}-\gamma_{r\theta}+2\gamma_{r}\gamma_{\theta}-2\beta_{\theta}r^{-1}-2\gamma_{r}\cot \theta] \label{eq: AdS_me2} \\
+\begin{split}
+6r^2e^{2\beta}& = -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = 2V_r+\frac{1}{2}r^4e^{2(\gamma-\beta)}U_r^2-r^2 U_{r \theta}  \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = }
+-4rU_{\theta} -r^2U_{r}\cot \theta -4rU\cot \theta  \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } +2e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-\beta_{\theta})\cot \theta \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } -\gamma_{\theta \theta}+\beta_{\theta \theta} +\beta_{\theta}^2+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})] \label{eq: AdS_me3}  
+\end{split}
+\\
+\begin{split}
+3r^2e^{2\beta} & =- r^2R^{\phi}_{\phi}e^{2\beta} =2r(r \gamma)_{u r}+(1-r\gamma_r)V_r-(r\gamma_{r r}+\gamma_r)V-r(1-r\gamma_r)U_{\theta} \\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } -r^2(\cot \theta - \gamma_{\theta})U_r+r(2r\gamma_{r \theta}+2\gamma_{\theta}+r\gamma_{r}\cot \theta - 3\cot \theta)U \\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } +e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-2\beta_{\theta})\cot \theta-\gamma_{\theta \theta}+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})]. \label{eq: AdS_me4}
+\end{split}
+\end{align}
+\end{subequations}
+Notice that the first two equations agree with the first two main equations in \cite{Bondi:1962px}. The second two have been altered by the inclusion of the cosmological constant. We will now follow closely the integration scheme of \cite{Bondi:1962px} to see how this alters the solutions to the equations above. 
+
+We are interested in solving these equations in the \textit{asymptotic region} (large $r$) of the spacetime. To do this, we need to ensure the metric functions obey suitable fall off properties, namely those which ensure our solution is asymptotically locally $AdS$ in the limit as $r \rightarrow \infty$. These criteria will correspond to similar conditions that were imposed in \cite{Bondi:1962px} to ensure asymptotic flatness and only outgoing gravitational waves, The functions $\gamma$, $\beta$ and $U$ admit expansions of the form 
+\begin{equation}
+\gamma(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\gamma_n(u,\theta)}{r^n}, \quad \beta(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\beta_n(u,\theta)}{r^n}, \quad U(u,r,\theta)=\sum_{n=0}^{\infty}\frac{U_n(u,\theta)}{r^n} 
+\end{equation}
+and $V$ is of the form 
+\begin{equation}
+V(u, r, \theta)=\sum_{n=0}^{\infty} \frac {V_n(u, \theta)}{r^{n-3}}.
+\end{equation}
+These conditions will ensure that our metric coefficients do not grow exponentially with $r$ and that the metric has a pole of order two at the conformal boundary $\mathscr{I}$; this will be discussed in greater detail in section \ref{sec: Holographic_interpretation}.  
+To simplify the analysis of the problem it is convenient to use the substitution $r=1/z$; solving the equations as $r \rightarrow \infty$ reduces to the analytically simpler procedure of looking for solutions about $z=0$. 
+
+As a final comment before we solve these equations asymptotically, let us note that these forms for the asymptotic expansions follow from the boundary conditions of asymptotically locally $AdS_4$, in the absence of the matter. We do not assume the expansion a priori.
+It has been shown in previous literature that the metric function expansions can contain logarithmic terms of the form $\log^j(r)r^{-i}$, both for the asymptotically flat case in \cite{Andersson:1994ng, 0264-9381-16-5-314} and for arbitrary $\Lambda$ in \cite{Chrusciel:2016oux}. However, such logarithmic terms do not arise here. 
+
+\subsection{Solving the Main Equations}
+
+We will first solve the main equations following the same approach as the original analysis  \cite{Bondi:1962px}. This procedure na\"ively works in the following way (temporarily ignoring the issue of integration functions). 
+\begin{itemize}
+\item[1)] Assume that we know $\gamma(u, r, \theta)$ on a given initial null hypersurface $\mathcal{N}_{u_0}$ (so $\gamma(u_0, r, \theta)$)
+\item[2)] Solve the equation (\ref{eq: AdS_me1})  as an ordinary differential equation in the null hypersurface $\mathcal{N}_{u_0}$ to compute $\beta(u_0, r,\theta)$ 
+\item[3)] Solve (\ref{eq: AdS_me2})  for $U(u_0, r, \theta)$ 
+\item[4)] Solve (\ref{eq: AdS_me3})  for  $W(u_0, r, \theta)$ 
+\item[5)] Equation (\ref{eq: AdS_me4})  gives a differential equation for $\gamma$ as it contains a $\gamma_{,u}$ term. Solving this equation for $\gamma_{,u}$ gives $\gamma$ on the next null hypersurface $\mathcal{N}_{u_0 + \delta u}$.
+\item[6)] Repeat from step 1 with the new Bondi time $u_0+ \delta u$. Iteration gives the asymptotic solution to the Einstein field equations for the future domain of dependence of $\mathcal{N}_{u_0}$, $D^+(\mathcal{N}_{u_0})$
+\end{itemize}  
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.5\linewidth]{Fig_3.pdf} 
+\end{center}
+\caption{Penrose diagram illustrating how we will na\"ively apply the BMS scheme to asymptotically locally $AdS$ space-time}
+\label{fig: fig_3}
+\end{figure}
+
+However, unlike asymptotically flat space-time, in $AdS$ we have $D^+(\mathcal{N}_{u_0}) \neq J^+(\mathcal{N}_{u_0})$, where $J^+$ indicates the causal future - the union of the blue and green regions in the diagram. To solve the equations in $J^+(\mathcal{N}_{u_0})$ we would need to specify extra data i.e. on a new hypersurface such as the conformal boundary $\mathscr{I}$. Further discussion of the integration scheme for $AdS$ asymptotics may be found in section \ref{sec:  Integration Scheme - Minkowski Vs. $AdS$}. In this section we solve the field equations in the order described above. 
+
+\subsubsection{The First Equation}
+\noindent With the substitution $z=1/r$; the first equation becomes 
+\begin{equation}
+\beta_{,z}+\frac{1}{2} z \gamma_{,z}^2=0.
+\end{equation}
+The integration scheme of the original work by BMS assumed knowledge of $\gamma$ for a given retarded time $u_0$, thus allowing one to solve this equation for $\beta(u_0, z,\theta)$. For the purpose of solving the $AdS$ equations asymptotically we will not assume knowledge of $\gamma$ although in a similar vein to the original work we will write the metric functions in terms of $\gamma$. We integrate the equation order by order in the radial expansion, with the first few terms in the expansion being: 
+\begin{align}
+\begin{cases}
+&\beta_1=0 \\
+&\beta_2=-\frac{1}{4} \gamma_1^2\\
+& \beta_3=-\frac{2}{3}  \gamma_1 \gamma_2 \\
+& \beta_4=\frac{1}{4}\left[ -2 \gamma_2^2-3 \gamma_1 \gamma_3 \right].
+\end{cases}
+\end{align}
+The coefficient $\beta_0$ is undetermined from the equation and can be viewed as a function of integration. We can continue this procedure to arbitrary order although the terms displayed above are sufficient for our analysis.  
+
+\subsubsection{The Second Equation}
+\noindent Under $z=1/r$, the second equation becomes
+\begin{align}
+\begin{split}
+0=& 2 z \beta_{,z \theta}-2 z\gamma_{, z\theta}+z U_{,zz}  e^{2(\gamma-\beta)}-2 U_{,z} e^{2(\gamma-\beta)}+ 2 z U_{,z} e^{2(\gamma-\beta)}(\gamma_{,z}-\beta_{,z})+4 \beta_{,\theta}+ \\
+&4 z \gamma_{,z}  \gamma_{,\theta}-4 z \cot (\theta ) \gamma_{,z}.  
+\end{split}
+\end{align}
+Given that we know both $\gamma$ and $\beta$ from the first equation, we can now express the coefficients of the asymptotic expansion of $U$ in terms of these functions. The first two expansion coefficients are
+\begin{subequations}
+\begin{align}
+U_1=& 2 \beta_{0, \theta} e^{2( \beta_0- \gamma_0)} \\
+U_2=&-e^{2 \beta_0-2 \gamma_0} (2 \beta_{0,\theta} \gamma_1-2 \gamma_{0,\theta}\gamma_1+\gamma_{1,\theta}+2 \cot (\theta ) \gamma_1)
+\end{align}
+\end{subequations}
+and $U_0$ is an independent function of integration i.e. it is undetermined by the data for $\beta$ and $\gamma$. 
+
+The third coefficient in this series isn't determined by the integration. At this order we get instead a constraint equation.
+\begin{equation}
+8 \gamma_{0,\theta} \gamma_2-4 \gamma_{2,\theta}-8 \cot (\theta ) \gamma_2=0
+\end{equation}
+which was solved in \cite{Bondi:1962px} using $\gamma_2=0$; we will explore the implications of this constraint below. \par
+ 
+Looking carefully at the structure of the second equation, the presence of this equation makes sense as $U_3$ enters the series as a function of integration closely analogous to the angular momentum aspect. Clearly we need it to determine the higher order coefficients (see the equation below) although it does not seem to be strictly determined by any of the other main equations. We will later see via the supplementary conditions that one does arrive at an evolution equation for $U_3$.  
+\begin{align}
+\begin{split}
+U_4=&-\frac{1}{12} e^{-2 \gamma _{0}} (-16 e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{1}^3+ 30 e^{2 \beta _{0}} \gamma _{0, \theta} \gamma _{1}^3-15 e^{2 \beta _{0}} \gamma _{1, \theta} \gamma _{1}^2+ \\  
+ &8 e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{2} \gamma _{1}+20 e^{2 \beta _{0}} \gamma _{2} \gamma _{0, \theta} \gamma _{1}- 6 e^{2 \beta _{0}} \gamma _{2, \theta} \gamma _{1}+12 e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{3}+ 36 e^{2 \beta _{0}} \gamma _{3} \gamma _{0, \theta}-\\
+ & 8 e^{2 \beta _{0}} \gamma _{2} \gamma _{1, \theta}- 18 e^{2 \beta _{0}} \gamma _{3,\theta}-30 \cot (\theta ) e^{2 \beta _{0}} \gamma _{1}^3- \\
+ & 20 \cot (\theta ) e^{2 \beta _{0}} \gamma _{2} \gamma _{1}-36 \cot (\theta ) e^{2 \beta _{0}} \gamma _{3}+18 e^{2 \gamma _{0}} \gamma _{1} U_{3}) 
+\end{split}
+\end{align}
+
+
+\subsubsection{The Third Equation}
+\noindent This equation requires a little more work to transform under the inversion map: since we want to analyse the sesies expansion of the equation around $z=0$, we should work with functions that are analytic around $z=0$. $V(z)$ is not regular at $z=0$ as the power series contains terms of $\mathcal{O}(z^{-3})$. We thus define a new function, $W(z,u,\theta)$ by
+\begin{equation}
+W(z,u,\theta)=z^3V(z,u,\theta) 
+\end{equation}
+so the third equation becomes
+\begin{align}
+\begin{split}
+0=&z^2 U_{,z \theta}+\frac{1}{2} z^2  U_{,z}^2 e^{2 (\gamma -\beta)}+ \\
+& 2 z^2 e^{2 (\beta-\gamma)} [2 \gamma_{,\theta} (\gamma_{,\theta}-\beta_{,\theta})- \cot (\theta ) (3 \gamma_{,\theta} - \beta_{,\theta} )+\beta_{,\theta \theta} +\beta_{,\theta}^2-\gamma_{, \theta \theta}-1]- \\
+&6 e^{2 \beta}-4 z U_{,\theta}+z^2 \cot (\theta ) U_{,z}-4 z \cot (\theta ) U- 2 (z W_{,z}-3 W).
+\end{split}
+\end{align}
+The first few coefficients of the asymptotic expansion are as follows 
+\begin{align}
+\begin{cases}
+W_0& =  e^{2 \beta _{0}} \\
+W_{1}& =\cot (\theta ) U_{0}+U_{0,\theta}\\ 
+W_{2}&=\frac{1}{2}e^{2(\beta_{0}-\gamma_{0})}(2-3e^{2\gamma_0}\gamma_1^2+4\cot(\theta)\beta_{0,\theta}+8(\beta_{0,\theta})^2+ \\ 
+& \phantom{\frac{1}{2}e^{2(\beta_{0}-\gamma_{0})}(=}6\cot(\theta)\gamma_{0,\theta}-8\beta_{0,\theta}\gamma_{0,\theta}-4(\gamma_{0,\theta})^2+4\beta_{0,\theta \theta}+2\gamma_{0,\theta \theta}) \\
+ \end{cases}
+\end{align}
+$W_3$ is the function of integration which corresponds to the mass aspect and at $\mathcal{O}(z^3)$ we have the constraint equation
+\begin{equation}
+8e^{2\beta_0} \gamma_1 \gamma_2=0 \quad \implies \quad  \gamma_1 \gamma_2 =0.
+\end{equation} 
+The solution of this constraint follows from the final equation.
+
+\subsubsection{The Fourth Equation}
+\noindent Our final equation, for $\gamma_u$, becomes 
+\begin{align}
+\begin{split}
+0=&-2 z^2 U \gamma_{,z \theta}-2 z^2 \gamma_{,zu} + \\
+& z^2  e^{ 2 (\beta  -\gamma  )} [2  \gamma_{, \theta}   (\gamma_{,\theta} - \beta_{, \theta}  )-\cot (\theta ) (3 \gamma_{, \theta}-2 \beta_{,\theta} )-\gamma_{, \theta \theta}-1]-3  e^{ 2 \beta  }-\\
+&z^2 U_{,z} \gamma_{,\theta}-z^2 U_{, \theta} \gamma_{,z} -z^2 \cot (\theta ) U \gamma_{,z}+z^2 \cot (\theta ) U_{,z} +2 z U \gamma_{, \theta} -3 z \cot (\theta ) U -z U_{,\theta}-\\
+&z^2 W \gamma_{,zz}-z^2 W_{,z} \gamma_{,z} +3 z W \gamma_{,z} - z W  \gamma_{,z}+3 W -z W_{,z}+2 z\gamma_{,u} 
+\end{split}
+\end{align}
+under the inversion transformation.
+
+Using the original integration scheme, we would solve this equation for $\gamma_{,u}$ to determine the coefficients of $\gamma$ on the next null hypersurface. Instead we will solve the equations iteratively in the asymptotic expansion coefficients, expressing the $\gamma_{i+1}$ terms in terms of $\gamma_{i,u}$; the reason for this viewpoint on solving the final equation will become clear below. 
+
+At $\mathcal{O}(z)$ we obtain
+\begin{equation} \label{eq: gamma_1}
+\gamma_1=\frac{1}{2}e^{-2\beta_0}(\cot(\theta)U_0-U_{0,\theta}-2U_0\gamma_{0,\theta}-2\gamma_{0,u})
+\end{equation}
+and at $\mathcal{O}(z^2)$
+\begin{equation}
+0=-3e^{2\beta_0}\gamma_2 \implies \gamma_2=0.
+\end{equation}
+which immediately solves the two previous constraint equations we derived so we no longer need to worry how they might constrain our functions. \par
+
+The relation $\gamma_2=0$ implies that the $\mathcal{O}(z^3)$ term vanishes as well so we must go up to $\mathcal{O}(z^4)$:
+\begin{align}
+\begin{split}  \label{eq: gamma_4}
+\gamma_4=
+\frac{1}{8} e^{-2 (\beta _{0}+\gamma _{0})} (&8 e^{2 \beta _{0}} \beta _{0, \theta}^2 \gamma _{1}^2-16 e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{0, \theta} \gamma _{1}^2+e^{2 \beta _{0}} \beta _{0, \theta \theta} \gamma _{1}^2-4 e^{2 \beta _{0}} \gamma _{0, \theta \theta} \gamma _{1}^2+\\
+&18 e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{1,\theta} \gamma _{1}-8 e^{2 \beta _{0}} \gamma _{0, \theta} \gamma _{1,\theta} \gamma _{1}+3 e^{2 \beta _{0}} \gamma _{1,\theta \theta} \gamma _{1}+3 e^{2 \beta _{0}} \gamma _{1,\theta}^2-\\
+&4 \cot ^2(\theta ) e^{2 \beta _{0}} \gamma _{1}^2+15 \cot (\theta ) e^{2 \beta _{0}} \beta _{0, \theta} \gamma _{1}^2+4 \cot (\theta ) e^{2 \beta _{0}} \gamma _{0, \theta} \gamma _{1}^2+\\
+&5 \cot (\theta ) e^{2 \beta _{0}} \gamma _{1,\theta} \gamma _{1}-4 \csc ^2(\theta ) e^{2 \beta _{0}} \gamma _{1}^2-8 e^{2 \gamma _{0}} \gamma _{3,u}+\\
+&e^{2 \gamma _{0}} U_{3} (-6 \beta _{0, \theta}-2 \gamma _{0, \theta}+\cot (\theta ))-12 e^{2 \gamma _{0}} \gamma _{3} U_{0, \theta}-e^{2 \gamma _{0}} U_{3,\theta}-\\
+&8 e^{2 \gamma _{0}} \gamma _{3,\theta} U_{0}-12 \cot (\theta ) e^{2 \gamma _{0}} \gamma _{3} U_{0}-2 e^{2 \gamma _{0}} \gamma _{1} W_{3}).
+\end{split}
+\end{align}
+At this order $\gamma_4$ is determined in terms of $\gamma_3$ and its various derivatives. Iterating the expansion, we would find similar equations for $\gamma_5$ in terms of $\gamma_4$ and so on. 
+
+The presence of the cosmological constant in the Einstein equations couples the equations. This coupling of orders implies that if that if we are given suitable seed coefficients then we could obtain all the other coefficients. The initial coefficients are be $\gamma_0, \beta_0, U_0$ together with $\gamma_3, U_3, W_3$; from these the entire solution could be determined algebraically. We will  see below that these coefficients have an important holographic interpretation but first we look at the remaining field equations, the so-called {\it supplementary conditions}.
+
+\subsection{The Supplementary Conditions}
+Although the main equations give equations for each of our four metric functions, they do not form the full set of field equations. The full collection of field equations comprises of ten equations which reduces down to seven non-trivial equations as $R_{u \phi}=R_{r \phi}=R_{\theta \phi}=0$ identically. We have already considered the four main equations so this leaves us with three equations which we have yet to consider
+\begin{equation}
+R_{uu}=\Lambda g_{uu}=3(Wr^2e^{2\beta}-U^2r^2e^{2\gamma}) , \quad R_{u\theta}=\Lambda g_{u \theta}=3Ur^2e^{2\gamma}, \quad R_{u r}=\Lambda g_{u r}=3 e^{2\beta}.
+\end{equation} 
+These equations were originally referred to as the {\it supplementary conditions} as they are automatically satisfied if they hold on an initial hypersurface $r=\text{const.}$ and the main equations are satisfied \cite{Sachs:1962wk}. 
+
+Following the original work, we derive the supplementary conditions by looking at the contracted Bianchi identities, in the form
+\begin{equation}
+\nabla^{\nu}G_{\nu \mu}=g^{\nu \sigma}\nabla_{\sigma }\left(R_{\nu \mu}-\frac{1}{2}g_{\nu \mu}R\right)=0
+\end{equation}
+which we can expand using the covariant derivative
+\begin{equation}
+g^{\nu \sigma} \left(R_{\mu \nu, \sigma}-\frac{1}{2} R_{\nu \sigma, \mu} -\Gamma^{\tau}_{\nu \sigma} R_{\mu \tau}\right)=0.
+\end{equation} 
+Alongside these identities, we also need to enforce the main equations, which can be expressed as 
+\begin{equation}
+R_{rr}=R_{r \theta}=0, \quad R_{\theta \theta}=-3 g_{\theta \theta}, \quad R_{\phi \phi}=-3 g_{\phi \phi}
+\end{equation}
+Note that the equations $R_{r r}=R_{r \theta}=R_{r \phi}=0$ are satisfied automatically, given the gauge/axial symmetry. In manipulating the Bianchi identities the following identity is useful: 
+\begin{equation} \label{eq: Christoffel_Identity}
+g^{\mu \nu} \Gamma^{u}_{\mu \nu}= 2e^{-2\beta} r^{-1}.
+\end{equation}
+This automatically carries over from the original work \cite{Bondi:1962px}, with a sign change is due to the change of signature.
+
+Setting $\mu=r$ in the Bianchi identity and applying the main equations and (\ref{eq: Christoffel_Identity}) we see that 
+\begin{equation}
+R_{u r}=3 e^{2\beta}=-3 g_{u r}.
+\end{equation}
+and thus, using the main equations, the $\{u r \}$ equation is automatically satisfied. Using this result, we now look at the $\mu=\theta$ identity which gives
+\begin{equation}
+R_{u \theta}=-3 g_{u \theta}+\frac{f(u,\theta)}{r^2}.
+\end{equation}
+Here $f(u, \theta)$ is an arbitrary integration function arising from integrating the Bianchi identity. Thus the $\{u \theta \}$ component of the Einstein equations is only satisfied if $f(u, \theta)=0$; this is our first supplementary condition.
+
+Finally, if we assume $f=0$ and then examine the $\mu=u$ identity we arrive at a similar relation for $R_{u u}$;
+\begin{equation}
+R_{uu}=-3 g_{uu}+\frac{g(u,\theta)}{r^2}
+\end{equation}
+where $g(u, \theta)$ is again an integration function; hence the second supplementary condition is $g(u, \theta)=0$. 
+
+To derive the equations corresponding to the supplementary conditions we use our solutions to the main equations up to $\mathcal{O}(1/r^4)$ for $\gamma, \beta, U, W$ and then input these into the equations above to derive expressions for $(f, g)$. These expressions are included in the appendix. These conditions are somewhat unwieldy but will be needed to check the form of the Fefferman-Graham expansion later. 
+
+Equipped with our solutions to the Einstein field equations we can now derive the coordinate transformation from Bondi gauge to Fefferman-Graham gauge. This procedure will allow us to study the holographic aspects of the Bondi-Sachs metric, using the well-known relationship between asymptotic coefficients of the Fefferman-Graham expansion and CFT data. However, before we do this we will discuss the integration scheme used to solve the Einstein equations in the presence of a negative cosmological constant and explain how this integration scheme contrasts to the asymptotically flat case.
+
+\section{Integration Scheme} \label{sec: Integration Scheme - Minkowski Vs. $AdS$}
+
+In this section we will discuss the integration scheme used in the previous section in order to solve the Einstein equations. The necessary data to obtain the full expansions will be considered and contrasted with that of the integration scheme for the asymptotically flat case. 
+
+\subsection{The Flat Scheme}
+
+Let us briefly review the integration scheme in the asymptotically flat case as presented in \cite{Bondi:1962px}. The basic quantity necessary to solve the field equations for all $u$ was the knowledge of $\gamma$ on some initial null hypersurface $\mathcal{N}_{u_0}$; this allows us to solve the main equations up to the undetermined integration functions. In the Ricci flat case: 
+\begin{subequations}
+\begin{align} 
+0 & =-R_{rr} = -4\left[\beta_r-\frac{1}{2}r\gamma_r^2\right]r^{-1} \label{eq: flat_e1} \\
+0 & =2r^2R_{r\theta} =[r^4e^{2(\gamma-\beta)}U_r]_r- 2r^2[\beta_{r\theta}-\gamma_{r\theta}+2\gamma_{r}\gamma_{\theta}-2\beta_{\theta}r^{-1}-2\gamma_{r}\cot \theta]  \label{eq: flat_e2} \\
+\begin{split}
+0& = -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = 2V_r+\frac{1}{2}r^4e^{2(\gamma-\beta)}U_r^2-r^2 U_{r \theta}  \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = }
+-4rU_{\theta} -r^2U_{r}\cot \theta -4rU\cot \theta  \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } +2e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-\beta_{\theta})\cot \theta \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } -\gamma_{\theta \theta}+\beta_{\theta \theta} +\beta_{\theta}^2+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})] \label{eq: flat_e3}
+\end{split}
+\\
+\begin{split}
+0 & =- r^2R^{\phi}_{\phi}e^{2\beta} =2r(r \gamma)_{u r}+(1-r\gamma_r)V_r-(r\gamma_{r r}+\gamma_r)V-r(1-r\gamma_r)U_{\theta} \\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } -r^2(\cot \theta - \gamma_{\theta})U_r+r(2r\gamma_{r \theta}+2\gamma_{\theta}+r\gamma_{r}\cot \theta - 3\cot \theta)U \\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } +e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-2\beta_{\theta})\cot \theta-\gamma_{\theta \theta}+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})]. \label{eq: flat_e4}
+\end{split}
+\end{align}
+\end{subequations}
+Knowledge of $\gamma |_{\mathcal{N}_{u_0}}$ allows us to solve for the other functions. Disregarding integration functions, (\ref{eq: flat_e1}) determines $\beta |_{\mathcal{N}_{u_0}}$; (\ref{eq: flat_e2}) determines $U |_{\mathcal{N}_{u_0}}$, (\ref{eq: flat_e3}) gives $V|_{\mathcal{N}_{u_0}}$ and (\ref{eq: flat_e4}) allows us to compute our $\gamma$ at the next time step i.e $\gamma  |_{\mathcal{N}_{u_0+\delta}}$. Iterating this process allows us to determine all metric functions at time $u > u_0$, i.e. the functions in the future domain of dependence of $\mathcal{N}_{u_0}$, $D^+(\mathcal{N}_{u_0})$.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.65\linewidth]{Fig_4.pdf}
+\end{center}
+\caption{Penrose diagram illustrating the integration scheme for asymptotically flat space time}
+\end{figure}
+
+Turning to the integration functions, we recall that the main equations in the flat case admit five such functions; $(\beta_0, U_0, U_3, \gamma_1, W_3)$. The original argument of \cite{Bondi:1962px} was that $U_0$ and $\beta_0$ could be set to zero. $U_0$ is set to zero to preserve the correct signature of the metric and $\beta_0$ can be fixed to zero using the freedom of the BMS group. These restrictions also give $\gamma_{0,u}=0$ and thus we can also set $\gamma_0=0$ by a suitable BMS transformation. \par
+
+Such considerations reduce the number of unknown functions to ($\gamma_1, U_3, W_3$). If we know the values of these three functions and we know $\gamma |_{\mathcal{N}_{u_0}}$, then from the main equations we can obtain the full solution to the Einstein equations in the region $D^+(\mathcal{N}_{u_0})$. The integration scheme runs as follows (for the no-log case with $\gamma_2=0$)
+\begin{equation}
+\gamma_1(u) \xrightarrow{(\ref{eq: flat_e1})} \beta_1, \beta_2, \beta_3 \xrightarrow{(\ref{eq: flat_e2})} U_1, U_2 \xrightarrow{(\ref{eq: flat_e3})} W_0, W_1, W_2, W_4  \tag{4.2a}
+\end{equation} 
+so $\gamma_1$ gives us these functions. The rest of the scheme is 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.03\linewidth]{Flat_scheme_fig.pdf}
+\end{center}
+\end{figure}
+where the subscript $n>2$. The final arrow going back to the original function indicates that we are solving for $\gamma$ at the next instant of time i.e. $u_0+\delta u_0$, so iteration gives us the future evolution. These steps outline the procedure of the integration scheme in the asymptotically flat case, using some of the simplifications that BMS originally. We shall now see that the integration scheme works differently in the $AdS$ case.  
+
+\subsection{The $AdS$ integration scheme} \label{subsec: AdS_Scheme}
+
+As shown in figure \ref{fig: fig_3}, specifying the data on an initial null hypersurface $\mathcal{N}_{u_0}$ and following the flat scheme will only give us the solution in $D^+(\mathcal{N}_{u_0})$ which (unlike the flat case) is not equivalent to the causal future of the null hypersurface, $J^+(\mathcal{N}_{u_0})$. In order to solve the Einstein equations for $J^+(\mathcal{N}_{u_0})$ in asymptotically locally $AdS$ space-time, we now propose a different interpretation of the integration scheme. 
+
+%One expects that solving the vacuum Einstein equations in the $AdS$ case should provide purely algebraic equations for the functions under consideration, provided one has sufficient data defined upon suitable hypersurfaces in the space-time. (see \cite{Skenderis:2000in}, \cite{deHaro:2000vlm} for the generic form of the $AdS$ equations in Fefferman-Graham coordinates) \par 
+
+%The Minkowski scheme gave us equation (\ref{eq: flat_e4}) which is clearly a differential equation in the retarded time variable $u$ and must be integrated in order to complete the scheme. As we saw in section 3 when we solved the Einstein equations for the $AdS$ asymptotics (using the ``flat style" scheme) we found similar equations (i.e. (3.19, 3.21). The question we now want to answer is: \textit{How can we rewrite this scheme in order to make the equations algebraic?} \par
+
+Instead of specifying all coefficients $\gamma_i$ on an initial null hypersurface, one should specify certain coefficients (of our metric functions) for all available Bondi time, and use these coefficients in order to make the equations algebraic. The coefficients that should be specified are
+\begin{equation}
+\gamma_0, \quad  \beta_0, \quad U_0, \quad \gamma_3, \quad U_3, \quad W_3 \tag{4.3}
+\end{equation} 
+We will see that these particular coefficients admit a natural holographic interpretation. Even before relating them to coefficients in the Fefferman-Graham expansion, one can note that the coefficients $(\gamma_0,  \beta_0, U_0)$ clearly specify the values of the metric functions $(\gamma, \beta, U)$ at the conformal boundary $\mathscr{I}$;
+\begin{equation} 
+\lim_{r \rightarrow \infty} \gamma(u,r,\theta) = \gamma_0(u, \theta), \quad \lim_{r \rightarrow \infty} \beta(u,r,\theta) = \beta_0(u, \theta), \quad \lim_{r \rightarrow \infty} U(u,r,\theta) = U_0(u, \theta) \tag{4.4}.
+\end{equation}
+and thus define the boundary metric for the dual conformal field theory.
+To understand the precise physical meaning of the components $(\gamma_3, U_3, W_3)$ we will use the holographic interpretation later.
+
+%For now we will refer to the main equations for $AdS$ (3.5a-d) just to schematically explain how the integration scheme works given these components. 
+
+The scheme works in two parts. Given the boundary data $(\gamma_0, \beta_0, U_0)$ we see that the first part of the integration scheme is 
+\begin{align} 
+\begin{split}
+\gamma_0, \beta_0, U_0 & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_1  \xrightarrow{(\ref{eq: AdS_me2}) } U_1 \xrightarrow{(\ref{eq: AdS_me3}) } W_0, W_1 \xrightarrow{(\ref{eq: AdS_me4}) } \gamma_1 \ldots \\
+\ldots & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_2 \xrightarrow{(\ref{eq: AdS_me2}) } U_2 \xrightarrow{(\ref{eq: AdS_me3}) } W_2 \xrightarrow{(\ref{eq: AdS_me4}) } \gamma_2 \ldots \\
+\ldots & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_3.
+\end{split}
+\tag{4.5}
+\end{align}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{Fig_5.pdf}
+\end{center}
+\caption{Penrose diagram for $AdS$ indicating discretely how the first part of the scheme is solved. This figure only includes one hypersurface, $\color{red}{\mathcal{N}_{u_0}}$, for clarity; when solving the equations explicitly we would consider all null surfaces $\mathcal{N}_i$ in the foliation.}
+\end{figure}
+ 
+We specify the data $(\gamma_0, \beta_0, U_0)$ at $\mathscr{I}$; shown above at the 2-surface where a particular null hypersurface $\color{red}{\mathcal{N}_{u_0}}$ meets the conformal boundary. As indicated by the implies sign, we can solve algebraically for the coefficients $\color{red}{\beta_1, U_1, W_0, W_1}$. \par 
+
+ To continue the scheme, we now need the derivative $\gamma_{0,u}$ which we can discretely obtain as we know two (all) values of $\gamma_0$ on $\mathscr{I}$ (i.e. using a backward difference, as this diagram shows). Using this derivative, we can algebraically solve equation (\ref{eq: AdS_me4})  for $\color{islamicgreen}{\gamma_1}$; indicated in the diagram by the \textcolor{islamicgreen}{green} arrow where we evolve into the bulk space-time. The arrow starts at a different cut of $\mathscr{I}$ just to indicate that we have used the extra information of $\gamma_0(u-\delta u)$ (and thus $\gamma_u$ discretely) in order to solve (\ref{eq: AdS_me4}) . \par
+ 
+This changing of the radius as we evolve into the bulk space-time is not really a mathematical construct, but merely included to show that as we solve for higher order coefficients, we build up a solution which becomes more accurate for a smaller (but still asymptotic) value of $\color{blue}{r}$. \par
+ 
+We again solve algebraically equations (3.5a-d) for $\color{red}{\beta_2, U_2, W_2, \gamma_2, \beta_3}$ (we don't need an extra evolution as $\gamma_2=0$ follows without needing any $u$-derivatives) although we can no longer progress further by solving (\ref{eq: AdS_me2})  at the next order as $U_3$ is a function of integration. \par
+
+ To sort out this question of the functions of integration, we need the second piece of the scheme: Once we have the functions $\gamma_3, U_3, W_3$ (as well as boundary data and functions from the previous scheme), we compute as follows 
+
+\begin{align}
+\begin{split}
+\gamma_3, U_3, W_3 & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_4 \xrightarrow{(\ref{eq: AdS_me2}) } U_4 \xrightarrow{(\ref{eq: AdS_me3}) } W_4 \xrightarrow{(\ref{eq: AdS_me4}) } \gamma_4 \ldots \\
+\ldots & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_5  \xrightarrow{(\ref{eq: AdS_me2}) } U_5 \xrightarrow{(\ref{eq: AdS_me3}) } W_5 \xrightarrow{(\ref{eq: AdS_me4}) } \gamma_5 \ldots \\
+&\phantom{aaaaaaaaaaaaaa} \vdots \\
+\ldots & \xrightarrow{(\ref{eq: AdS_me1}) } \beta_{n} \xrightarrow{(\ref{eq: AdS_me2}) } U_n \xrightarrow{(\ref{eq: AdS_me3}) } W_n \xrightarrow{(\ref{eq: AdS_me4}) } \gamma_n.
+\end{split}
+\tag{4.6}
+\end{align} 
+
+\noindent So the scheme shows that when armed with these six functions we can solve for all higher order coefficients algebraically. \par
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{Fig_6.pdf}
+\end{center}
+\caption{Penrose diagram for $AdS$ indicating how the second part of the scheme is implemented. The logic for this scheme is much the same as the one presented on the original diagram of figure 5}
+\end{figure}
+
+As a final comment on integration schemes, one may notice the seed terms $\gamma_0, \beta_0, U_0$ are not present in the original work and have chosen to be set to zero. We consider these choices to be overly restrictive in the $AdS$ case as the cosmological constant allows for some freedom in the functions. To see this, we consider 
+
+\begin{equation}
+\lim_{r \rightarrow \infty} \frac{g_{uu}}{r^2} = -(W_0 e^{2\beta_0} - U_0^2 e^{2\gamma_0}) < 0 
+\end{equation}
+
+\noindent where the inequality on the right hand side comes from the need to preserve the signature of the metric. In the flat case, $W_0=0$ so the above equation reduced to forcing $U_0=0$ (and thus $\gamma_0=0$ as argued in \cite{Bondi:1962px}). In the $AdS$ case $W_0=-\Lambda e^{2\beta_0} /3$ so the inequality is different 
+
+\begin{equation}
+\frac{\Lambda e^{4\beta_0}}{3}+ U_0^2 e^{2\gamma_0} < 0 \Rightarrow |U_0|< \sqrt{-\frac{\Lambda}{3}e^{4\beta_0-2\gamma_0}}=\frac{e^{2\beta_0-\gamma_0}}{l}
+\end{equation}
+
+\noindent where $l=\sqrt{-3/\Lambda}$ is the $AdS$ radius of the space-time (we used $l=1$ in section 3). As $U_0$ can now clearly be non-zero, we follow Bondi's argument and say that $\gamma_0$ can be non-zero also. \par
+
+$\beta_0$ was also set to zero in the flat case, although this was due to freedom in the BMS group. Recall the BMS group is the asymptotic symmetry group of flat space-time and thus it seems foolish to make the same choice without knowing precisely how the BMS group changes under the $AdS$ asymptotic structure. For the time being we will choose $\beta \neq 0 $ to retain full generality. \par
+
+Finally, we recall the functions $U_3$ and $W_3$ have close analogies to the angular momentum and mass aspect functions and may be thought of as representatives for these functions. 	We shall now look at the holographic interpretation of these functions and gain an extra understanding of these functions in the picture of $AdS$/CFT.
+
+\section{Holographic interpretation} \label{sec: Holographic_interpretation}
+
+In this section we will study the Bondi-Sachs metric from the perspective of holography \cite{Maldacena:1997re, Gubser:1998bc, Witten:1998qj, Henningson:1998gx, Balasubramanian:1999re, deHaro:2000vlm, Skenderis:2000in, Skenderis:2002wp, Papadimitriou:2005ii}. We will begin with a review of the construction and importance of the Fefferman-Graham coordinate system before deriving the coordinate transformation from the Bondi to Fefferman-Graham gauge. Comments will be made on the importance of the results in the context of $AdS$/CFT and a holographic interpretation of the metric functions used in the integration scheme of section \ref{sec: Integration Scheme - Minkowski Vs. $AdS$} will be given.
+
+\subsection{Fefferman-Graham Gauge} \label{subseq: FG_gauge}
+
+The Fefferman-Graham gauge is a coordinate system which all asymptotically locally $AdS$ space-times can be written in near the conformal boundary $\partial \mathcal{X}=\mathscr{I}$ \cite{Skenderis:2002wp}. The usual form for the metric in this gauge is  
+
+\begin{equation} \label{eq: FG gauge}
+ds^2=l^2\left[\frac{d\rho^2}{\rho^2}+\frac{1}{\rho^2}(g_{(0)ab}+\rho^2g_{(2)ab}+\rho^3g_{(3)ab}+\ldots)dx^adx^b\right].
+\end{equation} 
+
+\noindent $l=\sqrt{-3/\Lambda}$ is again the $AdS$ radius, which we normalised to 1 for the purpose of solving the Einstein equations. Following the discussion of section \ref{subseq: AdS_asymptotics}, $\rho$ is a coordinate which describes the position of the conformal boundary;  $\mathscr{I}=\{ \rho = 0 \}$. The lower case Roman indices $a,b$ run from 1 to 3. \par
+
+The FG metric clearly has a double pole at $\rho=0$ and thus from (\ref{eq: double_pole_metric}) (choosing $\rho$ as the defining function) we see that the term $g_{(0)}$ in the FG expansion is a representative of the conformal class of metrics induced on $\mathscr{I}$. If the metric $g_{(0)ab}$ is conformally flat (i.e. the Cotton tensor vanishes) then we say our space-time is \textit{Asymptotically} $AdS$ otherwise it is merely \textit{Asymptotically locally} $AdS$. \par
+
+Holographically, and more specifically in $AdS$/CFT, $g_{(0)}$ is a very important term. It is the background metric for the 3-dimensional conformal field theory dual to our 4-dimensional Bondi-$AdS$ space-times. Another coefficient in the FG expansion of great interest holographically is $g_{(3)}$; corresponding to a tensor $T_{ab}$ \cite{deHaro:2000vlm}
+
+\begin{equation}
+T_{ab}=-\frac{3l^2}{2\kappa^2}g_{(3)ab}
+\end{equation}
+
+\noindent which satisfies tracelessness and conservation properties with respect to $g_{(0)}$
+
+\begin{equation} \label{eq: g_3_conditions}
+g_{(0)}^{ab}T_{ab}=0, \qquad \phantom{aaaaaaaaaaa} \nabla_{(0)}^aT_{ab}=0.
+\end{equation}
+
+The reason this tensor is of holographic interest is that it coincides with the expectation value of the energy-momentum tensor in the dual CFT \cite{Henningson:1998gx, Balasubramanian:1999re, deHaro:2000vlm, Skenderis:2002wp}
+
+\begin{equation}
+\braket{T_{ab}}=\frac{2}{\sqrt{-\text{det}g_{(0)}}}\frac{\delta S_{r}}{\delta g_{(0)}^{ab}}
+\end{equation}
+
+\noindent where $S_r$ is the renormalised on-shell gravitational action.
+
+
+
+\subsection{The Transformation}
+\noindent In order to extract this holographic data for our Bondi-$AdS$ space-times, we need to construct the coordinate transformation from our asymptotically locally $AdS$ metric in the Bondi-Sachs gauge
+
+\begin{equation} \label{eq: Bondi_Sachs_Metric}
+ds^2=-(Wr^{2}e^{2\beta}-U^2r^2e^{2\gamma})du^2-2e^{2\beta}dudr-2Ur^2e^{2\gamma}dud\theta+r^2(e^{2\gamma}d\theta^2+e^{-2\gamma}\sin^2\theta d\phi^2) 
+\end{equation}
+
+\noindent to the Fefferman-Graham form of (\ref{eq: FG gauge}). We will consider the transformation as far as determining the coefficient $g_{(3)}$, as this is the highest order term of holographic interest.
+
+\subsubsection{An Illuminating Example - Global $AdS_4$}
+
+A useful first step in performing this computation is to recall the transformation of pure $AdS_{4}$ space-time into the FG form. We start with the metric of $AdS$ in the Bondi gauge 
+
+\begin{equation}
+ds^2=-\left(1+\frac{r^2}{l^2}\right)du^2-2dudr+r^2d\Omega^2.
+\end{equation}
+
+\noindent where we have reinstated the factors of $l$ for clarity. In the Bondi coordinates, the metric for $AdS_4$ corresponds to choosing functions 
+
+\begin{equation}
+\beta=\gamma=U=0, \qquad V=\frac{r^3}{l^2}+r
+\end{equation}
+
+\noindent so in the notation of the previous notes this is $W_{0}=1/l^2$, $W_{2}=1$, with all other function coefficients zero. \par
+
+We start by transforming away from the retarded time coordinate $u$ into the usual time coordinate $t$. This is achieved by 
+
+\begin{equation} \label{eq: time_transformation}
+t=u+l\arctan\left(\frac{r}{l}\right)+c  
+\end{equation}
+
+\noindent where $c$ is a constant whose value we will choose later. This transforms (\ref{eq: Bondi_Sachs_Metric}) into the standard $AdS$ metric of 
+
+\begin{equation} \label{eq: AdS_metric}
+ds^2=-\left(1+\frac{r^2}{l^2}\right)dt^2+\left(1+\frac{r^2}{l^2}\right)^{-1}dr^2+r^2d\Omega^2.
+\end{equation}
+
+The next step is to transform from our radial distance coordinate $r$ into the tortoise coordinate $r_*$. The motivation for doing this is that we can fix the the conformal boundary to be located at $r_*=0$, providing an immediate comparison with the FG coordinate $\rho$ as the conformal boundary in those coordinates is also located at $\rho=0$. This coordinate is strictly defined by 
+
+\begin{equation} \label{eq: tortoise_def}
+dr_{*}=\frac{dr}{f(r)}=\frac{dr}{1+(r/l)^2} \implies r_{*}=l\arctan(r/l)+c.
+\end{equation}
+
+\noindent (Notice this is consistent with the definition of the retarded time coordinate $u=t-r_{*}$). Choosing $c=-l\pi/2$ allows us locate $\mathscr{I}$ at $r_*=0$.  When we implement this part of the transformation, we only include the leading order term in the large $r$ approximation of $r_*$, i.e. we do 
+
+\begin{equation} \label{eq: leading_order_tortoise}
+r_*=-\frac{l^2}{r}+\mathcal{O}(r^{-3})
+\end{equation}
+
+\noindent which brings the line element (\ref{eq: AdS_metric}) into the form 
+
+\begin{equation} \label{eq: tortoise_AdS_metric}
+ds^2=\frac{l^2}{r_{*}^2}\left[-\left(1+\frac{r_{*}^2}{l^2}\right)dt^2+\left(1+\frac{r_{*}^2}{l^2}\right)^{-1}dr_*^2+l^2d\Omega^2\right].
+\end{equation}
+
+\noindent This already seems to have some similarities with (\ref{eq: FG gauge}), particularly the $l^2/r_*^2$ factor out the front. In this form we are ready to transform directly into the FG gauge. We notice that the gauge conditions of $g_{\rho t}=g_{\rho \theta}=g_{\rho \phi}=0$ are all satisfied automatically if we choose to only transform the $r_{*}$ coordinate. To compute the correct transformation we generically transform $r_{*}=f(\rho)$ and solve for $f$ by enforcing $g_{\rho \rho}=l^2/\rho^2$. Performing the coordinate transformation we arrive at the ODE
+
+\begin{equation} \label{eq: FG_ODE}
+\frac{l^2 f'^2}{f^2 [l^2+f^2]}=\frac{1}{\rho^2}
+\end{equation}
+
+\noindent which admits the two general solutions 
+
+\begin{equation}
+f_1=\frac{2k l \rho}{1-(k\rho)^2}, \qquad \qquad f_2=\frac{2kl\rho}{\rho^2-k^2}
+\end{equation}
+
+\noindent where $k$ is the constant of integration. We can relate these two solutions via the map $k \rightarrow -1/k$ so it is unimportant which solution we pick as our $f$. \par 
+
+Picking $f=f_1$ we observe that in a neighbourhood of $\mathscr{I}$ we have 
+
+\begin{equation} \label{eq: tortoise_nbhd}
+r_*=\frac{2 k \rho l}{1-k^2 \rho^2}\approx 2k\rho l \in N(\mathscr{I}).
+\end{equation}
+
+\noindent (\ref{eq: tortoise_AdS_metric}) transforms as 
+
+\begin{equation}
+ds^2=\frac{l^2}{\rho^2}d\rho^2-\frac{(1+k^2\rho^2)^2}{4k^2\rho^2}dt^2+\frac{l^2(k^2\rho^2-1)^2}{4k^2\rho^2} d\Omega^2
+\end{equation}
+
+\noindent following the standard convention, we now choose $k=1/2$. Performing the transformation of $t \rightarrow lt$ allows us to read off the $g_{(0)}$ piece of this metric. This is conformally equivalent to the special case of the metric on $\mathbb{R} \times S^2$ 
+
+\begin{equation}
+ds_{(0)}^2=-dt^2+d\Omega^2.
+\end{equation}
+
+Notice that the leading order truncations we made on the Taylor series' for our transformations (\ref{eq: leading_order_tortoise}), (\ref{eq: tortoise_nbhd}) only allowed us to compute $g_{(0)}$ correctly. In order to compute higher order $g_{(i)}$ we would need to include the higher order pieces of the transformation. If we were to keep the full expansions we would find 
+
+\begin{equation} \label{eq: pure_AdS_g_2}
+ds_{(2)}^2=\frac{1}{2}(-dt^2-d\theta^2-\sin^2\theta d\phi^2)
+\end{equation} 
+
+\noindent as well as $g_{(3)ab}=0$ - holographically the result one might expect for the energy momentum tensor of the CFT dual to the pure $AdS_4$ metric. \par
+
+In generalising this procedure to the general Bondi-Sachs space-times we repeat many of the same steps of this procedure, namely using series expansions to transform our coordinates and truncating at the necessary point to compute each $g_{(i)}$ coefficient. We will first be interested in computing the $g_{(0)}$ term and thus we will ignore any terms that are not leading order as we did in. 
+
+\subsubsection{Computing $g_{(0)ab}$}
+
+From now on we will work with the normalisation of the $AdS$ radius $l=1$. In order to compute $g_{(0)}$ we need to impose the solutions to the vacuum Einstein equations that we solved in section \ref{sec: The_Einstein_field_equations} up to suitable order. As we want to compute $g_{(0)}$, `suitable order' simply corresponds to switching on the leading coefficients in the metric functions $\beta_{0}, \gamma_{0}, U_{0}$ (thus $W_{0}=e^{2\beta_{0}}$). The line-element (\ref{eq: Bondi_Sachs_Metric}) has the form 
+
+\begin{align}
+\begin{split} \label{eq: Bondi_metric_zero_functions}
+ds^2=&-\left(e^{4\beta_{0}}r^2-U_{0}^2r^2e^{2\gamma}\right)du^2-2e^{2\beta_{0}}dudr- \\
+&2U_{0}r^2e^{2\gamma_{0}}dud\theta+r^2(e^{2\gamma_{0}}d\theta^2+e^{-2\gamma_{0}}\sin^2\theta d\phi^2) 
+\end{split}
+\end{align}
+
+\noindent which we proceed to transform in much the same way as before; we perform the coordinate transformations (\ref{eq: time_transformation}) $\rightarrow$ (\ref{eq: leading_order_tortoise}) $\rightarrow$ (\ref{eq: tortoise_nbhd}) using the form $r_*=\rho$ as we are for now only concerned about computing $g_{(0)}$. This sequence of transformations gives the metric components at order $1/\rho^2$ as 
+
+\begin{subequations}
+\begin{align}
+g_{\rho \rho}&=\frac{1}{\rho^2}(2e^{2\beta_{0}}-e^{4\beta_{0}}+ e^{2\gamma_{0}} U_{0}^2) \label{eq: g_rhorho} \\
+g_{\rho t}&=\frac{1}{\rho^2}(e^{4\beta_{0}}-e^{2\beta_{0}}-e^{2\gamma_{0}}U_{0}^2) \\
+g_{\rho \theta}&=\frac{e^{2\gamma_{0}}U_{0}}{\rho^2} \label{eq: g_rhotheta} \\
+g_{tt}&=\frac{1}{\rho^2}(e^{2\gamma_{0}}U_{0}^2-e^{4\beta_{0}}) \label{eq: g_tt} \\
+g_{t \theta}&=-\frac{ e^{2\gamma_{0}} U_{0}}{\rho^2} \\
+g_{\theta \theta}&=\frac{e^{2\gamma_{0}}}{\rho^2} \\
+g_{\phi \phi}&=\frac{e^{-2\gamma_{0}}\sin^2(\theta)}{\rho^2} \label{eq: g_phiphi}.
+\end{align}
+\end{subequations}
+
+The coefficients  (\ref{eq: g_rhorho}-\ref{eq: g_rhotheta}) are clearly unsuitable for the FG gauge. In order to transform these we consider the first order transformations in $\theta$ and $t$, namely 
+
+\begin{equation} \label{eq: theta_t_transformations}
+t \rightarrow t+ \alpha_1(t,\theta) \rho, \qquad \theta \rightarrow \theta + \alpha_2(t,\theta) \rho. 
+\end{equation}
+
+\noindent where $\alpha_{1,2}$ are functions which we want to to choose in order to set $g_{\rho \rho}=1/\rho^2$, $g_{\rho t}=g_{\rho \theta}=0$. When considering the $\mathcal{O}(1/\rho^2)$ pieces of the metric it will be suitable to transform the 1-forms as 
+
+\begin{equation}
+dt \rightarrow dt+ \alpha_1(t,\theta) d\rho, \qquad d\theta \rightarrow d\theta + \alpha_2(t,\theta) d\rho 
+\end{equation}
+
+\noindent as even though the coefficients $\alpha_{1,2}$ are chosen in general to be functions of $t,\theta$ these won't affect the highest order behaviour as the $d\alpha$ terms will come with a $\rho$ multiplying them. \par
+
+\noindent Under the transformation scheme above the coefficient $g_{\rho \rho}$ is given by 
+
+\begin{align}
+\begin{split}
+g_{\rho \rho}=&\frac{1}{\rho^2}[(-e^{4\hat{\beta}_{0}}+e^{2\hat{\gamma}_{0}}\hat{U}_{0}^2)\alpha_1^2-\alpha_1(2(e^{2\hat{\beta}_{0}}-e^{4\hat{\beta}_{0}}+e^{2\hat{\gamma}_{0}}\hat{U}_{0}^2)+2e^{2\hat{\gamma}_{0}}\hat{U}_{0}\alpha_2) + \\ 
+&\phantom{\frac{1}{4\rho^2}}(2e^{2\hat{\beta}_{0}}-e^{4\hat{\beta}_{0}}+e^{2\hat{\gamma}_{0}}\hat{U}_{0}^2+e^{2\hat{\gamma}_{0}}\hat{U}_{0}\alpha_2+e^{2\hat{\gamma}_{0}}\alpha_2^2)]
+\end{split}
+\end{align}
+
+\noindent where the hat symbol  ` $\hat{}$ ' over the metric  functions signifies the boundary value of that function e.g. 
+
+\begin{equation} \label{eq: tortoise_limit}
+\hat{\gamma}_0(t,\theta)=\lim_{r_* \rightarrow 0} \gamma_0(u,\theta)
+\end{equation}
+
+\noindent (As a sanity check one may notice that $\alpha_{1,2}=0$ corresponds to (\ref{eq: g_rhorho})). We want to solve the equation $g_{\rho \rho}=l^2/\rho^2$, which we can regard as a quadratic equation for $\alpha_1$ (or equivalently $\alpha_2$). Solving this equation gives us two roots:
+
+\begin{subequations}
+\begin{align}
+\alpha_1^+=\frac{1-e^{2\hat{\beta}_{0}}+e^{\hat{\gamma}_{0}}\hat{U}_{0}+e^{\hat{\gamma}_{0}}\alpha_2}{e^{\gamma_{0}}\hat{U}_{0}-e^{2\hat{\beta}_{0}}} \\
+\alpha_1^-=\frac{-1+e^{2\hat{\beta}_{0}}+e^{\hat{\gamma}_{0}}\hat{U}_{0}+e^{\hat{\gamma}_{0}}\alpha_2}{e^{\hat{\gamma}_{0}}\hat{U}_{0}+e^{2\hat{\beta}_{0}}}.
+\end{align}
+\end{subequations}
+
+\noindent There seems to be no particular motivation to choose one or the other so we will choose $\alpha_{1}^+$ for the time being. Notice that (\ref{eq: tortoise_limit}) gives $\alpha_1$ in terms of $\alpha_2$, which is for now allowed to be a free function. Examining the transformations of the $g_{\rho t}, g_{\rho \theta}$ coefficients will fix $\alpha_2$, and thus $\alpha_1$ also.
+
+Using the transformation and the choice of $\alpha_1=\alpha_1^+$, $g_{\rho t}$ reduces to 
+
+\begin{equation}
+g_{\rho t}=\frac{e^{\hat{\gamma}_{0}}(\hat{U}_{0}+e^{2\hat{\beta}_{0}}\alpha_2)}{\rho^2}
+\end{equation}
+
+\noindent so we can set $g_{\rho t}=0$ by choosing $\alpha_2=-\hat{U}_{0} e^{-2 \hat{\beta}_{0}}$. We can conclude that the coordinate transformations are given by 
+
+\begin{equation} \label{eq: ttheta_trans}
+t \rightarrow t+\frac{1-e^{2\hat{\beta}_{0}}+e^{\hat{\gamma}_{0}}\hat{U}_{0}+e^{\hat{\gamma}_{0}}\alpha_2}{e^{\gamma_{0}}\hat{U}_{0}-e^{2\hat{\beta}_{0}}} \rho, \qquad \theta \rightarrow \theta  -\hat{U}_{0} e^{-2 \hat{\beta}_{0}}\rho.
+\end{equation}
+
+As an interesting side-point, we note that this value of $\alpha_2$ automatically sets $\alpha_1^+=\alpha_1^-$. We could have alternatively started by choosing $\alpha_1=\alpha_1^-$; this would have resulted in the same value for $\alpha_2$, showing that our freedom in choosing $\alpha_1$ was actually trivial. As a final sanity check for this part of the transformation, we can check that $g_{\rho \theta}=0$, showing that we are now in FG gauge. \par
+
+This transformation illustrates the first order of the general procedure to transform from Bondi to FG gauges: Using our solutions to the vacuum Einstein equations, we first transform from the Bondi coordinates $(u, r, \theta, \phi)$ into coordinates $(t, r_*, \theta, \phi)$ then use transformations of the form 
+
+\begin{equation}
+r_* \rightarrow \sum_{j=1}^{i+1} r_{* j}(t, \theta) \rho^j, \quad t \rightarrow t+ \sum_{j=1}^{i+1}  t_{j}(t, \theta) \rho^j, \quad \theta \rightarrow \theta + \sum_{j=1}^{i+1} \theta_{j}(t, \theta) \rho^j
+\end{equation}
+
+\noindent where the limit of the sum $i+1$ indicates the order necessary to compute the coefficient $g_{(i)}$ (thus we will only be concerned about summing to an upper limit of 4). At each order we will need to solve for the coefficients $ r_{* j}, t_{j}, \theta_{j}$ to preserve the FG gauge conditions $g_{\rho \rho}=1/\rho^2,\; g_{t \rho}=g_{\theta \rho}=0$ ($g_{\phi \rho}=0$ will be satisfied automatically due to axisymmetry and trivial $\phi \rightarrow \phi$ transformation). More detail and computation of the higher order coefficients is given in appendix \ref{sec: FG_appendix}.
+
+\subsection{Interpretation of the metric at $\mathscr{I}$}
+
+\noindent The transformation (\ref{eq: theta_t_transformations}) leaves the coefficients (\ref{eq: g_tt}-\ref{eq: g_phiphi}) invariant at $\mathcal{O}(\rho^{-2})$. This allows us to read off the metric $g_{(0)ab}$; the representative at the conformal boundary of the space-time. 
+
+\begin{equation} \label{eq: g_(0)}
+ds_{(0)}^2=(e^{2\hat{\gamma}_{0}}\hat{U}_{0}^2-e^{4\hat{\beta}_{0}})dt^2-2e^{2\hat{\gamma}_{0}}\hat{U}_{0}dtd\theta+e^{2\hat{\gamma}_{0}}d\theta^2+e^{-2\hat{\gamma}_{0}}\sin^2(\theta)d\phi^2.
+\end{equation}
+
+From this we observe that the boundary is not necessarily topologically equivalent to $\mathbb{R} \times S^2$ due to the presence of the non-trivial $g_{t \theta}$ component. Thus we conclude that in the general case, the Bondi-Sachs space times in question are not asymptotically $AdS$ and are merely asymptotically locally $AdS$. \par
+
+If we were to set $g_{t \theta}=0$ by forcing $\hat{U}_0$ to vanish, we would still see geometrically that the $S^2$ has been deformed by the non-trivial $\hat{\gamma}_0$ term. Despite this, the  boundary metric would still retain the gauge condition on the angular part of the metric 
+
+\begin{equation}
+d\Omega^2=e^{2\hat{\gamma}_{0}}d\theta^2+e^{-2\hat{\gamma}_{0}}\sin^2(\theta)d\phi^2 \implies |\Omega|=\sin^2 \theta
+\end{equation}
+
+\noindent that we imposed as part of the definition of the Bondi gauge. This is an unusual condition for an asymptotically locally $AdS$ metric and it may be of interest to return in the future; either to impose the Bondi-gauge condition with a more generic choice of metric on the 2-surface, or even not to impose it at all.
+
+\subsection{The Energy-Momentum tensor - $g_{(3)}$}
+
+The final term of physical interest in our Fefferman-Graham expansion is the $g_{(3)}$ term. As explained in section \ref{subseq: FG_gauge}, the interpretation of this coefficient is the energy-momentum tensor of the dual conformal field theory, namely; 
+
+\begin{equation}
+T_{ab}=-\frac{3}{2\kappa^2}g_{(3)ab}
+\end{equation}
+
+In order to successfully compute $g_{(3)ab}$ we have to include terms up to $\mathcal{O}(r^{-3})$ in the metric functions
+
+\begin{subequations}
+\begin{align}
+\gamma(u,r,\theta)&=\gamma_{0}+ \frac{\gamma_1}{r}+\frac{\gamma_3}{r^3}\\
+\beta(u,r,\theta)&=\beta_{0}-\frac{\gamma_1^2}{4r^2} \\
+\begin{split}
+U(u,r,\theta)&=U_{0}+\frac{2}{r}\beta_{0, \theta} e^{2( \beta_0- \gamma_0)} - \\
+& \phantom{--} \frac{1}{r^2}e^{2( \beta_0- \gamma_0)} (2 \beta_{0,\theta} \gamma_1-2 \gamma_{0,\theta}\gamma_1+\gamma_{1,\theta}+2 \cot (\theta ) \gamma_1)+\frac{U_3}{r^3}
+\end{split}\\
+\begin{split}
+W(u,r,\theta)&=e^{2\beta_{0}}+\frac{1}{r}[\cot(\theta)U_{0}+U_{0,\theta}]+ \frac{1}{2r^2}e^{2(\beta_{0}-\gamma_{0})}[2-3e^{2\gamma_0}\gamma_1^2+4\cot(\theta)\beta_{0,\theta}+\\
+&\phantom{aaa}8(\beta_{0,\theta})^2+6\cot(\theta)\gamma_{0,\theta}-8\beta_{0,\theta}\gamma_{0,\theta}-4(\gamma_{0,\theta})^2+4\beta_{0,\theta \theta}+2\gamma_{0,\theta \theta}]+\frac{W_3}{r^3}
+\end{split}
+\end{align}
+\end{subequations}
+
+\noindent notice that the functions of integration $U_3$ and $W_3$ have finally entered the metric at this order. $W_3$ is of particular interest as this function originally had the interpretation as the Bondi mass aspect, $W_3=-2m_B$ \cite{Bondi:1962px}. Following the convention of defining the mass aspect function as the coefficient of the $\mathcal{O}(1/r)$ term in the metric component $m_B=g_{uu}/2$ \cite{Chrusciel:2016oux} we obtain from our solutions a different expression for the mass aspect
+
+\begin{align} \label{eq: mass_aspect_1}
+\begin{split}
+2m_B=&-e^{-2 (\beta_{0}+\gamma_{0})} (2 \gamma_{0,u}-U_{0} (\cot (\theta )-2 \gamma_{0,\theta})+U_{0,\theta}) (4 e^{4 \beta_{0}} (\beta_{0,\theta})^2- \\
+&e^{2 \gamma_{0}} U_{0} (-2 \gamma_{0,u \theta}+4 \gamma_{0,u} (\gamma_{0,\theta}-\cot (\theta ))+U_{0} (4 (\gamma_{0,\theta})^2-\\
+&2 \gamma_{0,\theta \theta}-6 \cot (\theta ) \gamma_{0,\theta}+\cot ^2(\theta )-1)-U_{0,\theta \theta}-\cot (\theta ) U_{0,\theta}))+\\
+&e^{-2 \gamma_{0}} (2 e^{4 \gamma_{0}} U_{0} U_{3}-2 e^{2 \beta_{0}} \beta_{0,\theta} (-2 \gamma_{0,u \theta}+4 \gamma_{0,u} (\gamma_{0,\theta}-\cot (\theta ))+\\
+&U_{0} (4 (\gamma_{0,\theta})^2-2 \gamma_{0,\theta \theta}-6 \cot (\theta ) \gamma_{0,\theta}+\cot ^2(\theta )-1)-U_{0,\theta \theta}-\cot (\theta ) U_{0,\theta}))+\\
+&\frac{1}{3} e^{2 \gamma_{0}} U_{0}^2 \left[6 \gamma_{3}+\frac{1}{2} e^{-6 \beta_{0}} (-2 \gamma_{0,u}+U_{0} (\cot (\theta )-2 \gamma_{0,\theta})-U_{0,\theta})^3\right]+\\
+&2 e^{-2 \beta_{0}} \beta_{0,\theta} U_{0} (2 \gamma_{0,u}-U_{0} (\cot (\theta )-2 \gamma_{0,\theta})+U_{0,\theta})^2+\\
+&\frac{1}{8} e^{-2 \beta_{0}} (U_{0,\theta}+\cot (\theta ) U_{0}) (2 \gamma_{0,u}-U_{0} (\cot (\theta )-2 \gamma_{0,\theta})+U_{0,\theta})^2-e^{2 \beta_{0}} W_{3}.
+\end{split}
+\end{align}
+
+\noindent If we were to return to the original choice of $\gamma_0=\beta_0=U_0=0$ then we recover the original definition \cite{Bondi:1962px}.
+
+In the asymptotically flat case, the Bondi mass at time $u=u_0$ is obtained by integrating the mass aspect over the $u_0$ cut of $\mathscr{I^+}$ (with suitable normalisation). It is natural to suggest such an extension should exist for the $AdS$ case and we could obtain the mass by integrating over a cut of $\mathscr{I}$ instead. \par
+
+When performing the series transformation into the Fefferman-Graham form we also need to extend our metric transformation to the 4th order
+
+\begin{align}
+\begin{split}
+&r_* \rightarrow \rho  + b_1(t,\theta) \rho^2+c_1(t,\theta) \rho^3+d_1(t,\theta) \rho^4 \\
+&t \rightarrow t + \alpha_1(t,\theta)\rho + b_2(t,\theta) \rho^2+c_2(t,\theta) \rho^3+d_2(t,\theta) \rho^4  \\
+&\theta \rightarrow \theta + \alpha_2(t,\theta)\rho + b_3(t,\theta) \rho^2+c_3(t,\theta) \rho^3+d_3(t,\theta) \rho^4.
+\end{split}
+\end{align}
+
+\noindent where $\alpha_i, b_i, c_i$ are the functions we've already obtained from previous orders (see appendices).  To obtain $g_{(3)ab}$ we will need to choose $d_{1,2,3}$ suitably in order to force the $d\rho$ terms to vanish at $\mathcal{O}(1/\rho)$. These terms are presented in the MATHEMATICA file (\texttt{`g\_(3)\_transformation.nb'}) under the heading $d_i$ coefficients. \par
+
+Once we have performed this transformation we have to check equations (\ref{eq: g_3_conditions}) are satisfied. First we use the $g_{(0)}$ of equation (\ref{eq: g_(0)}) to check tracelessness;
+
+\begin{equation} \label{eq: tracelessness_coordinate_form}
+g_{(0)}^{ab}g_{(3)ab}=g_{(0)}^{tt}g_{(3)tt}+2g_{(0)}^{t\theta}g_{(3)t\theta}+g_{(0)}^{\theta \theta}g_{(3)\theta \theta}+g_{(0)}^{\phi \phi}g_{(3)\phi \phi}=0,
+\end{equation} 
+
+\noindent which is automatically satisfied by $g_{(3)ab}$ without having to apply either the supplementary conditions or the higher order main equations. \par 
+
+It remains an issue of how best to present the long expression for the term $g_{(3) ab}$. Here we have chosen to present below expressions for $U_3, \gamma_3, W_3$ coefficients which have been obtained via rearrangement of the expressions for the $g_{(3)tt}, g_{(3)t\theta}, g_{(3) \theta \theta}$ coefficients themselves. Although there are four non-zero components of the energy-momentum tensor \\
+$\{g_{(3)tt}, g_{(3)t\theta}, g_{(3) \theta \theta}, g_{(3)\phi \phi}\}$, the three functions below will be enough to read off all components due to the tracelessness equation (\ref{eq: tracelessness_coordinate_form})  that our tensor satisfies. 
+
+
+\begin{align}
+\begin{split} \label{eq: U_3_EM_tensor}
+U_{3}=&\frac{1}{12} e^{-2 (\beta_{0}+\gamma_{0})} [-12 \cot ^3(\theta )+15 \csc ^2(\theta ) \cot (\theta )+72 \gamma_{0, \theta}^2 \cot (\theta )-\\
+&8 \beta_{0, \theta \theta} \cot (\theta )-30 \gamma_{0, \theta \theta} \cot (\theta )-24 \cot (\theta )-32 \gamma_{0, \theta}^3+\\
+&32 \beta_{0, \theta}^2 (\cot (\theta )-2 \gamma_{0, \theta})+\gamma_{0, \theta} (-2 (13 \cos (2 \theta )+2) \csc ^2(\theta )+16 \beta_{0, \theta \theta}+\\
+&36 \gamma_{0, \theta \theta})+\beta_{0, \theta} (-7 \cot ^2(\theta )+92 \gamma_{0, \theta} \cot (\theta )-60 \gamma_{0, \theta}^2+48 \gamma_{0, \theta \theta}+24)-\\
+&8 \gamma_{0, \theta \theta \theta} ] U_{0}^2+\frac{1}{12} e^{-2 (\beta_{0}+\gamma_{0})} [-16 \beta_{0, t}  \cot ^2(\theta )-16 \gamma_{0, t}  \cot ^2(\theta )-9 U_{0, \theta \theta} \cot (\theta )+\\
+&32 \beta_{0, \theta} \beta_{0, t}  \cot (\theta )+48 \gamma_{0, \theta} \beta_{0, t}  \cot (\theta )+76 \beta_{0, \theta} \gamma_{0, t}  \cot (\theta )+104 \gamma_{0, \theta} \gamma_{0, t}  \cot (\theta )-\\
+&8 \beta_{0, t \theta}  \cot (\theta )-46 \gamma_{0, t \theta}  \cot (\theta )+12 e^{2 \beta_{0}} g_{(3) \theta \theta}+24 \beta_{0, \theta} U_{0, \theta \theta}+6 \gamma_{0, \theta} U_{0, \theta \theta}-\\
+&U_{0, \theta} (\cot ^2(\theta )+12 \gamma_{0, \theta} \cot (\theta )+5 \csc ^2(\theta )+32 \beta_{0, \theta}^2-12 \gamma_{0, \theta}^2+\\
+&2 \beta_{0, \theta} (\cot (\theta )-18 \gamma_{0, \theta})-8 \beta_{0, \theta \theta}+18 \gamma_{0, \theta \theta}+2)-4 U_{0, \theta \theta \theta} +8 \csc ^2(\theta ) \beta_{0, t} -\\
+&32 \gamma_{0, \theta}^2 \beta_{0, t} -64 \beta_{0, \theta} \gamma_{0, \theta} \beta_{0, t} +16 \gamma_{0, \theta \theta} \beta_{0, t} -10 \csc ^2(\theta ) \gamma_{0, t} -\\
+&64 \beta_{0, \theta}^2 \gamma_{0, t} -64 \gamma_{0, \theta}^2 \gamma_{0, t} -88 \beta_{0, \theta} \gamma_{0, \theta} \gamma_{0, t} +16 \beta_{0, \theta \theta} \gamma_{0, t} +20 \gamma_{0, \theta \theta} \gamma_{0, t} +24 \gamma_{0, t} +\\
+&16 \gamma_{0, \theta} \beta_{0, t \theta} +80 \beta_{0, \theta} \gamma_{0, t \theta} +52 \gamma_{0, \theta} \gamma_{0, t \theta} -16 \gamma_{0, t \theta \theta}] U_{0}+\\
+&\frac{1}{12} e^{-2 (\beta_{0}+2 \gamma_{0})} [3 e^{2 \gamma_{0}} (\cot (\theta )+3 \beta_{0, \theta}-2 \gamma_{0, \theta}) U_{0, \theta}^2-\\
+&e^{2 \gamma_{0}} (3 U_{0, \theta \theta}-2 (4 (\cot (\theta )-4 \beta_{0, \theta}) \beta_{0, t} +(5 \cot (\theta )+2 \beta_{0, \theta}-2 \gamma_{0, \theta}) \gamma_{0, t} +\\
+&4 \beta_{0, t \theta} -5 \gamma_{0, t \theta} )) U_{0, \theta}+12 e^{2 (\beta_{0}+\gamma_{0})} g_{(3) t \theta}+2 (8 e^{4 \beta_{0}} \gamma_{0, \theta}^3+\\
+&(8 e^{2 \gamma_{0}} U_{0, t} -12 e^{4 \beta_{0}} \cot (\theta )) \gamma_{0, \theta}^2-2 (3 e^{4 \beta_{0}} \csc ^2(\theta )+2 e^{4 \beta_{0}}+8 e^{2 \gamma_{0}} \gamma_{0, t} ^2+\\
+&8 e^{4 \beta_{0}} \beta_{0, \theta \theta}+6 e^{4 \beta_{0}} \gamma_{0, \theta \theta}+6 e^{2 \gamma_{0}} \cot (\theta ) U_{0, t} +8 e^{2 \gamma_{0}} \beta_{0, t}  \gamma_{0, t} -4 e^{2 \gamma_{0}} \gamma_{0, tt}) \gamma_{0, \theta}+\\
+&16 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, t} ^2+16 e^{4 \beta_{0}} \beta_{0, \theta}^2 (\cot (\theta )-2 \gamma_{0, \theta})+4 e^{4 \beta_{0}} \cot (\theta ) \beta_{0, \theta \theta}+\\
+&6 e^{4 \beta_{0}} \cot (\theta ) \gamma_{0, \theta \theta}+4 e^{4 \beta_{0}} \beta_{0, \theta \theta \theta} +2 e^{4 \beta_{0}} \gamma_{0, \theta \theta \theta} +4 e^{2 \gamma_{0}} \cot ^2(\theta ) U_{0, t} -\\
+&2 e^{2 \gamma_{0}} \csc ^2(\theta ) U_{0, t} -4 e^{2 \gamma_{0}} \gamma_{0, \theta \theta} U_{0, t} +4 e^{2 \gamma_{0}} U_{0, \theta \theta} \beta_{0, t} +3 e^{2 \gamma_{0}} U_{0, \theta \theta} \gamma_{0, t} +\\
+&16 e^{2 \gamma_{0}} \cot (\theta ) \beta_{0, t}  \gamma_{0, t} -2 e^{2 \gamma_{0}} \cot (\theta ) U_{0, t \theta} +8 e^{2 \gamma_{0}} \gamma_{0, t}  \beta_{0, t \theta} +8 e^{2 \gamma_{0}} \beta_{0, t}  \gamma_{0, t \theta} +\\
+&10 e^{2 \gamma_{0}} \gamma_{0, t}  \gamma_{0, t \theta} -2 e^{2 \gamma_{0}} U_{0, t \theta \theta}-8 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, tt}-2 \beta_{0, \theta} (2 e^{4 \beta_{0}} \csc ^2(\theta )-4 e^{4 \beta_{0}}+\\
+&7 e^{2 \gamma_{0}} \gamma_{0, t} ^2-8 e^{4 \beta_{0}} \beta_{0, \theta \theta}+4 e^{2 \gamma_{0}} \cot (\theta ) U_{0, t} -8 \gamma_{0, \theta} (e^{4 \beta_{0}} \cot (\theta )+e^{2 \gamma_{0}} U_{0, t} )+\\
+&16 e^{2 \gamma_{0}} \beta_{0, t}  \gamma_{0, t} -4 e^{2 \gamma_{0}} U_{0, t \theta} -8 e^{2 \gamma_{0}} \gamma_{0, tt})-4 e^{2 \gamma_{0}} \gamma_{0, tt \theta})]
+\end{split}
+\end{align}
+
+
+
+\begin{align}
+\begin{split}
+W_{3}=&-\frac{1}{8} e^{-4 \beta_{0}} (\cot (\theta )-2 \gamma_{0, \theta}) [-\cot ^2(\theta )+4 \gamma_{0, \theta} \cot (\theta )+3 \csc ^2(\theta )+\\
+&8 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})+8 \gamma_{0, \theta \theta}+1] U_{0}^3+\frac{1}{4} e^{-4 \beta_{0}} [6 e^{2 \beta_{0}} g_{(3) \theta \theta }+\\
+&U_{0, \theta} (2 \cot ^2(\theta )-8 \gamma_{0, \theta} \cot (\theta )+\csc ^2(\theta )+12 \gamma_{0, \theta}^2+8 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})+\\
+&4 \gamma_{0, \theta \theta}+1)+2 \{2 (-2 \gamma_{0, t \theta} (\cot (\theta )-2 \gamma_{0, \theta})-(\cot (\theta )-2 \gamma_{0, \theta})^2 \beta_{0, t }+\\
+&(2 \cot (\theta ) \gamma_{0, \theta}+4 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})+2 \gamma_{0, \theta \theta}+1) \gamma_{0, t })-\\
+&(\cot (\theta )-2 \gamma_{0, \theta}) U_{0, \theta \theta}\}] U_{0}^2+\\
+&\frac{1}{4} e^{-2 (2 \beta_{0}+\gamma_{0})} [-e^{2 \gamma_{0}} (3 \cot (\theta )+4 \beta_{0, \theta}-8 \gamma_{0, \theta}) U_{0, \theta}^2+\\
+&2 e^{2 \gamma_{0}} (U_{0, \theta \theta}+4 (\cot (\theta )-2 \gamma_{0, \theta}) \beta_{0, t }-2 \cot (\theta ) \gamma_{0, t }-8 \beta_{0, \theta} \gamma_{0, t }+8 \gamma_{0, \theta} \gamma_{0, t }+\\
+&4 \gamma_{0, t \theta}) U_{0, \theta}+12 e^{2 (\beta_{0}+\gamma_{0})} g_{(3) t \theta }+2 \{8 e^{4 \beta_{0}} (\cot (\theta )-2 \gamma_{0, \theta}) \beta_{0, \theta}^2-\\
+&2 (e^{4 \beta_{0}} \cot ^2(\theta )-12 e^{4 \beta_{0}} \gamma_{0, \theta} \cot (\theta )-3 e^{4 \beta_{0}}+e^{4 \beta_{0}} \csc ^2(\theta )+8 e^{4 \beta_{0}} \gamma_{0, \theta}^2+\\
+&4 e^{2 \gamma_{0}} \gamma_{0, t }^2-4 e^{4 \beta_{0}} \gamma_{0, \theta \theta}) \beta_{0, \theta}+e^{2 \gamma_{0}} (U_{0, t } (\cot (\theta )-2 \gamma_{0, \theta})^2+2 \cot (\theta ) \gamma_{0, t }^2+\\
+&2 U_{0, \theta \theta} \gamma_{0, t }+8 \cot (\theta ) \beta_{0, t } \gamma_{0, t }-16 \gamma_{0, \theta} \beta_{0, t } \gamma_{0, t }-\cot (\theta ) U_{0, t \theta}+2 \gamma_{0, \theta} U_{0, t \theta}+\\
+&8 \gamma_{0, t } \gamma_{0, t \theta}-2 \cot (\theta ) \gamma_{0, t t}+4 \gamma_{0, \theta} \gamma_{0, t t})\}] U_{0}+\frac{1}{4} e^{-2 (2 \beta_{0}+\gamma_{0})} [e^{2 \gamma_{0}} U_{0, \theta}^3-\\
+&4 e^{2 \gamma_{0}} (\beta_{0, t }-\gamma_{0, t }) U_{0, \theta}^2+2 (-8 e^{4 \beta_{0}} \beta_{0, \theta}^2+4 e^{4 \beta_{0}} \cot (\theta ) \beta_{0, \theta}+e^{2 \gamma_{0}} (2 \gamma_{0, t }^2-\\
+&8 \beta_{0, t } \gamma_{0, t }-(\cot (\theta )-2 \gamma_{0, \theta}) U_{0, t }+U_{0, t \theta}+2 \gamma_{0, t t})) U_{0, \theta}+6 e^{2 (\beta_{0}+\gamma_{0})} g_{(3)tt}-\\
+&4 \{8 e^{4 \beta_{0}} \gamma_{0, t } \beta_{0, \theta}^2-2 e^{4 \beta_{0}} (U_{0, \theta \theta}+2 (2 (\cot (\theta )-\gamma_{0, \theta}) \gamma_{0, t }+\gamma_{0, t \theta})) \beta_{0, \theta}+\\
+&e^{2 \gamma_{0}} \gamma_{0, t } ((\cot (\theta )-2 \gamma_{0, \theta}) U_{0, t }+4 \beta_{0, t } \gamma_{0, t }-U_{0, t \theta}-2 \gamma_{0, t t})\}]
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split} \label{eq: gamma_3_EM_tensor}
+\gamma_{3}=&\frac{1}{48} e^{-6 \beta_{0}} [-19 \cot ^3(\theta )+18 \csc ^2(\theta ) \cot (\theta )+36 \gamma_{0, \theta}^2 \cot (\theta )+16 \beta_{0, \theta \theta} \cot (\theta )+\\
+&24 \gamma_{0, \theta \theta} \cot (\theta )-18 \cot (\theta )-24 \gamma_{0, \theta}^3-64 \beta_{0, \theta}^2 (\cot (\theta )-2 \gamma_{0, \theta})-\\
+&2 \gamma_{0, \theta} (7 \cot ^2(\theta )+2 \csc ^2(\theta )+16 \beta_{0, \theta \theta}+2)-8 \beta_{0, \theta} (\cot ^2(\theta )+8 \gamma_{0, \theta} \cot (\theta )+\\
+&\csc ^2(\theta )+12 \gamma_{0, \theta \theta}+5)+16 \gamma_{0, \theta \theta \theta} ] U_{0}^3+\\
+&\frac{1}{48} e^{-6 \beta_{0}} [12 e^{2 \beta_{0}} g_{(3) \theta \theta}+U_{0, \theta} (-7 \cot ^2(\theta )+84 \gamma_{0, \theta} \cot (\theta )+10 \csc ^2(\theta )+\\
+&64 \beta_{0, \theta}^2-36 \gamma_{0, \theta}^2+64 \beta_{0, \theta} (\cot (\theta )-3 \gamma_{0, \theta})-16 \beta_{0, \theta \theta}+72 \gamma_{0, \theta \theta}+22)+\\
+&2 (-4 \beta_{0, t}  \cot ^2(\theta )-7 \gamma_{0, t}  \cot ^2(\theta )+16 \beta_{0, t \theta}  \cot (\theta )+24 \gamma_{0, t \theta}  \cot (\theta )+4 U_{0, \theta \theta \theta} -\\
+&4 \csc ^2(\theta ) \beta_{0, t} -48 \gamma_{0, \theta \theta} \beta_{0, t} -20 \beta_{0, t} -2 \csc ^2(\theta ) \gamma_{0, t} +64 \beta_{0, \theta}^2 \gamma_{0, t} -\\
+&36 \gamma_{0, \theta}^2 \gamma_{0, t} -16 \beta_{0, \theta \theta} \gamma_{0, t} -2 \gamma_{0, t} +4 \gamma_{0, \theta} (3 U_{0, \theta \theta}-8 \cot (\theta ) \beta_{0, t} +9 \cot (\theta ) \gamma_{0, t} -\\
+&8 \beta_{0, t \theta} )-8 \beta_{0, \theta} (3 U_{0, \theta \theta}+4 (2 (\cot (\theta )-2 \gamma_{0, \theta}) \beta_{0, t} +\cot (\theta ) \gamma_{0, t} +3 \gamma_{0, t \theta} ))+\\
+&24 \gamma_{0, t \theta \theta})] U_{0}^2+\\
+&\frac{1}{48} e^{-2 (3 \beta_{0}+\gamma_{0})} [-3 e^{2 \gamma_{0}} (\cot (\theta )+16 \beta_{0, \theta}-10 \gamma_{0, \theta}) U_{0, \theta}^2+4 e^{2 \gamma_{0}} (6 U_{0, \theta \theta}+\\
+&4 (3 \cot (\theta )+8 \beta_{0, \theta}-10 \gamma_{0, \theta}) \beta_{0, t} +15 \cot (\theta ) \gamma_{0, t} -24 \beta_{0, \theta} \gamma_{0, t} -18 \gamma_{0, \theta} \gamma_{0, t} -\\
+&8 \beta_{0, t \theta} +24 \gamma_{0, t \theta} ) U_{0, \theta}+24 e^{2 (\beta_{0}+\gamma_{0})} g_{(3) t \theta}-4 (8 e^{4 \beta_{0}} \gamma_{0, \theta}^3-12 e^{4 \beta_{0}} \cot (\theta ) \gamma_{0, \theta}^2+\\
+&2 (2 e^{4 \beta_{0}} \cot ^2(\theta )-4 e^{2 \gamma_{0}} U_{0, t}  \cot (\theta )-5 e^{4 \beta_{0}} \csc ^2(\theta )-16 e^{2 \gamma_{0}} \beta_{0, t} ^2+\\
+&9 e^{2 \gamma_{0}} \gamma_{0, t} ^2-8 e^{4 \beta_{0}} \beta_{0, \theta \theta}-6 e^{4 \beta_{0}} \gamma_{0, \theta \theta}-5 e^{2 \gamma_{0}} U_{0, t \theta} +4 e^{2 \gamma_{0}} \beta_{0, tt}) \gamma_{0, \theta}+\\
+&16 e^{2 \gamma_{0}} \cot (\theta ) \beta_{0, t} ^2-9 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, t} ^2+16 e^{4 \beta_{0}} \beta_{0, \theta}^2 (\cot (\theta )-2 \gamma_{0, \theta})+\\
+&4 e^{4 \beta_{0}} \cot (\theta ) \beta_{0, \theta \theta}+6 e^{4 \beta_{0}} \cot (\theta ) \gamma_{0, \theta \theta}+4 e^{4 \beta_{0}} \beta_{0, \theta \theta \theta} +2 e^{4 \beta_{0}} \gamma_{0, \theta \theta \theta} -5 e^{2 \gamma_{0}} U_{0, t} -\\
+&e^{2 \gamma_{0}} \cot ^2(\theta ) U_{0, t} -e^{2 \gamma_{0}} \csc ^2(\theta ) U_{0, t} -12 e^{2 \gamma_{0}} \gamma_{0, \theta \theta} U_{0, t} +12 e^{2 \gamma_{0}} U_{0, \theta \theta} \beta_{0, t} -\\
+&2 e^{2 \gamma_{0}} U_{0, \theta \theta} \gamma_{0, t} +16 e^{2 \gamma_{0}} \cot (\theta ) \beta_{0, t}  \gamma_{0, t} +2 e^{2 \gamma_{0}} \cot (\theta ) U_{0, t \theta} +16 e^{2 \gamma_{0}} \gamma_{0, t}  \beta_{0, t \theta} +\\
+&48 e^{2 \gamma_{0}} \beta_{0, t}  \gamma_{0, t \theta} -4 e^{2 \gamma_{0}} U_{0, t \theta \theta}-4 e^{2 \gamma_{0}} \cot (\theta ) \beta_{0, tt}-6 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, tt}-\\
+&2 \beta_{0, \theta} (7 e^{4 \beta_{0}} \cot ^2(\theta )+8 e^{2 \gamma_{0}} U_{0, t}  \cot (\theta )+3 e^{4 \beta_{0}}-5 e^{4 \beta_{0}} \csc ^2(\theta )-8 e^{4 \beta_{0}} \beta_{0, \theta \theta}-\\
+&8 \gamma_{0, \theta} (e^{4 \beta_{0}} \cot (\theta )+2 e^{2 \gamma_{0}} U_{0, t} )+32 e^{2 \gamma_{0}} \beta_{0, t}  \gamma_{0, t} -6 e^{2 \gamma_{0}} U_{0, t \theta} -12 e^{2 \gamma_{0}} \gamma_{0, tt})-\\
+&12 e^{2 \gamma_{0}} \gamma_{0, tt \theta})] U_{0}+\\
+&\frac{1}{48} e^{-2 (3 \beta_{0}+\gamma_{0})} [e^{2 \gamma_{0}} (U_{0, \theta}^3-2 (16 \beta_{0, t} +5 \gamma_{0, t} ) U_{0, \theta}^2-4 (-16 \beta_{0, t} ^2+\\
+&16 \gamma_{0, t}  \beta_{0, t} +9 \gamma_{0, t} ^2+2 (2 \cot (\theta )+2 \beta_{0, \theta}-5 \gamma_{0, \theta}) U_{0, t} -4 U_{0, t \theta} +4 \beta_{0, tt}-\\
+&6 \gamma_{0, tt}) U_{0, \theta}+12 e^{2 \beta_{0}} g_{(3) t t}+8 (-3 \gamma_{0, t} ^3+16 \beta_{0, t} ^2 \gamma_{0, t} +U_{0, t \theta}  \gamma_{0, t} -4 \beta_{0, tt} \gamma_{0, t} +\\
+&U_{0, \theta \theta} U_{0, t} -6 \beta_{0, t}  U_{0, t \theta} +U_{0, t}  (6 (\cot (\theta )-2 \gamma_{0, \theta}) \beta_{0, t} +\\
+&(\cot (\theta )-4 \beta_{0, \theta}) \gamma_{0, t} +6 \gamma_{0, t \theta} )-\cot (\theta ) U_{0, tt}+2 \gamma_{0, \theta} U_{0, tt}-12 \beta_{0, t}  \gamma_{0, tt}+U_{0, tt \theta}+\\
+&2 \gamma_{0, ttt}))-4 e^{4 \beta_{0}} \{6 e^{2 \beta_{0}} g_{(3) \theta \theta}-2 (4 (\csc ^2(\theta )+4 \beta_{0, \theta}^2-\gamma_{0, \theta}^2-2 \cot (\theta ) \beta_{0, \theta}+\\
+&\cot (\theta ) \gamma_{0, \theta}+2 \beta_{0, \theta \theta}+\gamma_{0, \theta \theta}) \gamma_{0, t} +2 (\cot (\theta )-4 \beta_{0, \theta}) \beta_{0, t \theta} -\\
+&\cot (\theta ) \gamma_{0, t \theta} +2 \gamma_{0, \theta} \gamma_{0, t \theta} -2 \beta_{0, t \theta \theta}-\gamma_{0, t \theta \theta})\}]
+\end{split}
+\end{align}
+
+\noindent where all of the metric coefficients are functions of $(t, \theta)$ (so they are defined at $\mathscr{I}$ and are implicitly `hatted'). \par
+
+We still need to check the `conservation' part of (\ref{eq: g_3_conditions}) is satisfied and doing this is less straightforward than the tracelessness. To do this we use the $g_{(0)}$ of equation (\ref{eq: g_(0)}) and it's associated Levi-Civita connecton $\nabla_{(0)}$. We will have to check the three cases of $b=\{ t, \theta, \phi \}$. The simplest of these cases is $b=\phi$ for which we obtain the required result by using the equations (\ref{eq: U_3_EM_tensor}-\ref{eq: gamma_3_EM_tensor}) above and the tracelessness property (\ref{eq: tracelessness_coordinate_form})  
+
+\begin{equation}
+\nabla_{(0)}^a g_{(3)a\phi}=g^{ac}\nabla_{(0)c} g_{(3)a\phi}=-g_{(0)}^{ca}\Gamma^{\phi}_{ca}g_{(3)\phi \phi}-g_{(0)}^{ca}\Gamma^{d}_{c \phi}g_{(3) ad }=0
+\end{equation}
+
+\noindent where the Christoffel symbols $\Gamma^{a}_{bc}$ here are those associated with the metric $g_{(0)ab}$. \par
+
+The remaining checks are somewhat less trivial as they will require use of additional substitutions to verify: We use the Einstein equations (\ref{eq: gamma_1}), (\ref{eq: gamma_4}) for $\gamma_1$ and $\gamma_{3,t}$ to remove the appearance of these respective expressions. We also need to apply the ``supplementary conditions'' (\ref{eq: SC1}-\ref{eq: SC2}) in order to substitute expressions for the functions $U_{3,t}$ and $W_{3,t}$. All of these conditions, combined with the equations (\ref{eq: U_3_EM_tensor}-\ref{eq: gamma_3_EM_tensor}) are sufficient to show that the $t$ and $\theta$ components of our conservation condition (\ref{eq: g_3_conditions}) are also satisfied. For explicit detail of this, see the supplementary MATHEMATICA file \texttt{`Scaled\_g\_(3)\_consistency\_checks.nb'} \par
+
+The $g_{(3)}$ as computed in the series expansion thus obeys the necessary checks and we have successfully transformed our metric into the Fefferman-Graham form.  
+
+\subsection{Asymptotically $AdS_4$ Case}
+
+The first interesting example to look at is the class of asymptotically $AdS_4$ Bondi-Sachs space-times. Recall in section \ref{sec: Bondi-Sachs_metrics} we asymptotically $AdS$ space-times as asymptotically locally $AdS$ space-times for which $g_{(0)}$ is topologically $\mathbb{R} \times S^2$ and conformally flat. \par
+
+To see at which values of $\gamma_0, \beta_0, U_0$ our $AdS$-Bondi-Sachs metrics are asymptotically $AdS$ we focus first on the topological aspect of the definition and force the metric
+
+\begin{equation} 
+ds_{(0)}^2=(e^{2\hat{\gamma}_{0}}\hat{U}_{0}^2-e^{4\hat{\beta}_{0}})dt^2-2e^{2\hat{\gamma}_{0}}\hat{U}_{0}dtd\theta+e^{2\hat{\gamma}_{0}}d\theta^2+e^{-2\hat{\gamma}_{0}}\sin^2(\theta)d\phi^2.
+\end{equation}
+
+\noindent to be attached the manifold $\mathbb{R} \times S^2$. This means that it must be equivalent to the standard metric of $\mathbb{R} \times S^2$ up to conformal factors which may depend upon the space-time coordinates.  \par 
+
+First we notice that this topological condition forces $g_{t \theta}=0 \iff \hat{U}_0=0$, leaving us with 
+
+\begin{equation}
+ds_{(0)}^2=-e^{4\hat{\beta}_{0}}dt^2+e^{2\hat{\gamma}_{0}}d\theta^2+e^{-2\hat{\gamma}_{0}}\sin^2(\theta)d\phi^2.
+\end{equation}
+
+\noindent We now turn our attention to the angular terms ($e^{2\hat{\gamma}_{0}}d\theta^2+e^{-2\hat{\gamma}_{0}}\sin^2(\theta)d\phi^2$) and notice that this is conformally equivalent to the metric on the round 2-sphere iff $\hat{\gamma}_{0}=0$. All that now remains is 
+
+\begin{equation}
+ds_{(0)}^2=-e^{4\hat{\beta}_{0}}dt^2+d\theta^2+\sin^2(\theta)d\phi^2
+\end{equation}
+
+\noindent which we enforce to have topology $\mathbb{R} \times S^2$ iff $\hat{\beta}_0=\hat{\beta}_0(t)$. Now performing the coordinate re-definition
+
+\begin{equation}
+\tilde{t}=\int^{t} e^{2\hat{\beta}_0(\tau)} \, d\tau
+\end{equation}
+
+\noindent and dropping the tilde, we move into coordinates for which $g_{(0)}$ is the same as $g_{(0)}$ for $AdS_4$, i.e. 
+
+\begin{equation}
+ds_{(0)}^2=-dt^2+d\Omega^2.
+\end{equation}
+
+As this is clearly conformally flat (we will see this explicitly shortly) we observe that all we need to do is impose the topology of $\mathbb{R} \times S^2$ on  $\mathscr{I}$ and we arrive at the asymptotically $AdS$ case. \par
+
+We also observe that this occurs at the special values of 
+
+\begin{equation}
+\gamma_{0}=\beta_{0}=U_{0}=0.
+\end{equation}
+
+We can apply these values to our formulae (\ref{eq: g_2tt}-\ref{eq: g_2phiphi}) to compute $g_{(2)}$ and (\ref{eq: U_3_EM_tensor}-\ref{eq: gamma_3_EM_tensor}) to compute $g_{(3)}$
+
+\begin{equation}
+ds_{(2)}^{2}=-\frac{1}{2}[dt^2+d\Omega^2]
+\end{equation}
+
+\begin{equation} \label{eq: g_3_asym_AdS}
+ds_{(3)}^2=\frac{2}{3}W_{3} dt^2 + 2U_{3} dt d\theta +\left(\frac{1}{3} W_3 - 2\gamma_{3}\right) d\theta^2+\left( \frac{1}{3}\sin^2 \theta W_{3} +2\sin^2 \theta \gamma_{3} \right) d\phi^2
+\end{equation}
+
+\noindent (notice that we could have also read off $g_{(2)}$ from (\ref{eq: pure_AdS_g_2}) due to the curvature formula (\ref{eq: AdS_g_2_check})). The second of these two formulae gives us the energy-momentum tensor for an asymptotically $AdS$ Bondi-Sachs space time. Something that immediately jumps out from (\ref{eq: g_3_asym_AdS}) is 
+
+\begin{equation} \label{eq: g_3_tt_asym_AdS}
+g_{(3)tt}=\frac{2W_{3}}{3} = -\frac{4m_B}{3}
+\end{equation}
+
+\noindent which arises from the formula (\ref{eq: mass_aspect_1}) for the Bondi mass aspect, $m_B$. (\ref{eq: g_3_tt_asym_AdS}) gives us  insightful result that the $g_{(3)tt}$ component of the energy-momentum tensor is determined entirely by the mass aspect function. \par
+
+We now present some interesting examples of asymptotically $AdS$ space-times. \par
+
+\subsubsection{Global $AdS_4$}
+
+An obvious example of an asymptotically $AdS_4$ space-time is the case of global $AdS_4$ itself. With the usual normalisation of $l=1$ the line-element in retarded Bondi coordinates reads 
+
+\begin{equation}
+ds^2=-(1+r^2)du^2-2du dr+r^2d\Omega^2.
+\end{equation}
+
+We have $W_{3}=U_{3}=\gamma_{3}=0$. Applying this to (\ref{eq: g_3_asym_AdS}) we see that $g_{(3)}$ vanishes
+and thus the energy-momentum tensor of global $AdS_{4}$ does also.
+
+\subsubsection{$AdS_{4}$ Schwarzchild}  
+
+Another straightforward example is the $AdS_4$-Schwarzchild black hole solution, whose metric in retarded Bondi coordinates reads 
+
+\begin{equation} \label{eq: AdS_Schwarzchild}
+ds^2=-\left(1+r^2-\frac{2m}{r}\right)du^2-2du dr+r^2 d\Omega^2.
+\end{equation}
+
+\noindent This solution is an example of an asymptotically locally $AdS_4$ metric and thus it has the same values for $g_{(0)}$ and $g_{(2)}$ as we present above. \par
+
+In Bondi-type language, this solution has metric functions $\beta=\gamma=U=0$ and now matching (\ref{eq: AdS_Schwarzchild}) with our general Bondi-gauged metric (\ref{eq: Bondi_Metric}) we see $W=1+1/r^2-2m/r^3$. The key piece of information from this with regards to computing the energy-momentum tensor is $W_{3}=-2m$. Using this, we apply (\ref{eq: g_3_asym_AdS}) to obtain
+
+\begin{equation}
+g_{(3) ij}= -\frac{2m}{3} \left( \begin{array}{ccc} 
+2 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & \sin^2 \theta \\
+\end{array} \right)
+\end{equation}
+
+\noindent which reduces to the global $AdS_4$ case when $m=0$.
+
+\subsubsection{Flat $g_{(0)}$}
+
+We can in fact go even further than the case of $g_{(0)}$ being conformally flat and evaluate $g_{(3)}$ when $g_{(0)}$ is flat. To do this, we consider the coordinate transformation 
+
+\begin{equation}
+\tau \pm y = \tan\left[ \frac{1}{2}(t\pm \theta) \right].
+\end{equation}
+
+\noindent We apply this transformation to the $g_{(0)}$ of (5.44) and after some algebra we obtain 
+
+\begin{equation} \label{eq: conformal_flat_g_0}
+ds_{(0)}^2=4 \cos^2 \left[ \frac{1}{2}(t+ \theta) \right] \cos^2 \left[ \frac{1}{2}(t- \theta) \right] (-d\tau^2 + dy^2 + y^2d\phi^2 )
+\end{equation}
+
+\noindent which is clearly just a conformal factor multiplying the flat metric on $\mathbb{R}^{1,2}$ in polar coordinates. \par
+
+In order to work from this promising form of $g_{(0)}$ to the case when $g_{(0)}$ is truly flat, we use the results of equation (10) in \cite{Skenderis:2000in} which tell us how the coefficients in the FG expansion transform under transformations of the form $g_{(0)} \rightarrow e^{2\sigma} g_{(0)}$. Quoting these results, we have; 
+
+\begin{align}
+\begin{split}
+g'_{(0)ij}&=e^{2\sigma}g_{(0)ij} \\
+g'_{(2)ij}&=g_{(2)ij}+\nabla_{i}\nabla_{j} \sigma - \nabla_{i} \sigma \nabla_{j} \sigma + \frac{1}{2}(\nabla \sigma)^2 g_{(0)ij} \\
+g'_{(3)ij}&=e^{-\sigma} g_{(3) ij}.
+\end{split}
+\end{align}
+
+\noindent Reading from (\ref{eq: conformal_flat_g_0}), we apply these formulae with 
+
+\begin{equation}
+e^{-2\sigma}=4 \cos^2 \left[ \frac{1}{2}(t+ \theta) \right] \cos^2 \left[ \frac{1}{2}(t- \theta) \right]
+\end{equation}
+
+\noindent giving us 
+
+\begin{align}
+\begin{split} \label{eq: g_i_flat_g_0}
+g'_{(0)ij}&=\eta_{ij}, \qquad  ds'^2_{(0)}=-d\tau^2+dy^2+y^2d\phi^2 \\
+g'_{(2)ij}&=0 \\
+g'_{(3)ij}&=2 \cos \left[ \frac{1}{2}(t+ \theta) \right] \cos \left[ \frac{1}{2}(t- \theta) \right] 
+\left(
+\begin{array}{ccc} 
+\frac{2}{3} W_{3} & U_{3} & 0 \\
+U_{3} & \frac{1}{3}W_{3} - 2\gamma_{3} & 0 \\
+0 & 0 & \sin^2 \theta \left(\frac{1}{3}W_{3} +2 \gamma_{3}\right) \\
+\end{array}
+\right) \\
+ds'^2_{(3)}&=\frac{2}{3}\left[(1+(\tau+y)^2)(1+(\tau-y)^2)\right]^{-5/2}\\
+& \phantom{aa} \times \{ [-48 y \tau(1+y^2+\tau^2)U_3+8(y^4+(1+\tau^2)^2+y^2(1+4\tau^2))W_3-\\
+&  \phantom{aaaaa\,}  96y^2\tau^2 \gamma_3] d\tau^2 +  [24(y^4+(1+\tau^2)^2+y^2(2+6\tau^2))U_3-\\
+&  \phantom{aaaaa\,} 48y \tau(1+y^2+\tau^2)W_3+96y \tau (1+y^2+\tau^2)\gamma_3]dy d\tau+\\
+& \phantom{aaaaa\,}  [-48y \tau(1+y^2+\tau^2)U_3+ 4(y^4+(1+\tau^2)^2+2y^2(1+5\tau^2))W_3-\\
+& \phantom{aaaaa\,} 24(1+y^2+\tau^2)^2\gamma_3]dy^2+\\
+& \phantom{aaaaa\,} [4y^2((1+(\tau+y)^2)(1+(\tau-y)^2))(W_3+6\gamma_3)]d\phi^2\}
+\end{split}
+\end{align}
+
+\noindent where the first two equations are presented in the flat coordinates $(\tau, y, \phi)$ and in the final equations we have presented $g_{(3)}$ in both the old $(t, \theta, \phi)$ coordinates as well as the new coordinates $(\tau, y, \phi)$. \par
+
+We observe that $g'_{(3)}$ is merely (\ref{eq: g_3_asym_AdS}) multiplied by a given conformal factor. (\ref{eq: g_i_flat_g_0}) presents the specific factor when we have a flat metric at the boundary $g_{(0) ab}=\eta_{ab}$. We also remark that one could immediately deduce that $g'_{(2)i j}$ vanishes by applying (\ref{eq: AdS_g_2_check}) to the flat metric (where of course both $R_{ab}$ and $R$ vanish). 
+
+\subsubsection{$AdS_4$ Black Brane}
+
+An example of a vacuum solution with a flat $g_{(0)}$ is the $AdS$ black brane solution; a topic of considerable holographic interest \cite{Bhattacharyya:2008jc, Gupta:2008th, Kanitscheider:2009as}. \par 
+
+The black brane is an asymptotically $AdS$ solution to the vacuum Einstein equations with planar horizon topology. Following the conventions of \cite{Kanitscheider:2009as} (equation (4.1) in that paper) we present the 4-dimensional black brane solution in the following form 
+
+\begin{align}
+\begin{split}
+ds^2&=\frac{d \rho^2}{4\rho^2 f_b(\rho)}+\frac{-f_b(\rho)dt^2+dx_1^2+dx_2^2}{\rho}, \\
+f_b(\rho)&=1-\frac{\rho^{3/2}}{b^3}
+\end{split} 
+\end{align}
+
+\noindent where, $b$, is related to the temperature $T$ of the brane
+
+\begin{equation}
+b=\frac{3}{4\pi T}.
+\end{equation}
+
+One may observe the spacelike hypersurfaces $\mathcal{S}_{c_1, c_2}=\{\rho=c_1, t=c_2 \, | \, c_1, c_2 \in \mathbb{R}\}$ have topology $\mathbb{R}^2$. In particular, the horizon of the solution is located as usual where $g^{\rho \rho}=0 \iff f_b(\rho)=0 \iff \rho=b^2$ and we see that the metric has a horizon topology of $\mathbb{R}^2$ \footnote{Strictly speaking, the metric (5.57) admits a singularity at the horizon $\rho=b^2$. As in \cite{Kanitscheider:2009as}, one must transform into suitable coordinates (Eddington-Finklestein) to perform the near horizon analysis.}. \par
+
+Another computation performed in \cite{Kanitscheider:2009as} was to transform the black brane solution into the Fefferman-Graham form using a redefintion of the radial coordinate $\rho$ \footnote{The FG gauge choice \cite{Kanitscheider:2009as} was related to ours via an extra redefintion of the radial coordinate $\rho \rightarrow \rho^{2}$}. This produces the following FG components; 
+
+\begin{align}
+\begin{split} \label{eq: g_i_black_brane}
+g_{(0)ij}&=\eta_{ij}, \\
+g_{(2)ij}&=0, \\
+g_{(3)ij}&=-\frac{1}{3} \left( \frac{4\pi T}{3} \right)^3 \left( \begin{array}{ccc} 
+2 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & y^2 \\
+\end{array} \right)
+\end{split}
+\end{align}
+
+\noindent where we are now using the flat coordinates $(\tau, y, \phi)$ that we used previously in (\ref{eq: g_i_flat_g_0}). We have also presented $g_{(3)}$ with different sign to \cite{Kanitscheider:2009as} as our convention for the radial coordinate in Fefferman Graham gauge is that it lies in the interval $( - \infty, 0)$ as opposed to $(0, \infty)$. \par
+
+We can now read off the relevant Bondi quantities for the $AdS$ black brane. Equating components of $g_{(3)}$ in (\ref{eq: g_i_flat_g_0}) and (\ref{eq: g_i_black_brane}) we find the solutions 
+
+\begin{align}
+\begin{split}
+\gamma_3&=\frac{1}{8} \left( \frac{4\pi T}{3} \right)^3 \tau ^2 y^2 \sqrt{\left((y-\tau )^2+1\right) \left((\tau +y)^2+1\right)} \\
+U_3&=- \frac{1}{4} \left( \frac{4\pi T}{3} \right)^3 \tau  y \left(\tau ^2+y^2+1\right) \sqrt{\left((y-\tau )^2+1\right) \left((\tau +y)^2+1\right)} \\
+W_3 &= - \frac{1}{8} \left( \frac{4\pi T}{3} \right)^3 \sqrt{\left((y-\tau )^2+1\right) \left((\tau +y)^2+1\right)} \left(\left(\tau ^2+1\right)^2+y^4+\left(4 \tau ^2+2\right) y^2\right).
+\end{split}
+\end{align}
+
+Using these results we now return to formula (\ref{eq: mass_aspect_1}) in order to compute the mass aspect for the black brane. Since the brane is of course asymptotically $AdS$, we have $\gamma_0=\beta_0=U_0=0$ and thus 
+\begin{align}
+\begin{split}
+m_B&=-\frac{1}{2}W_3\\ 
+&=4\left( \frac{\pi T}{3} \right)^3 \sqrt{\left((y-\tau )^2+1\right) \left((\tau +y)^2+1\right)} \left(\left(\tau ^2+1\right)^2+y^4+\left(4 \tau ^2+2\right) y^2\right)
+\end{split}
+\end{align}
+
+\subsubsection{Bondi Mass}
+
+Another important quantity which becomes more straightforward to analyse in the asymptotically $AdS$ case is the Bondi mass. Applying equation (\ref{eq: Bondi_mass_time_u}) to our choice of gauge, the formula for the mass reads;
+
+\begin{equation} \label{eq: mass_formula}
+\mathcal{M}_{B}=\frac{1}{4\pi} \int_{S^2} m_B =\frac{1}{2} \int_{0}^{\pi} m_B \sin(\theta) \, d\theta 
+\end{equation}
+
+\noindent where $m_B$ is the mass aspect function as defined in (\ref{eq: mass_aspect_1}). \par
+
+We would like to examine whether or not the Bondi mass in asymptotically locally $AdS$ space-times maintains the monotonicity properties of the mass in asymptotically flat space time \cite{Bondi:1962px, Sachs:1962wk}, namely
+
+\begin{equation}
+\frac{ \partial \mathcal{M}_B }{\partial u} \leq 0 ,
+\end{equation}
+
+\noindent with attainment of the bound corresponding to the absence of gravitational radiation. \par 
+
+To examine the $AdS$ analogue of this result, we begin by examining the more straightforward case of asymptotically $AdS$ space-times ($\gamma_0=\beta_0=U_0=0$). We begin by examining equation (\ref{eq: mass_aspect_1}) which gives us the same mass aspect as the original definition
+
+\begin{equation}
+2m_B=-W_3.
+\end{equation}
+
+\noindent From equation (\ref{eq: mass_formula}) we have 
+
+\begin{equation}
+\frac{ \partial \mathcal{M}_B }{\partial u}=\frac{1}{2} \int_{0}^{\pi} \frac{ \partial m_B}{\partial u} \sin(\theta) \, d\theta = -\frac{1}{4} \int_{0}^{\pi} \frac{ \partial W_3}{\partial u} \sin(\theta) \, d\theta.
+\end{equation} 
+
+\noindent and now we need to find an expression for $\partial W_3/\partial u$. To do this we apply the supplementary condition (\ref{eq: SC2}) (evolution equation for $W_3$), which reduces to
+
+\begin{align}
+\begin{split}
+W_{3, u} = & \frac{1}{2} [6 \gamma_1^4-\gamma_{1,\theta}^2+4 \gamma_{1,u}^2+4 \gamma_{1,u} -2 \gamma_{1, u \theta \theta}-8 \cot ^2(\theta ) \gamma_{1}^2+ \\
+& \phantom{aa} \gamma_{1} (-12 \gamma_{3}+\gamma_{1, \theta \theta}-15 \cot (\theta ) \gamma_{1, \theta})-6 \cot (\theta ) \gamma_{1, u \theta}+3 U_{3, \theta }+3 \cot (\theta ) U_{3}]
+\end{split}
+\end{align}
+
+\noindent in the asymptotically $AdS$ case. \par
+
+This result is a great simplification of the full equation (\ref{eq: SC2}) but it still seems too difficult to integrate outright. To simplify further we use the Einstein equation (\ref{eq: gamma_1}), which gives us 
+
+\begin{equation} \label{eq: gamma_1=0}
+\gamma_1=0
+\end{equation}
+
+\noindent and thus 
+
+\begin{equation}
+W_{3,u}=\frac{3}{2}\left(U_{3, \theta}+ \cot(\theta) U_3\right).
+\end{equation}   
+
+We now plug this result back into equation (5.65) to see 
+
+\begin{equation} \label{eq: Bondi_Mass_derivative}
+\frac{ \partial \mathcal{M}_B }{\partial u}= -\frac{3}{8} \int_0^{\pi} \left(U_{3, \theta}\sin(\theta)+ \cos(\theta) U_3\right)  \, d\theta = -\frac{3}{8} \left[ U_3 \sin(\theta) \right]^{\pi}_{0}
+\end{equation}
+
+\noindent To evaluate the limits of this integral we use the regularity assumptions of \cite{Bondi:1962px}: At the poles of the 2-sphere, ($\sin(\theta) \rightarrow 0$) we have 
+
+\begin{equation}
+\frac{U_3}{\sin(\theta)}= f(\cos(\theta)) 
+\end{equation}
+
+\noindent where $f$ is regular at $\cos(\theta)=\pm 1$. Using this result in (\ref{eq: Bondi_Mass_derivative}) gives us 
+
+\begin{equation}
+\frac{ \partial \mathcal{M}_B }{\partial u}=-\frac{3}{8}[\sin^2(\theta) f(\cos(\theta))]^{\pi}_{0}=0
+\end{equation}
+
+\noindent using the regularity of $f$ in the final step. \par
+
+The conclusion of this result is that for asymptotically $AdS$ space-times, the Bondi mass is constant and does not vary with respect to the Bondi time, $u$. This result is striking and as expected upon physical considerations which we shall now give.  \par
+
+First of all, we recall what the interpretation of equation (\ref{eq: gamma_1=0}) would be in the language of the original work by BMS. The vanishing of $\gamma_1$ would have meant that there was no `news' and thus we would have expected (in the flat case) the mass to be constant. This interpretation carries over to the asymptotically $AdS$ case though it seems less likely that this result will extend to the broader class of locally $AdS$ space-times, where a vanishing $\gamma_1$ could still have non-trivial $\gamma_0, \beta_0, U_0$. These would play a role in the equation (\ref{eq: SC2}) for the evolution of the mass aspect and could possibly alter the monotonicity properties of the mass. \par
+
+Another understanding of why the Bondi mass remains constant for asymptotically $AdS$ space-times is that the boundary metric is unchanging, indicating a lack of gravitational radiation to perturb it. Recall the metric on the $\mathbb{R} \times S^2$ boundary is static and thus does not evolve with the boundary time $t$. Physically this can be interpreted as the absence of gravitational waves reaching the boundary: Any outgoing radiation should effect the boundary metric and as the metric is unchanged with time, we infer there is no gravitational radiation. The original motivation of BMS was to define a mass which captured the radiation escaping at (null) infinity and thus this is consistent with their approach.  
+
+
+\subsection{Holographic comment on the $AdS$ integration scheme} Now that we have seen the Fefferman-Graham structure allows us to read off CFT data from the dual theory, it is natural to ask whether or not this data has any physical bearing on the integration scheme that we devised for Asymptotically locally $AdS$ Bondi-Sachs metrics in section \ref{subsec: AdS_Scheme}. \par 
+
+Recall the key to the integration scheme for $AdS$ was specifying the data set 
+
+\begin{equation}
+\{\hat{\gamma}_0(t, \theta), \hat{\beta}_0(t, \theta), \hat{U}_0(t, \theta), \hat{\gamma}_3(t, \theta), \hat{U}_3(t, \theta), \hat{W}_3(t, \theta) \, | \, t \in \mathbb{R} , \, \theta \in (0, 2\pi) \} 
+\end{equation}
+ 
+\noindent which had the effect of reducing the Einstein equations to \textit{algebraic} equations with which one could construct fully the asymptotic solutions to the Einstein equations without having to evolve from one null hypersurface to the next. \par
+
+The holographic understanding of the terms $\{\hat{\gamma}_0, \hat{\beta}_0, \hat{U}_0 \}$ is understood from equation (\ref{eq: g_(0)}) where we observe that these are the functions which define the metric at $\mathscr{I}$; $g_{(0)ab}$. We can restate the condition of knowing these functions as knowing exactly the boundary metric $g_{(0)ab}$. Similarly the terms $\{\hat{\gamma}_3, \hat{U}_3, \hat{W}_3\}$ are closely linked to the energy momentum tensor of the dual theory; $T_{ab}$. We observe from equations (\ref{eq: U_3_EM_tensor}-\ref{eq: gamma_3_EM_tensor}) that if we have both $g_{(0)ab}$ and $T_{ab} \, ( \sim g_{(3)ab})$ then we can read off our coefficients $\{\hat{\gamma}_3, \hat{U}_3, \hat{W}_3\}$. With this holographic understanding we rephrase the integration scheme in the following form. \par 
+
+\hspace{1cm}
+
+\noindent \textit{Knowledge of the metric $g_{(0)ab}$ at $\mathscr{I}$ and the energy momentum tensor $T_{ab} \sim g_{(3)ab}$ for the CFT dual of our Bondi-Sachs space-time is necessary and sufficient to algebraically solve the vacuum Einstein equations in the asymptotic region of space-time.}
+
+
+\section{Conclusions}
+
+\appendix
+
+\section{``Supplementary Conditions'' Printout}
+
+In section 3.3, we explained how the $\{u \theta\}$ and $\{u u \}$ Einstein equations reduced to the forms respectively of $f=0$ and $g=0$ where $f,g$ were functions of $(u, \theta)$. Here we present these equations as constraints upon the derivatives of the functions $U_{3, u}$ and $W_{3, u}$ \\
+
+
+\textbf{$f=0$:}
+
+
+\begin{align}  \label{eq: SC1}
+\begin{split}
+U_{3, u}=& \frac{4}{3} \gamma_{3} ((2\gamma_{0, \theta}-4 \cot (\theta )) (U_{0})^2+2 (e^{2\beta_{0}}\gamma_{1}-U_{0, \theta}+\gamma_{0,u}) U_{0}- \\
+&3 e^{4\beta_{0}-2\gamma_{0}} (\cot (\theta )+\beta_{0,\theta}-\gamma_{0,\theta}))+\frac{1}{9} (28 e^{2\beta_{0}} U_{0} (\gamma_{1})^4-\\
+&30 e^{4\beta_{0}-2\gamma_{0}} (\cot (\theta )-\beta_{0,\theta}-\gamma_{0,\theta}) (\gamma_{1})^3-14 (U_{0})^2 (\cot (\theta )-2\gamma_{0, \theta}) (\gamma_{1})^3+\\
+&14 U_{0} (U_{0, \theta}+2\gamma_{0,u}) (\gamma_{1})^3+3 e^{2\beta_{0}-2\gamma_{0}} (U_{0, \theta} (7 \cot (\theta )+8\beta_{0,\theta}-8\gamma_{0, \theta})+e^{2\beta_{0}}\gamma_{1,\theta}-\\
+&U_{0, \theta \theta}+4 (-4 \cot (\theta )+\beta_{0,\theta}+4\gamma_{0, \theta})\gamma_{0,u}+3\beta_{0, u \theta}-8\gamma_{0, u \theta}) (\gamma_{1})^2-\\
+&6 U_{0} W_{3}\gamma_{1}+3 e^{2\beta_{0}-4\gamma_{0}} (2 e^{2\beta_{0}} (-4 (\gamma_{0,\theta})^3+6 \cot (\theta ) (\gamma_{0,\theta})^2+\\
+&(3 \csc ^2(\theta )+4\beta_{0, \theta \theta}+6\gamma_{0, \theta \theta}+2)\gamma_{0, \theta}+8 (\beta_{0,\theta})^2 (2 \cot (\theta )-\gamma_{0,\theta})+\\
+&2 \cot (\theta )\beta_{0, \theta \theta}-3 \cot (\theta )\gamma_{0, \theta \theta}-2\beta_{0,\theta} (\csc ^2(\theta )-4 (\gamma_{0,\theta})^2+8 \cot (\theta )\gamma_{0, \theta}+\\
+&4\beta_{0, \theta \theta}+2\gamma_{0, \theta \theta}+2(-2\beta_{0, \theta \theta \theta}-\gamma_{0, \theta \theta \theta})+e^{2\gamma_{0}} (4\gamma_{1,\theta} (U_{0, \theta}-2\gamma_{0,u})+\\
+&2 (8 \cot (\theta )+3\beta_{0,\theta}-8\gamma_{0, \theta})\gamma_{1,u}+3\gamma_{1, u \theta}))\gamma_{1}-24 e^{2\beta_{0}} U_{0}\gamma_4-12 U_{0} U_{3, \theta}+\\
+&3 e^{2\beta_{0}-2\gamma_{0}} W_{3, \theta}+12 e^{2\beta_{0}-2\gamma_{0}} W_{3}\beta_{0,\theta}-12 U_{0} U_{3} (\cot (\theta )+\gamma_{0,\theta})-\\
+&18 e^{4\beta_{0}-2\gamma_{0}} \gamma_{3, \theta}-24 (U_{0})^2 \gamma_{3, \theta}+\\
+&12 e^{4\beta_{0}-4\gamma_{0}} (\gamma_{1, \theta} (2\beta_{0,\theta} (\cot (\theta )+3\beta_{0,\theta}-2\gamma_{0, \theta})+\beta_{0, \theta \theta})+\beta_{0,\theta}\gamma_{1, \theta \theta})+\\
+&3 e^{2\beta_{0}-2\gamma_{0}} U_{0} ((\csc ^2(\theta )+16 (\gamma_{0,\theta})^2+8\beta_{0,\theta} (2 \cot (\theta )+\beta_{0,\theta})-\\
+&4 (7 \cot (\theta )+3\beta_{0,\theta})\gamma_{0, \theta}+4\beta_{0, \theta \theta}-12 (\gamma_{0, \theta \theta}+1)) (\gamma_{1})^2+\\
+&2 ((15 \cot (\theta )+12\beta_{0,\theta}-16\gamma_{0, \theta})\gamma_{1,\theta}+3\gamma_{1, \theta \theta})\gamma_{1}+10 (\gamma_{1, \theta})^2)+\\
+&6 U_{3} (2 e^{2\beta_{0}}\gamma_{1}-2 U_{0, \theta}+3\beta_{0,u}-\gamma_{0,u})+21 e^{2\beta_{0}-2\gamma_{0}}\gamma_{1,\theta}\gamma_{1,u}-24 U_{0} \gamma_{3,u})
+\end{split}
+\end{align}
+
+\textbf{$g=0$:}
+
+\begin{align*}  \label{eq: SC2}
+W_{3,u}=&3 e^{4 \beta_{0}} \gamma_{1}^4+\frac{1}{2} e^{-2 \gamma_{0}} (e^{2 \gamma_{0}} U_{0, \theta}^2-e^{4 \beta_{0}} (8 \text{ct}^2(\theta )-16 \gamma_{0, \theta} \text{ct}(\theta )+4 \beta_{0, \theta}^2+8 \gamma_{0, \theta}^2+\\
+&7 \beta_{0, \theta} (\text{ct}(\theta )-2 \gamma_{0, \theta})+7 \beta_{0, \theta \theta})) (\gamma_{1})^2+\frac{1}{2} e^{-2 \gamma_{0}} (-12 e^{4 \beta_{0}+2 \gamma_{0}} \gamma_{3}-\\
+&2 U_{0, \theta} (4 e^{2 \beta_{0}} \text{ct}^2(\theta )-9 e^{2 \beta_{0}} \gamma_{0, \theta} \text{ct}(\theta )-3 e^{2 \beta_{0}} \csc ^2(\theta )+6 e^{2 \beta_{0}} \beta_{0, \theta}^2+6 e^{2 \beta_{0}} \gamma_{0, \theta}^2+\\
+&e^{2 \beta_{0}} \beta_{0, \theta} (11 \text{ct}(\theta )-16 \gamma_{0, \theta})+3 e^{2 \beta_{0}} \beta_{0, \theta \theta}-5 e^{2 \beta_{0}} \gamma_{0, \theta \theta}-2 e^{2 \gamma_{0}} \gamma_{1,u})+\\
+&e^{2 \beta_{0}} (-e^{2 \beta_{0}} (15 \text{ct}(\theta )-14 \beta_{0, \theta}-14 \gamma_{0, \theta}) \gamma_{1, \theta}+4 (-\text{ct}(\theta )+\beta_{0, \theta}+\gamma_{0, \theta}) U_{0, \theta \theta}+\\
+&e^{2 \beta_{0}} \gamma_{1, \theta \theta}+2 U_{0, \theta \theta \theta}+32 \text{ct}(\theta ) \beta_{0, \theta} \gamma_{0,u}-32 \beta_{0, \theta} \gamma_{0, \theta} \gamma_{0,u}-12 \text{ct}(\theta ) \beta_{0, u \theta}-\\
+&16 \beta_{0, \theta} \beta_{0, u \theta}+16 \gamma_{0, \theta} \beta_{0, u \theta}+4 \text{ct}(\theta ) \gamma_{0, u \theta}+24 \beta_{0, \theta} \gamma_{0, u \theta}-8 \gamma_{0, \theta} \gamma_{0, u \theta}-4 \beta_{0, u \theta \theta}+\\
+&4 \gamma_{0, u \theta \theta})) \gamma_{1}+8 e^{4 \beta_{0}-4 \gamma_{0}} (\gamma_{0, \theta})^4-16 e^{4 \beta_{0}-4 \gamma_{0}} \text{ct}(\theta ) (\beta_{0, \theta})^3+(-14 e^{4 \beta_{0}-4 \gamma_{0}} \text{ct}(\theta )-\\
+&8 e^{4 \beta_{0}-4 \gamma_{0}} \beta_{0, \theta}) (\gamma_{0, \theta})^3-\frac{1}{2} e^{4 \beta_{0}-2 \gamma_{0}} (\gamma_{1, \theta})^2+(U_{0})^3 (\frac{7}{3} e^{2 \gamma_{0}-2 \beta_{0}} (\text{ct}(\theta )-2 \gamma_{0, \theta}) (\gamma_{1})^3+\\
+&4 e^{2 \gamma_{0}-2 \beta_{0}} (\gamma_{3} (2 \text{ct}(\theta )-\gamma_{0, \theta})+\gamma_{3, \theta}))+4 e^{2 \beta_{0}-4 \gamma_{0}} \beta_{0, \theta}^2 (-e^{2 \beta_{0}} \text{ct}^2(\theta )-2 e^{2 \beta_{0}}+\\
+&2 e^{2 \beta_{0}} \csc ^2(\theta )-4 e^{2 \beta_{0}} \beta_{0, \theta \theta}+2 e^{2 \beta_{0}} \gamma_{0, \theta \theta}+e^{2 \gamma_{0}} \gamma_{1,u})+\gamma_{0, \theta}^2 (-32 e^{4 \beta_{0}-4 \gamma_{0}} \beta_{0, \theta}^2+\\
+&28 e^{4 \beta_{0}-4 \gamma_{0}} \text{ct}(\theta ) \beta_{0, \theta}-e^{2 \beta_{0}-4 \gamma_{0}} (-3 e^{2 \beta_{0}} \text{ct}^2(\theta )+4 e^{2 \beta_{0}}+9 e^{2 \beta_{0}} \csc ^2(\theta )+\\
+&16 e^{2 \beta_{0}} \beta_{0, \theta \theta}+18 e^{2 \beta_{0}} \gamma_{0, \theta \theta}+4 e^{2 \gamma_{0}} \gamma_{1,u}))+(U_{0})^2 (\frac{1}{3} (-14) e^{2 \gamma_{0}} \gamma_{1}^4-\\
+&\frac{7}{3} e^{2 \gamma_{0}-2 \beta_{0}} (U_{0, \theta}+2 \gamma_{0,u}) (\gamma_{1})^3+\frac{1}{2} (-19 \text{ct}^2(\theta )+60 \gamma_{0, \theta} \text{ct}(\theta )+10 \csc ^2(\theta )-\\
+&8 \beta_{0, \theta}^2-32 \gamma_{0, \theta}^2+\beta_{0, \theta} (8 \gamma_{0, \theta}-17 \text{ct}(\theta ))-7 \beta_{0, \theta \theta}+20 \gamma_{0, \theta \theta}+8) (\gamma_{1})^2+\\
+&\frac{1}{2} e^{-2 \beta_{0}} (2 e^{2 \gamma_{0}} W_{3}-e^{2 \beta_{0}} (8 e^{2 \gamma_{0}} \gamma_{3}+(51 \text{ct}(\theta )+30 \beta_{0, \theta}-56 \gamma_{0, \theta}) \gamma_{1, \theta}+9 \gamma_{1, \theta \theta})) \gamma_{1}+\\
+&\frac{1}{2} e^{-2 \beta_{0}} (-13 e^{2 \beta_{0}} (\gamma_{1, \theta})^2+8 e^{2 (\beta_{0}+\gamma_{0})}\gamma_{4})+8 e^{2 \gamma_{0}} \gamma_{3} U_{0, \theta}+7 e^{2 \gamma_{0}} U_{3, \theta}+\\
+&3 e^{2 \gamma_{0}} U_{3} (3 \text{ct}(\theta )-2 \beta_{0, \theta}+2 \gamma_{0, \theta})-8 e^{2 \gamma_{0}} \gamma_{3} \gamma_{0,u}+8 e^{2 \gamma_{0}} \gamma_{3, u}))+\\
+&\gamma_{1, \theta} (-2 e^{2 \beta_{0}-2 \gamma_{0}} \beta_{0, \theta} (3 U_{0, \theta}-4 \gamma_{0,u})-\frac{1}{2} e^{2 \beta_{0}-2 \gamma_{0}} (13 \text{ct}(\theta ) U_{0, \theta}+2 U_{0, \theta \theta}+\\
+&8 \beta_{0, u \theta}-4 \gamma_{0, u \theta}))+e^{2 \beta_{0}-4 \gamma_{0}} \beta_{0, \theta} (-e^{2 \beta_{0}} \text{ct}(\theta ) \csc ^2(\theta )-2 e^{2 \beta_{0}} \text{ct}(\theta )+3 e^{4 \gamma_{0}} U_{3}-\\
+&16 e^{2 \beta_{0}} \text{ct}(\theta ) \beta_{0, \theta \theta}-10 e^{2 \beta_{0}} \text{ct}(\theta ) \gamma_{0, \theta \theta}-8 e^{2 \beta_{0}} \beta_{0, \theta \theta \theta}-2 e^{2 \beta_{0}} \gamma_{0, \theta \theta \theta}-\\
+&10 e^{2 \gamma_{0}} \text{ct}(\theta ) \gamma_{1,u}-4 e^{2 \gamma_{0}} \gamma_{1, u \theta})+\gamma_{0, \theta} (32 e^{4 \beta_{0}-4 \gamma_{0}} (\beta_{0, \theta})^3+8 e^{4 \beta_{0}-4 \gamma_{0}} \text{ct}(\theta ) \beta_{0, \theta}^2+\\
+&2 e^{2 \beta_{0}-4 \gamma_{0}} (-2 e^{2 \beta_{0}} \text{ct}^2(\theta )+6 e^{2 \beta_{0}}+3 e^{2 \beta_{0}} \csc ^2(\theta )+24 e^{2 \beta_{0}} \beta_{0, \theta \theta}+6 e^{2 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&4 e^{2 \gamma_{0}} \gamma_{1,u}) \beta_{0, \theta}+8 e^{2 \beta_{0}-2 \gamma_{0}} U_{0, \theta} \gamma_{1, \theta}+\frac{1}{2} e^{2 \beta_{0}-4 \gamma_{0}} (-3 e^{2 \beta_{0}} \text{ct}(\theta ) \csc ^2(\theta )+2 e^{2 \beta_{0}} \text{ct}(\theta )+\\
+&8 e^{2 \beta_{0}} \text{ct}(\theta ) \beta_{0, \theta \theta}+30 e^{2 \beta_{0}} \text{ct}(\theta ) \gamma_{0, \theta \theta}+16 e^{2 \beta_{0}} \beta_{0, \theta \theta \theta}+10 e^{2 \beta_{0}} \gamma_{0, \theta \theta \theta}+\\
+&12 e^{2 \gamma_{0}} \text{ct}(\theta ) \gamma_{1,u}+8 e^{2 \gamma_{0}} \gamma_{1, u \theta}))+U_{0} (10 e^{2 \beta_{0}} (\text{ct}(\theta )-\beta_{0, \theta}-\gamma_{0, \theta}) (\gamma_{1})^3+\\
+&(U_{0, \theta} (-6 \text{ct}(\theta )-8 \beta_{0, \theta}+8 \gamma_{0, \theta})-e^{2 \beta_{0}} \gamma_{1, \theta}+U_{0, \theta \theta}+16 \text{ct}(\theta ) \gamma_{0,u}-4 \beta_{0, \theta} \gamma_{0,u}-\\
+&16 \gamma_{0, \theta} \gamma_{0,u}-3 \beta_{0, u \theta}+8 \gamma_{0, u \theta}) (\gamma_{1})^2+e^{-2 \gamma_{0}} (-e^{2 \beta_{0}} \text{ct}^3(\theta )+3 e^{2 \beta_{0}} \gamma_{0, \theta} \text{ct}^2(\theta )+\\
+&2 e^{2 \beta_{0}} \csc ^2(\theta ) \text{ct}(\theta )-14 e^{2 \beta_{0}} \gamma_{0, \theta}^2 \text{ct}(\theta )-9 e^{2 \beta_{0}} \beta_{0, \theta \theta} \text{ct}(\theta )+9 e^{2 \beta_{0}} \gamma_{0, \theta \theta} \text{ct}(\theta )-\\
+&14 e^{2 \gamma_{0}} \gamma_{1,u} \text{ct}(\theta )+8 e^{2 \beta_{0}} (\gamma_{0, \theta})^3-4 e^{4 \gamma_{0}} U_{3}-4 e^{2 \beta_{0}} \gamma_{0, \theta}-10 e^{2 \beta_{0}} \csc ^2(\theta ) \gamma_{0, \theta}-  \\
+&2 e^{2 \beta_{0}} \beta_{0, \theta}^2 (15 \text{ct}(\theta )-8 \gamma_{0, \theta})-2 e^{2 \gamma_{0}} U_{0, \theta} \gamma_{1, \theta}-16 e^{2 \beta_{0}} \gamma_{0, \theta} \gamma_{0, \theta \theta}+2 e^{2 \beta_{0}} \beta_{0, \theta \theta \theta}+\\
+&4 e^{2 \beta_{0}} \gamma_{0, \theta \theta \theta}+8 e^{2 \gamma_{0}} \gamma_{1, \theta} \gamma_{0,u}+16 e^{2 \gamma_{0}} \gamma_{0, \theta} \gamma_{1,u}+\beta_{0, \theta} (-13 e^{2 \beta_{0}} \text{ct}^2(\theta )+\\
+&60 e^{2 \beta_{0}} \gamma_{0, \theta} \text{ct}(\theta )+8 e^{2 \beta_{0}}+12 e^{2 \beta_{0}} \csc ^2(\theta )-32 e^{2 \beta_{0}} \gamma_{0, \theta}^2+8 e^{2 \beta_{0}} \beta_{0, \theta \theta}+\\
+&20 e^{2 \beta_{0}} \gamma_{0, \theta \theta}-6 e^{2 \gamma_{0}} \gamma_{1,u})-3 e^{2 \gamma_{0}} \gamma_{1, u \theta}) \gamma_{1}+\frac{1}{2} e^{-2 (\beta_{0}+\gamma_{0})} (-7 e^{4 \beta_{0}} \gamma_{1, \theta} \text{ct}^2(\theta )-\\
+&48 e^{4 \beta_{0}} \beta_{0, \theta} \gamma_{1, \theta} \text{ct}(\theta )+16 e^{4 \beta_{0}} \gamma_{0, \theta} \gamma_{1, \theta} \text{ct}(\theta )-7 e^{4 \beta_{0}} \gamma_{1, \theta \theta} \text{ct}(\theta )+8 e^{4 \gamma_{0}} U_{3} U_{0, \theta}-\\
+&4 e^{2 (\beta_{0}+\gamma_{0})} W_{3, \theta}-e^{2 (\beta_{0}+\gamma_{0})} W_{3} (3 \text{ct}(\theta )+4 \beta_{0, \theta})+\\
+&24 e^{4 \beta_{0}+2 \gamma_{0}} \gamma_{3} (\text{ct}(\theta )+\beta_{0, \theta}-\gamma_{0, \theta})+8 e^{4 \beta_{0}} \csc ^2(\theta ) \gamma_{1, \theta}-40 e^{4 \beta_{0}} \beta_{0, \theta}^2 \gamma_{1, \theta}-\\
+&8 e^{4 \beta_{0}} \gamma_{0, \theta}^2 \gamma_{1, \theta}+64 e^{4 \beta_{0}} \beta_{0, \theta} \gamma_{0, \theta} \gamma_{1, \theta}+12 e^{4 \beta_{0}+2 \gamma_{0}} \gamma_{3, \theta}-12 e^{4 \beta_{0}} \gamma_{1, \theta} \beta_{0, \theta \theta}+\\
+&8 e^{4 \beta_{0}} \gamma_{1, \theta} \gamma_{0, \theta \theta}-16 e^{4 \beta_{0}} \beta_{0, \theta} \gamma_{1, \theta \theta}+8 e^{4 \beta_{0}} \gamma_{0, \theta} \gamma_{1, \theta \theta}-2 e^{4 \beta_{0}} \gamma_{1, \theta \theta \theta}+6 e^{4 \gamma_{0}} U_{3, u}-\\
+&12 e^{4 \gamma_{0}} U_{3} \beta_{0,u}+4 e^{4 \gamma_{0}} U_{3} \gamma_{0,u}-6 e^{2 (\beta_{0}+\gamma_{0})} \gamma_{1, \theta} \gamma_{1,u}))+\frac{1}{2} e^{-4 \gamma_{0}} (-2 e^{4 \beta_{0}} \beta_{0, \theta \theta} \text{ct}^2(\theta )-\\
+&3 e^{4 \beta_{0}} \gamma_{0, \theta \theta} \text{ct}^2(\theta )-4 e^{2 (\beta_{0}+\gamma_{0})} \gamma_{1,u} \text{ct}^2(\theta )+3 e^{2 \beta_{0}+4 \gamma_{0}} U_{3} \text{ct}(\theta )-4 e^{4 \beta_{0}} \beta_{0, \theta \theta \theta} \text{ct}(\theta )-\\
+&4 e^{4 \beta_{0}} \gamma_{0, \theta \theta \theta} \text{ct}(\theta )-6 e^{2 (\beta_{0}+\gamma_{0})} \gamma_{1, u \theta} \text{ct}(\theta )-8 e^{4 \beta_{0}} (\beta_{0, \theta \theta})^2+6 e^{4 \beta_{0}} (\gamma_{0, \theta \theta})^2+\\
+&4 e^{4 \gamma_{0}} (\gamma_{1,u})^2+3 e^{2 \beta_{0}+4 \gamma_{0}} U_{3, \theta}-4 e^{4 \beta_{0}} \beta_{0, \theta \theta}+4 e^{4 \beta_{0}} \csc ^2(\theta ) \beta_{0, \theta \theta}+2 e^{4 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&6 e^{4 \beta_{0}} \csc ^2(\theta ) \gamma_{0, \theta \theta}+8 e^{4 \beta_{0}} \beta_{0, \theta \theta} \gamma_{0, \theta \theta}-5 e^{2 (\beta_{0}+\gamma_{0})} U_{0, \theta} \gamma_{1, \theta \theta}-2 e^{4 \beta_{0}} \beta_{0, \theta \theta \theta \theta}-\\
+&e^{4 \beta_{0}} \gamma_{0, \theta \theta \theta \theta}-e^{4 \gamma_{0}} W_{3} (3 U_{0, \theta}-4 \beta_{0,u})+4 e^{2 (\beta_{0}+\gamma_{0})} \csc ^2(\theta ) \gamma_{1,u}+\\
+&4 e^{2 (\beta_{0}+\gamma_{0})} \beta_{0, \theta \theta} \gamma_{1,u}+4 e^{2 (\beta_{0}+\gamma_{0})} \gamma_{0, \theta \theta} \gamma_{1,u}-2 e^{2 (\beta_{0}+\gamma_{0})} \gamma_{1, u \theta \theta}) \tag{A.2}
+\end{align*}
+
+\noindent where we have used the abbreviation `ct$(\theta)$' to refer to the cotangent function. These two equations are essential to check that $g_{(3)ab}$ satisfies the conservation property (5.3).
+
+\section{Intermediate pieces of the Fefferman-Graham transformation}  \label{sec: FG_appendix}
+
+
+In this appendix we provide formulae for transforming the Bondi-Sachs metric into the Fefferman-Graham form. Expressions for the intermediate metric tensors are omitted to avoid printing lots of long and unwieldy equations.
+
+\subsection{Vanishing of $g_{(1)}$}
+
+\noindent When looking at this piece of the transformation we first note that the Bondi metric (5.19) used to compute $g_{(0)}$  is unsuitable to correctly compute $g_{(1)}$. It only contains the solutions to Einstein's equations to leading order and for $g_{(1)}$ we will need to consider the terms which give $1/r \sim \rho$ contributions to the metric. To compute $g_{(1)}$ we use metric functions
+
+\begin{subequations}
+\begin{align}
+\gamma(u,r,\theta)&=\gamma_{0}(u,\theta)+ \frac{\gamma_{1} (u,\theta)}{r}  \\
+\beta(u,r,\theta)&=\beta_{0}(u,\theta)  \\
+U(u,r,\theta)&=U_{0}(u,\theta)+\frac{2}{r}e^{2(\beta_{0}(u,\theta)-\gamma_{0}(u,\theta))}\beta_{0,\theta}(u,\theta) \\
+W(u,r,\theta)&=e^{2\beta_{0}(u,\theta)}+\frac{\cot(\theta)U_{0}(u,\theta)+U_{0,\theta}}{r}.
+\end{align}
+\end{subequations}
+
+\noindent which are the solutions to the field equations (3.5a-d) up to $\mathcal{O}(1/r)$. Notice also that we have reintroduced here the normalisation of $l=1$. \par
+
+As before, we begin with the Bondi metric in the form (5.5) and transform into the coordinates $(t, r_*, \theta, \phi)$ and using transformations (5.8) and (5.10) 
+
+\begin{subequations}
+\begin{align}
+u&=t-r_* \\
+r&=\tan(r_*+ \pi/2)
+\end{align}
+\end{subequations}
+
+\noindent where we have written the transformation (5.10) in exact form with our normalisation for the $AdS$ radius $l$ (also note that this normalisation allows us to avoid the scale transformation $t \rightarrow lt$). This transformation gives us the metric \par
+
+When moving into the Fefferman-Graham coordinate system we want to keep the metric tensor transformation exact up to order $1/\rho$. To do this, we will need to extend the transformations (5.13, 5.21) that we previously performed in $(r_* ,t,\theta)$ to one order higher in $\rho$.  
+
+\begin{subequations}
+\begin{align}
+&r_* \rightarrow \textcolor{blue}{\rho}  + b_1(t,\theta) \rho^2 \\
+&t \rightarrow t + \alpha_1(t,\theta)\rho + b_2(t,\theta) \rho^2 \\
+&\theta \rightarrow \theta + \alpha_2(t,\theta)\rho + b_3(t,\theta) \rho^2 
+\end{align}
+\end{subequations}
+
+\noindent where $\alpha_{1,2}$ are those that we computed in the $g_{(0)}$ transformation (5.27) and $b_{1,2,3}$ are to be determined. When considering how the differentials transform it will again be sufficient to consider the pieces which contribute to the metric at $\mathcal{O}(1/\rho)$: We have
+
+\begin{subequations}
+\begin{align}
+&dr_* \rightarrow  \textcolor{blue}{d\rho} +2b_1\rho d\rho \\
+&dt \rightarrow dt + \alpha_1 d\rho + (\partial_t \alpha_1) \rho dt +  (\partial_{\theta} \alpha_1) \rho d\theta + 2\rho b_2 d\rho \\
+&d\theta \rightarrow d\theta  + \alpha_2 d\rho + (\partial_t \alpha_2) \rho dt +  (\partial_{\theta} \alpha_2) \rho d\theta + 2\rho b_3 d\rho.
+\end{align}
+\end{subequations}
+
+The final subtlety when applying this procedure is to remember that the metric functions $\gamma, \beta, U, W$ are all functions of $(t-r_* , \theta)$ prior to applying these transformations. We want to include terms up to $\mathcal{O}(\rho)$ in these arguments when considering the transformed arguments as these will contribute to the series at $\mathcal{O}(1/\rho)$ 
+
+\begin{equation} 
+t-r_* \rightarrow  \, t+\rho\alpha_1 - \textcolor{blue}{\rho}+\mathcal{O}(\rho^2)=t+\rho(\alpha_1-\textcolor{blue}{1})+\mathcal{O}(\rho^2)
+\end{equation}
+
+\noindent and 
+
+\begin{equation}
+\theta \rightarrow  \theta +\alpha_2 \rho + \mathcal{O}(\rho^2)
+\end{equation}
+
+\noindent so to catch all of the contributing terms at $\mathcal{O}(1/\rho)$ we need to input the argument $(t+\rho(\alpha_1-\textcolor{blue}{1}), \theta+ \alpha_2 \rho)$ into our transformed metric functions before we take their series expansions about $\rho=0$. \par
+
+Performing this transformation and taking the series expansion about $\rho=0$ recovers the metric $g_{(0)ab}$ (up to the conformal factor) at order $1/\rho^2$. At order $1/\rho$ we are initially left with a seemingly non-zero term with dependence upon our 3 undetermined transformation coefficients $b_{1,2,3}$. To choose $b_{1,2,3}$; we enforce the $\rho$ terms in $g_{(1)}$ vanish i.e.
+
+\begin{equation}
+g_{(1)\rho \rho}(b_1,b_2,b_3)=g_{(1)\rho t}(b_1,b_2,b_3)=g_{(1)\rho \theta}(b_1,b_2,b_3)=0 
+\end{equation}
+
+\noindent as $g_{(1) \rho \phi}$ vanishes automatically by the axi and reflection symmetry. It turns out that the $g_{\rho \rho}$ term simplifies as 
+
+\begin{equation}
+g_{(1)\rho \rho}=g_{(1)\rho \rho}(b_1)=\textcolor{blue}{2b_1}+\textcolor{blue}{e^{-2\hat{\beta}_0}\cot(\theta)\hat{U}_0}+\textcolor{blue}{e^{-2\hat{\beta}_0}\hat{U}_{0,\theta}}
+\end{equation}
+
+\noindent so we can solve this equation for $b_1$ and then we will only be left with a $2 \times 2$ problem in the other unknowns $b_{2,3}$. Solving $g_{(1)\rho \rho}=0$ gives us 
+\begin{subequations}
+\begin{equation}
+b_1=-\textcolor{blue}{\frac{1}{2}}e^{-2\hat{\beta}_{0}}(\hat{U}_{0,\theta}+\cot(\theta)\hat{U}_{0})
+\end{equation}
+
+\noindent using $b_1$ it is straightforward to now solve the remaining equations of (B.7); giving us solutions of the form 
+\begin{align}
+b_2&=-\textcolor{blue}{\frac{1}{2}}e^{-4\hat{\beta}_{0}}(e^{2\hat{\beta}_{0}}(\hat{U}_{0,\theta}+\cot(\theta)\hat{U}_{0})+2(\hat{\beta}_{0,t}+\hat{\beta}_{0,\theta}\hat{U}_{0})) \\
+b_3&=\textcolor{blue}{e^{-2\hat{\gamma}_{0}}\hat{\beta}_{0,\theta}}+\textcolor{blue}{\frac{1}{2}}e^{-4\hat{\beta}_{0}}(\hat{U}_{0,t}+\hat{U}_{0}(\hat{U}_{0,\theta}-2(\hat{\beta}_{0,t}+\hat{\beta}_{0,\theta}\hat{U}_{0}))).
+\end{align}
+\end{subequations}
+
+\noindent where all function arguments are $(t,\theta)$. \par
+
+As our metric is Einstein, simply enforcing equations (B.9a-c) in the transformation should make all other coefficients at $\mathcal{O}(1/\rho)$ vanish. To check this we apply all of the transformation steps that we've detailed in this section and also input the values of $b_{1,2,3}$ in (B.9a-c). At $\mathcal{O}(1/\rho)$ this leaves us with the line element
+
+\begin{align}
+\begin{split}
+ds_{(1)}^2=-\frac{1}{\textcolor{blue}{2}}e^{-2(\hat{\beta}_{0}+\hat{\gamma}_{0})}&(2dt^2e^{4\hat{\gamma}_{0}}\hat{U}_{0}^2-4dtd\theta e^{4\hat{\gamma}_{0}}\hat{U}_{0}+2d\theta^2e^{4\hat{\gamma}_{0}}-2\sin^2(\theta)d\phi^2) \times \\
+&(\hat{U}_{0,\theta}+2\hat{\gamma}_{0,t}-\cot(\theta)\hat{U}_{0}+2\hat{\gamma}_{0,\theta}\hat{U}_{0}+2e^{2\hat{\beta}_{0}}\hat{\gamma}_{1}).
+\end{split}
+\end{align}
+
+\noindent The important term here is the one on the second line, which we would like to vanish as a consequence of Einstein's equations. Looking back at the equations, we recall equation (3.19):
+
+\begin{equation}
+\gamma_1=\frac{1}{2}e^{-2\beta_0}(\cot(\theta) U_0-U_{0,\theta}-2U_0 \gamma_{0,\theta}-2\gamma_{0,u})
+\end{equation}
+
+\noindent and comparing; we see that the second line of (A.10) is precisely this Einstein equation (at the boundary), forcing equation (A.10) to vanish. The fact that our metric satisfies then Einstein equations forces all of the metric coefficients to vanish at $\mathcal{O}(1/\rho)$   
+
+\subsection{Checking $g_{(2)}$}
+
+The $g_{(2)}$ term in the FG metric is a useful sanity check in the expansion as it is known to be given in terms of the curvatures of the lower order expansion coefficients \cite{deHaro:2000vlm}
+
+\begin{equation} \label{eq: AdS_g_2_check}
+g_{(2)ab}=-R_{(0)ab}+\frac{1}{4}R_{(0)}g_{(0)ab}
+\end{equation}
+
+\noindent where $R_{(0)ab}$ and $R_{(0)}$ are the respectively the Ricci tensor and scalar of the boundary metric tensor $g_{(0)ab}$ \par
+
+We now proceed to compute $g_{(2)}$ from the Fefferman-Graham expansion and check it via use of the formula above. The procedure for this step is the same as before with one extra order added in each step. We impose the solutions to the Einstein equations as terms up to $\mathcal{O}(1/r^2)$. This procedure gives us the functions 
+
+\begin{subequations}
+\begin{align}
+\gamma(u,r,\theta)&=\gamma_{0}+ \frac{\gamma_1}{r}\\
+\beta(u,r,\theta)&=\beta_{0}-\frac{\gamma_1^2}{4r^2} \\
+\begin{split}
+U(u,r,\theta)&=U_{0}+\frac{2}{r}\beta_{0, \theta} e^{2( \beta_0- \gamma_0)} -  \frac{1}{r^2}e^{2 \beta_0-2 \gamma_0} (2 \beta_{0,\theta} \gamma_1-2 \gamma_{0,\theta}\gamma_1+\gamma_{1,\theta}+2 \text{ct}(\theta ) \gamma_1)
+\end{split}\\
+\begin{split}
+W(u,r,\theta)&=e^{2\beta_{0}}+\frac{1}{r}[\cot(\theta)U_{0}+U_{0,\theta}]+ \frac{1}{2r^2}e^{2(\beta_{0}-\gamma_{0})}[2-3e^{2\gamma_0}\gamma_1^2+4\cot(\theta)\beta_{0,\theta}+\\
+&\phantom{aaa}8(\beta_{0,\theta})^2+6\cot(\theta)\gamma_{0,\theta}-8\beta_{0,\theta}\gamma_{0,\theta}-4(\gamma_{0,\theta})^2+4\beta_{0,\theta \theta}+2\gamma_{0,\theta \theta}]
+\end{split}
+\end{align}
+\end{subequations}
+
+\noindent where, as usual, all of the coefficient functions are taken to be functions of $(u,\theta)$. The final `main' Einstein equation also gives us the coefficient $\gamma_1$ in terms of lower order functions;
+ 
+\begin{equation}
+\gamma_1=\frac{e^{-2\beta_0}}{2}(\cot(\theta)U_0-U_{0,\theta}-2U_0\gamma_{0,\theta}-2\gamma_{0,u}) 
+\end{equation}
+
+\noindent which is a condition that we will also apply throughout the transformation. \par
+
+
+The transformation itself is again performed by using (B.2) to move into real time $t$ and tortoise coordinate $r_*$  before expanding our coordinates $(r_*, t, \theta)$ in power series in $\rho$. For $g_{(2)}$ we will include terms up to $\mathcal{O}(\rho^3)$. We use the choices of $\alpha_i$ and $\beta_i$ as before and introduce new unknown coefficients $c_i(t,\theta)$ at the next order
+
+\begin{align}
+\begin{split}
+&r_* \rightarrow \textcolor{blue}{\rho}  + b_1(t,\theta) \rho^2+c_1(t,\theta) \rho^3 \\
+&t \rightarrow t + \alpha_1(t,\theta)\rho + b_2(t,\theta) \rho^2+c_2(t,\theta) \rho^3 \\
+&\theta \rightarrow \theta + \alpha_2(t,\theta)\rho + b_3(t,\theta) \rho^2+c_3(t,\theta) \rho^3. 
+\end{split}
+\end{align}
+
+The differentials will transform similarly although we only need to consider these up to $\mathcal{O}(\rho^2)$ as higher order pieces won't contribute to the $g_{(2)}$ piece of the metric. \par
+
+The procedure for obtaining the $c_i$ is very similar to that of the $b_i$ which we performed for the previous order; we must choose them in order to force $g_{(2) \rho \rho}=g_{(2) \rho t}=g_{(2) \rho \theta}=0$ which is simply solving a $3 \times 3$ system of linear equations. \textcolor{red}{the details of this are in the mathematica file ``$g_{(2)}$ transformation''} 
+
+\begin{subequations}
+\begin{align}
+\begin{split}
+\textcolor{blue}{8}c_1(t,\theta)=&\frac{1}{3} e^{-4\beta_{0}-2 \gamma_{0}} (-8 e^{4\beta_{0}+2 \gamma_{0}}-12 e^{4\beta_{0}} (\gamma_{0, \theta})^2-24 e^{4\beta_{0}}\beta_{0, \theta} \gamma_{0, \theta}+\\
+&6 e^{4\beta_{0}} \gamma_{0, \theta \theta}+18 \cot (\theta ) e^{4\beta_{0}} \gamma_{0, \theta}+6 e^{4\beta_{0}}+24 e^{4\beta_{0}} (\beta_{0, \theta})^2+12 e^{4\beta_{0}}\beta_{0, \theta \theta}+\\
+&12 \cot (\theta ) e^{4\beta_{0}}\beta_{0, \theta}-6 e^{2 \gamma_{0}} (\gamma_{0, t})^2-12\beta_{0, \theta} e^{2 \gamma_{0}} U_{0,\theta} U_{0}-12\beta_{0, t} e^{2 \gamma_{0}} U_{0,\theta}-\\
+&12 \cot (\theta )\beta_{0, \theta} e^{2 \gamma_{0}} (U_{0})^2-12 \cot (\theta )\beta_{0, t} e^{2 \gamma_{0}} U_{0}-6 e^{2 \gamma_{0}} (U_{0})^2-\\
+&6 e^{2 \gamma_{0}} (\gamma_{0, \theta})^2 (U_{0})^2-6 e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0,\theta} U_{0}+6 e^{2 \gamma_{0}} U_{0,\theta \theta} U_{0}-12 e^{2 \gamma_{0}} \gamma_{0, \theta} \gamma_{0, t} U_{0}+\\
+&3 e^{2 \gamma_{0}} (U_{0,\theta})^2-6 e^{2 \gamma_{0}} \gamma_{0, t} U_{0,\theta}+6 e^{2 \gamma_{0}} U_{0,t \theta}-3 \cot ^2(\theta ) e^{2 \gamma_{0}} (U_{0})^2+\\
+&6 \cot (\theta ) e^{2 \gamma_{0}} \gamma_{0, \theta} (U_{0})^2+18 \cot (\theta ) e^{2 \gamma_{0}} U_{0,\theta} U_{0}+6 \cot (\theta ) e^{2 \gamma_{0}} \gamma_{0, t} U_{0}+\\
+&6 \cot (\theta ) e^{2 \gamma_{0}} U_{0,t})
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+\textcolor{blue}{8}c_2(t, \theta) =& -\frac{1}{3} e^{-6\beta_{0}-2 \gamma_{0}} (2 e^{2 \gamma_{0}} (U_{0})^2+6 e^{2\beta_{0}+2 \gamma_{0}} (U_{0})^2+4 e^{2 \gamma_{0}} \cot ^2(\theta ) (U_{0})^2+\\
+&3 e^{2\beta_{0}+2 \gamma_{0}} \cot ^2(\theta ) (U_{0})^2-4 e^{2 \gamma_{0}} \csc ^2(\theta ) (U_{0})^2+32 e^{2 \gamma_{0}} (\beta_{0, \theta})^2 (U_{0})^2+\\
+&6 e^{2 \gamma_{0}} (\gamma_{0, \theta})^2 (U_{0})^2+6 e^{2\beta_{0}+2 \gamma_{0}} (\gamma_{0, \theta})^2 (U_{0})^2-4 e^{2 \gamma_{0}} \cot (\theta )\beta_{0, \theta} (U_{0})^2+\\
+&12 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta )\beta_{0, \theta} (U_{0})^2-6 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, \theta} (U_{0})^2-\\
+&6 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta ) \gamma_{0, \theta} (U_{0})^2-8 e^{2 \gamma_{0}}\beta_{0, \theta \theta} (U_{0})^2-18 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta ) U_{0, \theta} U_{0}-\\
+&12 e^{2 \gamma_{0}} U_{0, \theta}\beta_{0, \theta} U_{0}+12 e^{2\beta_{0}+2 \gamma_{0}} U_{0, \theta}\beta_{0, \theta} U_{0}+6 e^{2 \gamma_{0}} U_{0, \theta} \gamma_{0, \theta} U_{0}+\\
+&6 e^{2\beta_{0}+2 \gamma_{0}} U_{0, \theta} \gamma_{0, \theta} U_{0}+2 e^{2 \gamma_{0}} U_{0, \theta \theta} U_{0}-6 e^{2\beta_{0}+2 \gamma_{0}} U_{0, \theta \theta} U_{0}-\\
+&4 e^{2 \gamma_{0}} \cot (\theta )\beta_{0, t} U_{0}+12 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta )\beta_{0, t} U_{0}+64 e^{2 \gamma_{0}}\beta_{0, \theta}\beta_{0, t} U_{0}-\\
+&6 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, t} U_{0}-6 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta ) \gamma_{0, t} U_{0}+12 e^{2 \gamma_{0}} \gamma_{0, \theta} \gamma_{0, t} U_{0}+\\
+&12 e^{2\beta_{0}+2 \gamma_{0}} \gamma_{0, \theta} \gamma_{0, t} U_{0}-16 e^{2 \gamma_{0}}\beta_{0, t \theta} U_{0}-2 e^{4\beta_{0}}-6 e^{6\beta_{0}}+8 e^{6\beta_{0}+2 \gamma_{0}}+\\
+&2 e^{2 \gamma_{0}} (U_{0, \theta})^2-3 e^{2\beta_{0}+2 \gamma_{0}} (U_{0, \theta})^2-24 e^{4\beta_{0}} (\beta_{0, \theta})^2-24 e^{6\beta_{0}} (\beta_{0, \theta})^2+\\
+&4 e^{4\beta_{0}} (\gamma_{0, \theta})^2+12 e^{6\beta_{0}} (\gamma_{0, \theta})^2+32 e^{2 \gamma_{0}} (\beta_{0, t})^2+6 e^{2 \gamma_{0}} (\gamma_{0, t})^2+\\
+&6 e^{2\beta_{0}+2 \gamma_{0}} (\gamma_{0, t})^2-4 e^{4\beta_{0}} \cot (\theta )\beta_{0, \theta}-12 e^{6\beta_{0}} \cot (\theta )\beta_{0, \theta}-6 e^{4\beta_{0}} \cot (\theta ) \gamma_{0, \theta}-\\
+&18 e^{6\beta_{0}} \cot (\theta ) \gamma_{0, \theta}+8 e^{4\beta_{0}}\beta_{0, \theta} \gamma_{0, \theta}+24 e^{6\beta_{0}}\beta_{0, \theta} \gamma_{0, \theta}-4 e^{4\beta_{0}}\beta_{0, \theta \theta}-\\
+&12 e^{6\beta_{0}}\beta_{0, \theta \theta}-2 e^{4\beta_{0}} \gamma_{0, \theta \theta}-6 e^{6\beta_{0}} \gamma_{0, \theta \theta}+2 e^{2 \gamma_{0}} \cot (\theta ) U_{0, t}-\\
+&6 e^{2\beta_{0}+2 \gamma_{0}} \cot (\theta ) U_{0, t}-8 e^{2 \gamma_{0}}\beta_{0, \theta} U_{0, t}-4 e^{2 \gamma_{0}} U_{0, \theta}\beta_{0, t}+12 e^{2\beta_{0}+2 \gamma_{0}} U_{0, \theta}\beta_{0, t}+\\
+&6 e^{2 \gamma_{0}} U_{0, \theta} \gamma_{0, t}+6 e^{2\beta_{0}+2 \gamma_{0}} U_{0, \theta} \gamma_{0, t}+2 e^{2 \gamma_{0}} U_{0, t \theta}-6 e^{2\beta_{0}+2 \gamma_{0}} U_{0, t \theta}-8 e^{2 \gamma_{0}}\beta_{0, t t})
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+\textcolor{blue}{8}c_3(t,\theta)=&-\frac{2}{3} e^{-6\beta_{0}-2 \gamma_{0}} (e^{2 \gamma_{0}} (U_{0})^3+2 e^{2 \gamma_{0}} \cot ^2(\theta ) (U_{0})^3-2 e^{2 \gamma_{0}} \csc ^2(\theta ) (U_{0})^3+\\
+&16 e^{2 \gamma_{0}} (\beta_{0, \theta})^2 (U_{0})^3+3 e^{2 \gamma_{0}} (\gamma_{0, \theta})^2 (U_{0})^3-2 e^{2 \gamma_{0}} \cot (\theta )\beta_{0, \theta} (U_{0})^3-\\
+&3 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, \theta} (U_{0})^3-4 e^{2 \gamma_{0}}\beta_{0, \theta \theta} (U_{0})^3-18 e^{2 \gamma_{0}} U_{0, \theta}\beta_{0, \theta} (U_{0})^2+\\
+&3 e^{2 \gamma_{0}} U_{0, \theta} \gamma_{0, \theta} (U_{0})^2+3 e^{2 \gamma_{0}} U_{0, \theta \theta} (U_{0})^2-2 e^{2 \gamma_{0}} \cot (\theta )\beta_{0, t} (U_{0})^2+\\
+&32 e^{2 \gamma_{0}}\beta_{0, \theta}\beta_{0, t} (U_{0})^2-3 e^{2 \gamma_{0}} \cot (\theta ) \gamma_{0, t} (U_{0})^2+6 e^{2 \gamma_{0}} \gamma_{0, \theta} \gamma_{0, t} (U_{0})^2-\\
+&8 e^{2 \gamma_{0}}\beta_{0, t \theta} (U_{0})^2-4 e^{4\beta_{0}} \cot ^2(\theta ) U_{0}+4 e^{4\beta_{0}} \csc ^2(\theta ) U_{0}+3 e^{2 \gamma_{0}} (U_{0, \theta})^2 U_{0}-\\
+&12 e^{4\beta_{0}} (\beta_{0, \theta})^2 U_{0}-6 e^{4\beta_{0}} (\gamma_{0, \theta})^2 U_{0}+16 e^{2 \gamma_{0}} (\beta_{0, t})^2 U_{0}+3 e^{2 \gamma_{0}} (\gamma_{0, t})^2 U_{0}-\\
+&e^{4\beta_{0}} U_{0}+6 e^{4\beta_{0}} \cot (\theta )\beta_{0, \theta} U_{0}+9 e^{4\beta_{0}} \cot (\theta ) \gamma_{0, \theta} U_{0}-12 e^{4\beta_{0}}\beta_{0, \theta} \gamma_{0, \theta} U_{0}+\\
+&6 e^{4\beta_{0}}\beta_{0, \theta \theta} U_{0}+3 e^{4\beta_{0}} \gamma_{0, \theta \theta} U_{0}+e^{2 \gamma_{0}} \cot (\theta ) U_{0, t} U_{0}-16 e^{2 \gamma_{0}}\beta_{0, \theta} U_{0, t} U_{0}-\\
+&14 e^{2 \gamma_{0}} U_{0, \theta}\beta_{0, t} U_{0}+3 e^{2 \gamma_{0}} U_{0, \theta} \gamma_{0, t} U_{0}+5 e^{2 \gamma_{0}} U_{0, t \theta} U_{0}-4 e^{2 \gamma_{0}}\beta_{0, t t} U_{0}+\\
+&12 e^{4\beta_{0}} U_{0, \theta}\beta_{0, \theta}+2 e^{2 \gamma_{0}} U_{0, \theta} U_{0, t}-12 e^{2 \gamma_{0}} U_{0, t}\beta_{0, t}+8 e^{4\beta_{0}} \cot (\theta ) \gamma_{0, t}-\\
+&16 e^{4\beta_{0}}\beta_{0, \theta} \gamma_{0, t}-8 e^{4\beta_{0}} \gamma_{0, \theta} \gamma_{0, t}+8 e^{4\beta_{0}}\beta_{0, t \theta}+4 e^{4\beta_{0}} \gamma_{0, t \theta}+2 e^{2 \gamma_{0}} U_{0, t t})
+\end{split}
+\end{align}
+\end{subequations}
+\noindent Using the $c_i$ coefficients above, we have $g_{2}$:
+
+\begin{subequations}
+
+\begin{align}
+\begin{split} \label{eq: g_2tt}
+g_{(2) tt}=&\frac{1}{2} e^{2 \gamma_{0}-4 \beta_{0}} ((\gamma_{0, \theta})^2-3 \cot (\theta ) \gamma_{0, \theta}-2 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-2 \gamma_{0, \theta \theta}-1) (U_{0})^4+\\
+&\frac{1}{2} e^{2 \gamma_{0}-4 \beta_{0}} (U_{0, \theta} (2 \beta_{0, \theta}-3 \gamma_{0, \theta})-U_{0, \theta \theta}-2 \cot (\theta ) \beta_{0, t}+4 \gamma_{0, \theta} \beta_{0, t}-3 \cot (\theta ) \gamma_{0, t}+\\
+&4 \beta_{0, \theta} \gamma_{0, t}+2 \gamma_{0, \theta} \gamma_{0, t}-4 \gamma_{0, t \theta}) (U_{0})^3+\frac{1}{2} e^{-4 \beta_{0}} (-e^{2 \gamma_{0}} (U_{0, \theta})^2+\\
+&e^{2 \gamma_{0}} (2 \beta_{0, t}-\gamma_{0, t}) U_{0, \theta}+2 e^{4 \beta_{0}}+4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-3 e^{4 \beta_{0}} (\gamma_{0, \theta})^2+e^{2 \gamma_{0}} (\gamma_{0, t})^2+\\
+&6 e^{4 \beta_{0}} \cot (\theta ) \gamma_{0, \theta}+4 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})+2 e^{4 \beta_{0}} \beta_{0, \theta \theta}+3 e^{4 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&e^{2 \gamma_{0}} \cot (\theta ) U_{0, t}-2 e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+4 e^{2 \gamma_{0}} \beta_{0, t} \gamma_{0, t}-e^{2 \gamma_{0}} U_{0, t \theta}-2 e^{2 \gamma_{0}} \gamma_{0, t t}) (U_{0})^2+\\
+&\frac{1}{2} (U_{0, \theta} (3 \gamma_{0, \theta}-2 \beta_{0, \theta})+U_{0, \theta \theta}-2 \cot (\theta ) \beta_{0, t}+5 \cot (\theta ) \gamma_{0, t}-8 \beta_{0, \theta} \gamma_{0, t}-\\
+&2 \gamma_{0, \theta} \gamma_{0, t}+4 \gamma_{0, t \theta}) U_{0}+\frac{1}{2} e^{-2 \gamma_{0}} (e^{2 \gamma_{0}} (U_{0, \theta})^2-e^{2 \gamma_{0}} (2 \beta_{0, t}-3 \gamma_{0, t}) U_{0, \theta}-e^{4 \beta_{0}}-\\
+&4 e^{4 \beta_{0}} (\beta_{0, \theta})^2+2 e^{4 \beta_{0}} (\gamma_{0, \theta})^2+3 e^{2 \gamma_{0}} (\gamma_{0, t})^2-3 e^{4 \beta_{0}} \cot (\theta ) \gamma_{0, \theta}-\\
+&2 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}-e^{4 \beta_{0}} \gamma_{0, \theta \theta}+e^{2 \gamma_{0}} \cot (\theta ) U_{0, t}+e^{2 \gamma_{0}} U_{0, t \theta})
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+g_{(2) t \theta}=&2 \gamma_{0, t} (\beta_{0, \theta}+\gamma_{0, \theta}-\cot (\theta ))-\gamma_{0, t \theta}+\frac{1}{2} (U_{0})^3 e^{2 \gamma_{0}-4 \beta_{0}} (2 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-\\
+&(\gamma_{0, \theta})^2+2 \gamma_{0, \theta \theta}+3 \cot (\theta ) \gamma_{0, \theta}+1)+\frac{1}{2} (U_{0})^2 e^{2 \gamma_{0}-4 \beta_{0}} (-4 \beta_{0, t} \gamma_{0, \theta}-4 \beta_{0, \theta} \gamma_{0, t}+\\
+&2 \cot (\theta ) \beta_{0, t}-2 \gamma_{0, \theta} \gamma_{0, t}+4 \gamma_{0, t \theta}+3 \cot (\theta ) \gamma_{0, t}+U_{0, \theta} (3 \gamma_{0, \theta}-2 \beta_{0, \theta})+U_{0, \theta \theta})+\\
+&\frac{1}{2} e^{-4 \beta_{0}} U_{0} (2 e^{4 \beta_{0}} (\gamma_{0, \theta})^2-e^{4 \beta_{0}} \gamma_{0, \theta \theta}-4 \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}-3 \cot (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}-\\
+&2 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-e^{4 \beta_{0}}-4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}-e^{2 \gamma_{0}} (\gamma_{0, t})^2+\\
+&2 e^{2 \gamma_{0}} \gamma_{0, t t}-e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})+e^{2 \gamma_{0}} (U_{0, \theta})^2+2 e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+\\
+&e^{2 \gamma_{0}} U_{0, t \theta}-\cot (\theta ) e^{2 \gamma_{0}} U_{0, t})
+\end{split}
+\end{align} 
+
+\begin{align}
+\begin{split}
+g_{(2) \theta \theta}=&\frac{1}{2} (U_{0})^2 e^{2 \gamma_{0}-4 \beta_{0}} (-2 \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})+(\gamma_{0, \theta})^2-2 \gamma_{0, \theta \theta}-3 \cot (\theta ) \gamma_{0, \theta}-1)+\\
+&\frac{1}{2} U_{0} e^{2 \gamma_{0}-4 \beta_{0}} (4 \beta_{0, t} \gamma_{0, \theta}+4 \beta_{0, \theta} \gamma_{0, t}-2 \cot (\theta ) \beta_{0, t}+2 \gamma_{0, \theta} \gamma_{0, t}-4 \gamma_{0, t \theta}-\\
+&3 \cot (\theta ) \gamma_{0, t}+U_{0, \theta} (2 \beta_{0, \theta}-3 \gamma_{0, \theta})-U_{0, \theta \theta})+\frac{1}{2} e^{-4 \beta_{0}} (2 e^{4 \beta_{0}} (\gamma_{0, \theta})^2-e^{4 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&4 \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}-3 \cot (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}-e^{4 \beta_{0}}+4 e^{4 \beta_{0}} (\beta_{0, \theta})^2+2 e^{4 \beta_{0}} \beta_{0, \theta \theta}-\\
+&2 \cot (\theta ) e^{4 \beta_{0}} \beta_{0, \theta}+e^{2 \gamma_{0}} (\gamma_{0, t})^2-2 e^{2 \gamma_{0}} \gamma_{0, t t}+\\
+&e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})-e^{2 \gamma_{0}} (U_{0, \theta})^2-2 e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}-\\
+&e^{2 \gamma_{0}} U_{0, t \theta}+\cot (\theta ) e^{2 \gamma_{0}} U_{0, t})
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split} \label{eq: g_2phiphi}
+g_{(2) \phi \phi}=&\frac{1}{2} \sin (\theta ) (U_{0})^2  e^{-2 (2 \beta_{0}+\gamma_{0})} (2 \beta_{0, \theta} (\cos (\theta )-2 \sin (\theta ) \gamma_{0, \theta})+\sin (\theta ) (\gamma_{0, \theta})^2+\\
+&2 \sin (\theta ) \gamma_{0, \theta \theta}+\cos (\theta ) \gamma_{0, \theta}+\sin (\theta ))-\frac{1}{2} \sin (\theta ) U_{0}  e^{-2 (2 \beta_{0}+\gamma_{0})} (4 \sin (\theta ) \beta_{0, t} \gamma_{0, \theta}+\\
+&4 \sin (\theta ) \beta_{0, \theta} \gamma_{0, t}-2 \cos (\theta ) \beta_{0, t}-2 \sin (\theta ) \gamma_{0, \theta} \gamma_{0, t}-4 \sin (\theta ) \gamma_{0, t \theta}-\cos (\theta ) \gamma_{0, t}+\\
+&U_{0, \theta} (2 \sin (\theta ) \beta_{0, \theta}-5 \sin (\theta ) \gamma_{0, \theta}+2 \cos (\theta ))-\sin (\theta ) U_{0, \theta \theta})+\\
+&\frac{1}{2} \sin (\theta ) e^{-4 (\beta_{0}+\gamma_{0})} (2 \sin (\theta ) e^{4 \beta_{0}} (\gamma_{0, \theta})^2-\sin (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta \theta}-4 \sin (\theta ) \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}-\\
+&3 \cos (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}-4 \sin (\theta ) e^{4 \beta_{0}} (\beta_{0, \theta})^2-\sin (\theta ) e^{4 \beta_{0}}-2 \sin (\theta ) e^{4 \beta_{0}} \beta_{0, \theta \theta}+\\
+&2 \cos (\theta ) e^{4 \beta_{0}} \beta_{0, \theta}+\sin (\theta ) e^{2 \gamma_{0}} (\gamma_{0, t})^2+2 \sin (\theta ) e^{2 \gamma_{0}} \gamma_{0, t t}-\\
+&\sin (\theta ) e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-3 \gamma_{0, t})+\sin (\theta ) e^{2 \gamma_{0}} (U_{0, \theta})^2+2 \sin (\theta ) e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+\\
+&\sin (\theta ) e^{2 \gamma_{0}} U_{0, t \theta}-\cos (\theta ) e^{2 \gamma_{0}} U_{0, t})
+\end{split}
+\end{align}
+
+\end{subequations}
+Now that we have computed the $g_{(2)}$ coefficients from the series expansion, we can perform a sanity check for these coefficients using the formula (B.12). Printed below are the non-zero  coefficients of the Ricci tensor,  $R_{(0) ab}$, and the Ricci scalar, $R_{(0)}$, of the boundary metric. \textcolor{red}{mathematica file ``curvature check $g_2$''}  \\ 
+
+\noindent \textbf{Ricci Tensor}
+
+\begin{subequations}
+
+\begin{align}
+\begin{split}
+R_{(0)tt}= &e^{-2 (2 \beta_{0}+\gamma_{0})} (e^{4 \gamma_{0}} (U_{0})^4 (\gamma_{0, \theta} (\cot (\theta )-2 \beta_{0, \theta})+\gamma_{0, \theta \theta})+e^{4 \gamma_{0}} (U_{0})^3 (-2 \beta_{0, t} \gamma_{0, \theta}-\\
+&2 \beta_{0, \theta} \gamma_{0, t}+2 \gamma_{0, t \theta}+\cot (\theta ) \gamma_{0, t}+U_{0, \theta} (-2 \beta_{0, \theta}+2 \gamma_{0, \theta}+\cot (\theta ))+U_{0, \theta \theta})+\\
+&e^{2 \gamma_{0}} (U_{0})^2 (-e^{4 \beta_{0}} \gamma_{0, \theta \theta}-2 \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}-\cot (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}-\\
+&2 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-3 \gamma_{0, \theta})-4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}+e^{2 \gamma_{0}} \gamma_{0, t t}-\\
+&e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})+e^{2 \gamma_{0}} (U_{0, \theta})^2+e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+e^{2 \gamma_{0}} U_{0, t \theta})-\\
+&U_{0} e^{4 \beta_{0}+2 \gamma_{0}} (2 (\gamma_{0, t} (\cot (\theta )-2 \beta_{0, \theta})-\cot (\theta ) \beta_{0, t}+\gamma_{0, t \theta})+\\
+&U_{0, \theta} (-2 \beta_{0, \theta}+2 \gamma_{0, \theta}+\cot (\theta ))+U_{0, \theta \theta})-e^{4 \beta_{0}} (-2 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-\\
+&4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}+2 e^{2 \gamma_{0}} (\gamma_{0, t})^2-2 e^{2 \gamma_{0}} U_{0, \theta} (\beta_{0, t}-\gamma_{0, t})+\\
+&e^{2 \gamma_{0}} (U_{0, \theta})^2+e^{2 \gamma_{0}} U_{0, t \theta}+\cot (\theta ) e^{2 \gamma_{0}} U_{0, t}))
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+R_{(0)t \theta}=R_{(0)\theta t}=&e^{-4 \beta_{0}} (e^{4 \beta_{0}} (2 \gamma_{0, t} (-\beta_{0, \theta}-\gamma_{0, \theta}+\cot (\theta ))+\gamma_{0, t \theta})-\\
+&e^{2 \gamma_{0}} (U_{0})^3 (\gamma_{0, \theta} (\cot (\theta )-2 \beta_{0, \theta})+\gamma_{0, \theta \theta})-\\
+&e^{2 \gamma_{0}} (U_{0})^2 (-2 \beta_{0, t} \gamma_{0, \theta}-2 \beta_{0, \theta} \gamma_{0, t}+2 \gamma_{0, t \theta}+\cot (\theta ) \gamma_{0, t}+\\
+&U_{0, \theta} (-2 \beta_{0, \theta}+2 \gamma_{0, \theta}+\cot (\theta ))+U_{0, \theta \theta})-U_{0} (-2 \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}-\\
+&2 e^{4 \beta_{0}} \beta_{0, \theta} (\cot (\theta )-2 \gamma_{0, \theta})-4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}+e^{2 \gamma_{0}} \gamma_{0, t t}-\\
+&e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})+e^{2 \gamma_{0}} (U_{0, \theta})^2+e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+e^{2 \gamma_{0}} U_{0, t \theta}))
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+R_{(0) \theta \theta}=&e^{-4 \beta_{0}} (-2 e^{4 \beta_{0}} (\gamma_{0, \theta})^2+2 e^{4 \beta_{0}} \beta_{0, \theta} \gamma_{0, \theta}+e^{4 \beta_{0}} \gamma_{0, \theta \theta}-2 \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}+\\
+&3 \cot (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}+e^{4 \beta_{0}}-4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}+e^{2 \gamma_{0}} \gamma_{0, t t}-\\
+&e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})+e^{2 \gamma_{0}} (U_{0})^2 (\gamma_{0, \theta} (\cot (\theta )-2 \beta_{0, \theta})+\gamma_{0, \theta \theta})+\\
+&e^{2 \gamma_{0}} U_{0} (-2 \beta_{0, t} \gamma_{0, \theta}-2 \beta_{0, \theta} \gamma_{0, t}+2 \gamma_{0, t \theta}+\cot (\theta ) \gamma_{0, t}+\\
+&U_{0, \theta} (-2 \beta_{0, \theta}+2 \gamma_{0, \theta}+\cot (\theta ))+U_{0, \theta \theta})+\\
+&e^{2 \gamma_{0}} (U_{0, \theta})^2+e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}+e^{2 \gamma_{0}} U_{0, t \theta})
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+R_{(0) \phi \phi}=&\sin (\theta ) e^{-4 (\beta_{0}+\gamma_{0})} (-2 \sin (\theta ) e^{4 \beta_{0}} (\gamma_{0, \theta})^2+\sin (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&2 \sin (\theta ) \beta_{0, t} e^{2 \gamma_{0}} \gamma_{0, t}+3 \cos (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}+2 e^{4 \beta_{0}} \beta_{0, \theta} (\sin (\theta ) \gamma_{0, \theta}-\cos (\theta ))+\\
+&\sin (\theta ) e^{4 \beta_{0}}-\sin (\theta ) e^{2 \gamma_{0}} \gamma_{0, t t}+e^{2 \gamma_{0}} (U_{0})^2 (2 \beta_{0, \theta} (\sin (\theta ) \gamma_{0, \theta}-\cos (\theta ))-\\
+&\sin (\theta ) (\gamma_{0, \theta \theta}+1)-\cos (\theta ) \gamma_{0, \theta})-e^{2 \gamma_{0}} U_{0} (-2 \sin (\theta ) \beta_{0, \theta} \gamma_{0, t}+\\
+&2 \beta_{0, t} (\cos (\theta )-\sin (\theta ) \gamma_{0, \theta})+2 \sin (\theta ) \gamma_{0, t \theta}+\cos (\theta ) \gamma_{0, t}+\\
+&2 U_{0, \theta} (\sin (\theta ) \gamma_{0, \theta}-\cos (\theta )))-\sin (\theta ) e^{2 \gamma_{0}} \gamma_{0, \theta} U_{0, t}-\\
+&\sin (\theta ) e^{2 \gamma_{0}} \gamma_{0, t} U_{0, \theta}+\cos (\theta ) e^{2 \gamma_{0}} U_{0, t})
+\end{split}
+\end{align}
+
+\end{subequations}
+
+\noindent \textbf{Ricci Scalar}
+
+\begin{align}
+\begin{split}
+R_{(0)}=&\textcolor{blue}{2} e^{ -2 (2 \beta_{0}+\gamma_{0})} (-2 e^{4 \beta_{0}} (\gamma_{0, \theta})^2+4 e^{4 \beta_{0}} \beta_{0, \theta} \gamma_{0, \theta}+e^{4 \beta_{0}} \gamma_{0, \theta \theta}+\\
+&3 \cot (\theta ) e^{4 \beta_{0}} \gamma_{0, \theta}+e^{4 \beta_{0}}-4 e^{4 \beta_{0}} (\beta_{0, \theta})^2-2 e^{4 \beta_{0}} \beta_{0, \theta \theta}-2 \cot (\theta ) e^{4 \beta_{0}} \beta_{0, \theta}+\\
+&e^{2 \gamma_{0}} (\gamma_{0, t})^2-e^{2 \gamma_{0}} U_{0, \theta} (2 \beta_{0, t}-\gamma_{0, t})-e^{2 \gamma_{0}} (U_{0})^2 (2 \cot (\theta ) \beta_{0, \theta}-(\gamma_{0, \theta})^2+\\
+&\cot (\theta ) \gamma_{0, \theta}+1)+e^{2 \gamma_{0}} U_{0} (-2 \cot (\theta ) \beta_{0, t}+2 \gamma_{0, \theta} \gamma_{0, t}-\cot (\theta ) \gamma_{0, t}+U_{0, \theta} (-2 \beta_{0, \theta}+\\
+&\gamma_{0, \theta}+2 \cot (\theta ))+U_{0, \theta \theta})+e^{2 \gamma_{0}} (U_{0, \theta})^2+e^{2 \gamma_{0}} U_{0, t \theta}+\cot (\theta ) e^{2 \gamma_{0}} U_{0, t}).
+\end{split}
+\end{align}
+
+\noindent Using these Ricci expressions, we are now able to check via (B.12) that our equations (B.17a-d) for $g_{(2)ab}$ are correct.  
+
+
+
+\bibliography{Master_Bibliography}{}
+\bibliographystyle{JHEP}
+\end{document}
