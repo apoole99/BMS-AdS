@@ -92,6 +92,7 @@ We begin this section with an introduction to the Bondi-Sachs gauge and explain 
 
 \subsection{Null Hypersurfaces}
 
+Vondi-Sachs metrics were first introduced in the famous works \cite{Bondi:1962px, Sachs:1962wk}, in the context of studying gravitational waves. The Bondi-Sachs method involves foliating the spacetime manifold by null hypersurfaces. Following the procedure of \cite{Sachs:1962wk}; one chooses a Bondi Sachs coordinate system as follows. We consider a Lorentzian $4$-manifold, $\mathcal{M}$, equipped with a metric $g_{\mu \nu}(x^{\alpha})$ of signature $(-+++)$. We assume the existence of a scalar field $f$ dependent upon the space-time coordinates $f=f(x^{\alpha})$ such that the normal co-vector to $f$, $\partial_{\mu} f,$ is null: 
 \begin{equation}
 g^{\mu \nu}( \partial_{\mu} f)( \partial_{\nu} f)=0.
 \end{equation} 
@@ -144,9 +145,23 @@ z=e^{i\phi}\cot\left(\frac{\theta}{2}\right), \qquad \bar{z}=e^{-i\phi}\cot\left
 
 \subsection{Asymptotic Flatness}
 
-In the original work by BMS and much of what has followed since, the Bondi-gauge has been the ideal choice to study asymptotically flat spacetimes and their symmetries. Asymptotic flatness may be viewed as the property that the spacetime tends to Minkowski spacetime as $r \rightarrow \infty$. This imprecise statement can be given a rigorous topological definition \cite{Wald:1984rg, Hawking:1973uf} but for the purpose of our analysis we can impose suitable fall-off conditions upon the metric components at large $r$. 
+In the original work by BMS and much of what has followed since, the Bondi-gauge has been the ideal choice to study asymptotically flat spacetimes and their symmetries. Asymptotic flatness may be viewed as the property that the spacetime tends to Minkowski spacetime as $r \rightarrow \infty$. This imprecise statement can be given a rigorous topological definition \cite{Wald:1984rg, Hawking:1973uf} which we will briefly recall, before seeing how to implement the property of asymptotic flatness in a coordinate dependent manner by imposing suitable fall-off conditions upon the metric components at large $r$. 
 
-The Minkowski metric in retarded coordinates $(u,r,z,\bar{z})$ \footnote{This form of the metric is suitable for analysis near $\mathscr{I^+}$, although not for $\mathscr{I^-}$. To look at neighbourhoods of $\mathscr{I^-}$ we would instead write the metric in \textit{advanced} coordinates $(v,r,z,\bar{z})$ as opposed to retarded ones.} is given by 
+Following \cite{Townsend:1997ku, Hawking:1973uf}, we define a spacetime $(M, g)$ to be \textit{asymptotically flat} if it is both \textit{weakly asymptotically simple} and \textit{asymptotically empty}, terms which we will now explain the meaning of. First we state that a manifold $(M, g)$ is \textit{asymptotically simple} if there exists a manifold $(\tilde{M}, \tilde{g})$ with boundary $\partial \tilde{M}$ and an embedding $f: M \rightarrow \tilde{M}$ such that $f(M)= \tilde{M} - \partial \tilde{M}$ and
+
+\begin{itemize}
+\item[1)] There exists a smooth function $\Omega$ on $\tilde{M}$ such that on $f(M)= \tilde{M} - \partial \tilde{M}$, $\Omega > 0$ and $\tilde{g} = \Omega^2 f^*(g)$
+\item[2)] On $\partial \tilde{M}$, $\Omega=0$ and $d \Omega \neq 0$
+\item[3)] Every null geodesic in $M$ acquires two endpoints on $\partial \tilde{M}$
+\end{itemize}
+
+\noindent The unphysical spacetime $(\tilde{M}, \tilde{g})$ is often referred to as the \textit{conformal compactification} of the spacetime $(M, g)$ and $\partial \tilde{M}$ the \textit{conformal boundary}. The third condition above excludes black hole spacetimes (which we would like to classify as asymptotically flat) and thus we weaken the requirement for asymptotic flatness. 
+
+A spacetime is $(M,g)$ \textit{weakly asymptotically simple} if there exists an open set $O \subset M$ such that $O$ is isometric to an open neighbourhood of $\partial \tilde{M}$ where $\tilde{M}$ is the conformal compactification of an asymptotically simple manifold. 
+
+Finally, we define a spacetime $(M, g)$ to be \textit{asymptotically empty} if $R_{\mu \nu}=0$ in an open neighbourhood of $\partial \tilde{M}$ in $\tilde{M}$.  
+
+We will now see how to implement asymptotic flatness in a coordinate dependent manner. The Minkowski metric in retarded coordinates $(u,r,z,\bar{z})$ \footnote{This form of the metric is suitable for analysis near $\mathscr{I^+}$, although not for $\mathscr{I^-}$. To look at neighbourhoods of $\mathscr{I^-}$ we would instead write the metric in \textit{advanced} coordinates $(v,r,z,\bar{z})$ as opposed to retarded ones.} is given by 
 \begin{equation}
 ds_{M}^2=-du^2-2dudr+2r^2\gamma_{z \bar{z}}dzd\bar{z}
 \end{equation} 
@@ -183,7 +198,7 @@ The news tensor is again a symmetric and traceless tensor of type $[0,2]$. The n
 \begin{equation}
 R_{\mu \nu}-\frac{1}{2}g_{\mu \nu}R=8\pi T_{\mu \nu}, \qquad \lim_{r \rightarrow \infty} T_{\mu \nu} =0
 \end{equation}
-where the limit condition on the stress energy tensor is typically enforced such that $\Omega^{-1} T_{ab}$ has a smooth conformal completion to $\mathscr{I^+}= \{\Omega = 0\}$ \cite{Ashtekar:2014zfa}. This condition is a requirement for asymptotic flatness. We solve the field equations by expanding in large $r$ and solving the equations that arise at each order. The leading order ($\mathcal{O}(r^{-2})$) of the $(uu)$ component of the Einstein equations then reads (see discussions in \cite{Strominger:2017zoo,Flanagan:2015pxa}) 
+where the limit condition on the stress energy tensor is typically enforced such that $\Omega^{-1} T_{ab}$ has a smooth conformal completion to $\mathscr{I^+}= \{\Omega = 0\}$ \cite{Ashtekar:2014zfa}. This condition is a requirement for asymptotic flatness as it forces the asymptotically empty condition that we introduced above. We solve the field equations by expanding in large $r$ and solving the equations that arise at each order. The leading order ($\mathcal{O}(r^{-2})$) of the $(uu)$ component of the Einstein equations then reads (see discussions in \cite{Strominger:2017zoo,Flanagan:2015pxa}) 
 \begin{equation}
 \partial_u m_B=\frac{1}{4}[D^2_zN^{zz}+D^2_{\bar{z}}N^{\bar{z}\bar{z}}-N_{zz}N^{zz}]-4\pi  \lim_{r\rightarrow \infty} r^2T_{uu}.
 \end{equation}
@@ -239,28 +254,26 @@ Indicated on the diagram below is a rough idea of how we want to locally foliate
 \end{center}	
 \end{figure}
 
-
-
 \section{The Einstein Field Equations}
 
-In this section we will set up and solve the vacuum Einstein equations in the presence of a negative cosmological constant for an axisymmetric, $\phi$-reflection symmetric Bondi metric. The techniques employed in doing this are very similar to that of \cite{Bondi:1962px} and we shall see that a lot of the properties of the original method carry over to the $AdS$ setup. The mathematica file relevant to these equations is \textcolor{red}{mathematica file `$AdS$ smooth solutions'}
+In this section we will set up and solve the vacuum Einstein equations in the presence of a negative cosmological constant for an axisymmetric, $\phi$-reflection symmetric Bondi metric. The techniques employed in doing this are very similar to that of \cite{Bondi:1962px} and we shall see that a lot of the properties of the original method carry over to the $AdS$ setup. For readers interested in seeing the computation of the solutions, the mathematica file relevant to these equations is \textcolor{red}{mathematica file `$AdS$ smooth solutions'}
 
 \subsection{General Considerations}
 Before diving straight into the Einstein equations; we apply some simplifications to the general Bondi gauge metric. Working in coordinates $(u , r, \theta, \phi)$, we enforce both axi-symmetry ($\partial/\partial \phi$ a Killing vector field) and reflection symmetry in $\phi$ (so the metric is invariant under $d\phi \rightarrow -d\phi$). In Bondi function notation, this means we set $h_{\theta \phi}=h_{\phi \theta}=U^{\phi}=0$, reducing the number of unknown functions to four. These choices are made for computational simplifications in what follows.
 
 Following \cite{Bondi:1962px}, we now write the remaining functions in the form;
 \begin{equation}
-X=Vr^{-1}e^{2\beta}, \qquad \beta=\beta, \qquad h_{\theta \theta}=r^2e^{2\gamma}, \qquad h_{\phi \phi}=r^2\sin^2\theta e^{-2\gamma}, \qquad U^{\theta}=-2U
+X=Wr^{2}e^{2\beta}, \qquad \beta=\beta, \qquad h_{\theta \theta}=r^2e^{2\gamma}, \qquad h_{\phi \phi}=r^2\sin^2\theta e^{-2\gamma}, \qquad U^{\theta}=-2U
 \end{equation}
 giving us the line element 
 \begin{equation}  \label{eq: Bondi_Metric}
-ds^2=-(Vr^{-1}e^{2\beta}-U^2r^2e^{2\gamma})du^2-2e^{2\beta}dudr-2Ur^2e^{2\gamma}dud\theta+r^2(e^{2\gamma}d\theta^2+e^{-2\gamma}\sin^2\theta d\phi^2).
+ds^2=-(Wr^{2}e^{2\beta}-U^2r^2e^{2\gamma})du^2-2e^{2\beta}dudr-2Ur^2e^{2\gamma}dud\theta+r^2(e^{2\gamma}d\theta^2+e^{-2\gamma}\sin^2\theta d\phi^2).
 \end{equation}
 This choice of metric has the extra determinant restriction that $\text{det}(h_{AB}/r^2)=\sin^2\theta$ which we will see coming into play in later computations. We are now ready to solve Einstein's equations for our four metric functions $\gamma(u,r,\theta)$, $\beta(u, r, \theta)$, $U(u,r,\theta)$, $V(u,r,\theta)$. \par
 
-For our choice of metric ansatz above, we want to solve the Einstein vacuum equations with a negative cosmological constant ($\Lambda=-3$ with curvature radius one):
+For our choice of metric ansatz above, we want to solve the Einstein vacuum equations with a negative cosmological constant, $\Lambda<0$ 
 \begin{equation} \label{eq:2.1}
-R_{\mu \nu}=-3 g_{\mu \nu}. 
+R_{\mu \nu}=\Lambda g_{\mu \nu}. 
 \end{equation}
 Instead of solving the vacuum Einstein equations, one could choose to solve the equations with ``asymptotically vacuum'' matter ($\lim_{r \rightarrow \infty} T_{\mu \nu} =0$). An eaxmple of this is \cite{Flanagan:2015pxa}, which uses a power series expansion in negative powers of $r$. As is well known in holography, the presence of matter generically affects the powers arising in the asymptotic expansions. For this work we will restrict to the vacuum case but the generalization to include matter would be straightforward. 
 
@@ -268,45 +281,45 @@ Instead of solving the vacuum Einstein equations, one could choose to solve the 
 
 Following \cite{Bondi:1962px}; we separate Einstein's Equations into four `main equations'
 \begin{equation} \label{eq:2.3}
-R_{rr}=R_{r\theta}=0, \quad R_{\theta \theta}=-3 r^2e^{2 \gamma}, \quad R_{\phi \phi}=-3r^2e^{-2\gamma}\sin^2\theta 
+R_{rr}=R_{r\theta}=0, \quad R_{\theta \theta}=\Lambda r^2e^{2 \gamma}, \quad R_{\phi \phi}=\Lambda r^2e^{-2\gamma}\sin^2\theta 
 \end{equation}
-which we can rewrite in the following form 
+\noindent three `trivial equations' 
+\begin{equation}
+R_{u \phi}=R_{r \phi}=R_{\theta \phi}=0
+\end{equation}
+\noindent and three `supplementary equations'
+\begin{equation}
+R_{uu}=-\Lambda(Wr^2e^{2\beta}-U^2r^2e^{2\gamma}) , \quad R_{u\theta}=-\Lambda Ur^2e^{2\gamma}, \quad R_{u r}=-\Lambda e^{2\beta}.
+\end{equation}
+The main equations earn their name as they form the main system of equations which need to be solved in order to generate solutions to the field equations. The trivial equations are automatically satisfied due to the form of the metric (hence their name) and the supplementary conditions shall be shown to provide constraint equations for the functions of integration arising from the main equations. These will be discussed in section \ref{subsec: SC} but for now we will focus our attention on the main equations. 
+
+We begin by rewriting the main equations in the following form
 \begin{subequations}
 \begin{align} 
-0 & =-R_{rr} = -4\left[\beta_r-\frac{1}{2}r\gamma_r^2\right]r^{-1} \label{eq: AdS_me1} \\
-0 & =2r^2R_{r\theta} =[r^4e^{2(\gamma-\beta)}U_r]_r- 2r^2[\beta_{r\theta}-\gamma_{r\theta}+2\gamma_{r}\gamma_{\theta}-2\beta_{\theta}r^{-1}-2\gamma_{r}\cot \theta] \label{eq: AdS_me2} \\
+0 & =-R_{rr} = -4\left[\beta_{,r}-\frac{1}{2}r(\gamma_{,r})^2\right]r^{-1} \label{eq: AdS_me1} \\
 \begin{split}
-6r^2e^{2\beta}& = -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = 2V_r+\frac{1}{2}r^4e^{2(\gamma-\beta)}U_r^2-r^2 U_{r \theta}  \\ 
-&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = }
--4rU_{\theta} -r^2U_{r}\cot \theta -4rU\cot \theta  \\ 
-&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } +2e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-\beta_{\theta})\cot \theta \\ 
-&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = } -\gamma_{\theta \theta}+\beta_{\theta \theta} +\beta_{\theta}^2+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})] \label{eq: AdS_me3}  
+0 & =2r^2R_{r\theta} =[r^4e^{2(\gamma-\beta)}U_{,r}]_{,r}- \\
+&\phantom{aaaaaaaaaaa} 2r^2[\beta_{,r\theta}-\gamma_{,r\theta}+2\gamma_{,r}\gamma_{,\theta}-2\beta_{,\theta}r^{-1}-2\gamma_{,r}\cot \theta] \label{eq: AdS_me2}
+ \end{split}
+ \\
+\begin{split}
+-2 \Lambda r^2e^{2\beta}& = -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = 2(r^3 W)_{,r}+\frac{1}{2}r^4e^{2(\gamma-\beta)}(U_{,r})^2-r^2 U_{,r \theta} - \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = a}
+4rU_{,\theta} -r^2U_{,r}\cot \theta -4rU\cot \theta + \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = a} 2e^{2(\beta-\gamma)}[-1-(3\gamma_{,\theta}-\beta_{,\theta})\cot \theta - \\ 
+&\phantom{= -R_{\theta \theta}e^{2(\beta-\gamma)}-r^2R^{\phi}_{\phi}e^{2\beta} = a} \gamma_{,\theta \theta}+\beta_{,\theta \theta} +(\beta_{,\theta})^2+2\gamma_{,\theta}(\gamma_{,\theta}-\beta_{,\theta})] \label{eq: AdS_me3}  
 \end{split}
 \\
 \begin{split}
-3r^2e^{2\beta} & =- r^2R^{\phi}_{\phi}e^{2\beta} =2r(r \gamma)_{u r}+(1-r\gamma_r)V_r-(r\gamma_{r r}+\gamma_r)V-r(1-r\gamma_r)U_{\theta} \\
-&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } -r^2(\cot \theta - \gamma_{\theta})U_r+r(2r\gamma_{r \theta}+2\gamma_{\theta}+r\gamma_{r}\cot \theta - 3\cot \theta)U \\
-&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  } +e^{2(\beta-\gamma)}[-1-(3\gamma_{\theta}-2\beta_{\theta})\cot \theta-\gamma_{\theta \theta}+2\gamma_{\theta}(\gamma_{\theta}-\beta_{\theta})]. \label{eq: AdS_me4}
+-\Lambda r^2e^{2\beta} & =- r^2R^{\phi}_{\phi}e^{2\beta} =2r(r \gamma)_{,u r}+(1-r\gamma_{,r})(r^3W)_{,r}-r^3(r\gamma_{,r r}+\gamma_{,r}) W-\\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  a} r(1-r\gamma_{,r})U_{,\theta} -r^2(\cot \theta - \gamma_{,\theta})U_{,r}+\\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  a}r(2r\gamma_{,r \theta}+2\gamma_{,\theta}+r\gamma_{,r}\cot \theta - 3\cot \theta)U \\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  a} +e^{2(\beta-\gamma)}[-1-(3\gamma_{,\theta}-2\beta_{,\theta})\cot \theta-\\
+&\phantom{= -r^2R^{\phi}_{\phi}e^{2\beta} =  a}\gamma_{,\theta \theta}+2\gamma_{,\theta}(\gamma_{,\theta}-\beta_{,\theta})]. \label{eq: AdS_me4}
 \end{split}
 \end{align}
 \end{subequations}
 Notice that the first two equations agree with the first two main equations in \cite{Bondi:1962px}. The second two have been altered by the inclusion of the cosmological constant. We will now follow closely the integration scheme of \cite{Bondi:1962px} to see how this alters the solutions to the equations above. 
-
-We are interested in solving these equations in the \textit{asymptotic region} (large $r$) of the spacetime. To do this, we need to ensure the metric functions obey suitable fall off properties, namely those which ensure our solution is asymptotically locally $AdS$ in the limit as $r \rightarrow \infty$. These criteria will correspond to similar conditions that were imposed in \cite{Bondi:1962px} to ensure asymptotic flatness and only outgoing gravitational waves, The functions $\gamma$, $\beta$ and $U$ admit expansions of the form 
-\begin{equation}
-\gamma(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\gamma_n(u,\theta)}{r^n}, \quad \beta(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\beta_n(u,\theta)}{r^n}, \quad U(u,r,\theta)=\sum_{n=0}^{\infty}\frac{U_n(u,\theta)}{r^n} 
-\end{equation}
-and $V$ is of the form 
-\begin{equation}
-V(u, r, \theta)=\sum_{n=0}^{\infty} \frac {V_n(u, \theta)}{r^{n-3}}.
-\end{equation}
-These conditions will ensure that our metric coefficients do not grow exponentially with $r$ and that the metric has a pole of order two at the conformal boundary $\mathscr{I}$; this will be discussed in greater detail in section \ref{sec: Holographic_interpretation}.  
-To simplify the analysis of the problem it is convenient to use the substitution $r=1/z$; solving the equations as $r \rightarrow \infty$ reduces to the analytically simpler procedure of looking for solutions about $z=0$. 
-
-As a final comment before we solve these equations asymptotically, let us note that these forms for the asymptotic expansions follow from the boundary conditions of asymptotically locally $AdS_4$, in the absence of the matter. We do not assume the expansion a priori.
-It has been shown in previous literature that the metric function expansions can contain logarithmic terms of the form $\log^j(r)r^{-i}$, both for the asymptotically flat case in \cite{Andersson:1994ng, 0264-9381-16-5-314} and for arbitrary $\Lambda$ in \cite{Chrusciel:2016oux}. However, such logarithmic terms do not arise here. 
-
-\subsection{Solving the Main Equations}
 
 We will first solve the main equations following the same approach as the original analysis  \cite{Bondi:1962px}. This procedure na\"ively works in the following way (temporarily ignoring the issue of integration functions). 
 \begin{itemize}
@@ -328,16 +341,102 @@ We will first solve the main equations following the same approach as the origin
 
 However, unlike asymptotically flat space-time, in $AdS$ we have $D^+(\mathcal{N}_{u_0}) \neq J^+(\mathcal{N}_{u_0})$, where $J^+$ indicates the causal future - the union of the blue and green regions in the diagram. To solve the equations in $J^+(\mathcal{N}_{u_0})$ we would need to specify extra data i.e. on a new hypersurface such as the conformal boundary $\mathscr{I}$. Further discussion of the integration scheme for $AdS$ asymptotics may be found in section \ref{sec:  Integration Scheme - Minkowski Vs. $AdS$}. In this section we solve the field equations in the order described above. 
 
-\subsubsection{The First Equation}
-\noindent With the substitution $z=1/r$; the first equation becomes 
+\subsection{Solving the Main Equations asymptotically}
+
+We are interested in solving these equations in the \textit{asymptotic region} (large $r$) of the spacetime and we want to do so in the most general manner possible. In order to derive the form of the solutions we first perform the inversion map 
 \begin{equation}
-\beta_{,z}+\frac{1}{2} z \gamma_{,z}^2=0.
+r=\frac{1}{z}
+\end{equation} 
+\noindent which means that solving the equations as $r \rightarrow \infty$ reduces to the analytically simpler procedure of looking for solutions about $z=0$. Performing this substitution upon the main equations gives 
+\begin{subequations}
+\begin{align}
+0&=4z^3 \beta_{, z} +2z^4 (\gamma_{,z})^2 \label{eq: irreg_me1} \\ 
+\begin{split}
+0&= \frac{4 \beta_{, \theta}}{z} - \frac{2 e^{2\gamma - 2\beta} U_{,z}}{z}-2e^{2\gamma-2\beta} U_{,z}\beta_{,z}-4\cot \theta \gamma_{,z}+ 4\gamma_{, \theta}\gamma_{,z}+\\
+& \phantom{aaa}2 e^{2\gamma- 2\beta} U_{,z} \gamma_{,z} +2 \beta_{,z\theta}-2\gamma_{, z \theta}+e^{2\gamma-2\beta} U_{, zz} \label{eq: irreg_me2}
+\end{split}
+\\
+\begin{split}
+-\frac{2\Lambda e^{2\beta}}{z^2} & = \frac{6W}{z^2}+\frac{4 \cot \theta U}{z} - \frac{2 W_{, z}}{z} - \frac{4 U_{, \theta}}{z} - 2e^{2\beta -2\gamma}+2e^{2\beta-2\gamma}\cot \theta \beta_{, \theta}+\\
+& \phantom{aaa} 2e^{2\beta-2\gamma}(\beta_{, \theta})^2-6e^{2\beta-2\gamma}\cot \theta \gamma_{, \theta}-4e^{2\beta-2\gamma}\beta_{, \theta} \gamma_{, \theta}+4e^{2\beta-2\gamma}(\gamma_{,\theta})^2+ \\
+& \phantom{aaa} 2e^{2\beta-2\gamma}\beta_{, \theta \theta}-2e^{2\beta-2\gamma}\gamma_{, \theta \theta}+\cot \theta U_{,z}+\frac{1}{2}e^{2\gamma-2\beta}(U_{,z})^2+U_{,z \theta}  \label{eq: irreg_me3}
+\end{split}
+\\
+\begin{split}
+-\frac{\Lambda e^{2\beta}}{z^2} & =\frac{3W}{z^2}-\frac{3\cot \theta U}{z}- \frac{U_{,\theta}}{z}+\frac{2U \gamma_{, \theta}}{z}-\frac{W_{,z}}{z}+\frac{2W \gamma_{,z}}{z}+\frac{2\gamma_{,u}}{z}- \\
+& \phantom{aaa} e^{2\beta-2\gamma}+ 2 e^{2\beta - 2\gamma} \cot \theta \beta_{, \theta} - 3 e^{2\beta -2\gamma}\cot \theta \gamma_{, \theta}-2e^{2\beta -2\gamma}\beta_{, \theta} \gamma_{, \theta} + \\
+& \phantom{aaa} 2e^{2\beta -2\gamma}(\gamma_{, \theta})^2-e^{2\beta -2\gamma}\gamma_{, \theta \theta}+\cot \theta U_{, z} -\gamma_{, \theta} U_{,z}-\cot \theta U \gamma_{, z}-\\
+& \phantom{aaa} U_{, \theta} \gamma_{, z} - W_{,z}\gamma_{,z}-2U \gamma_{,z \theta} - W\gamma_{,zz}-2\gamma_{, u z}  \label{eq: irreg_me4}.
+\end{split}
+\end{align}
+\end{subequations}
+
+We are almost ready to derive the general form of the asymptotic solutions by recursive differentiation. If we assume that the metric functions $(\gamma, \beta, U, W)$ are suitably differentiable at $z=0$ (this will turn out to be at least $C^4$) then we will obtain the asymptotic solutions to the field equations via the following procedure 
+
+\begin{itemize}
+\item[1)] Regularize the field equations
+\item[2)] Evaluate the regularised field equations at $z=0$
+\item[3)] Differentiate the regularized field equations with respect to $z$ 
+\item[4)] Iterate evaluation (2) and differentiation (3) steps 
+\end{itemize}
+
+Following this procedure, we realise that we first need to regularise the field equations. Equations (\ref{eq: irreg_me2}), (\ref{eq: irreg_me3}), (\ref{eq: irreg_me4}) are all irregular about $z=0$ as they have negative powers of $z$ appearing in the expansion (recall that we assume all metric functions are suitably regular at $z=0$). The \textit{regularised main equations} are 
+
+\begin{subequations}
+\begin{align}
+0&=2 \beta_{, z} +z (\gamma_{,z})^2 \\ 
+\begin{split}
+0&= 4 \beta_{, \theta} - 2 e^{2\gamma - 2\beta} U_{,z}-2ze^{2\gamma-2\beta} U_{,z}\beta_{,z}-4z\cot \theta \gamma_{,z}+ 4z\gamma_{, \theta}\gamma_{,z}+\\
+& \phantom{aaa}2z e^{2\gamma- 2z\beta} U_{,z} \gamma_{,z} +2z \beta_{,z\theta}-2z\gamma_{, z \theta}+ze^{2\gamma-2\beta} U_{, zz} 
+\end{split}
+\\
+\begin{split}
+-2\Lambda e^{2\beta} & = 6W+4z \cot \theta U - 2z W_{, z} - 4z U_{, \theta} - 2z^2e^{2\beta -2\gamma}+\\
+& \phantom{aaa} 2z^2e^{2\beta-2\gamma}\cot \theta \beta_{, \theta}+ 2z^2e^{2\beta-2\gamma}(\beta_{, \theta})^2-6z^2e^{2\beta-2\gamma}\cot \theta \gamma_{, \theta}-\\
+& \phantom{aaa} 4z^2e^{2\beta-2\gamma}\beta_{, \theta} \gamma_{, \theta}+4z^2e^{2\beta-2\gamma}(\gamma_{,\theta})^2+ 2z^2e^{2\beta-2\gamma}\beta_{, \theta \theta}-\\
+& \phantom{aaa} 2z^2e^{2\beta-2\gamma}\gamma_{, \theta \theta}+z^2\cot \theta U_{,z}+\frac{z^2}{2}e^{2\gamma-2\beta}(U_{,z})^2+z^2U_{,z \theta} 
+\end{split}
+\\
+\begin{split}
+-\Lambda e^{2\beta} & =3W-3z\cot \theta U- zU_{,\theta}+2zU \gamma_{, \theta}-zW_{,z}+2zW \gamma_{,z}+2z\gamma_{,u}- \\
+& \phantom{aaa} z^2e^{2\beta-2\gamma}+ 2z^2 e^{2\beta - 2\gamma} \cot \theta \beta_{, \theta} - 3z^2 e^{2\beta -2\gamma}\cot \theta \gamma_{, \theta}-\\
+& \phantom{aaa} 2z^2e^{2\beta -2\gamma}\beta_{, \theta} \gamma_{, \theta} + 2z^2e^{2\beta -2\gamma}(\gamma_{, \theta})^2-z^2e^{2\beta -2\gamma}\gamma_{, \theta \theta}+z^2\cot \theta U_{, z} -\\
+& \phantom{aaa} z^2\gamma_{, \theta} U_{,z}-z^2\cot \theta U \gamma_{, z}- z^2 U_{, \theta} \gamma_{, z} -z^2 W_{,z}\gamma_{,z}-\\
+& \phantom{aaa} 2z^2U \gamma_{,z \theta} - z^2W\gamma_{,zz}-2z^2\gamma_{, u z}.
+\end{split}
+\end{align}
+\end{subequations}
+where we have multiplied (\ref{eq: irreg_me2}) through by $z$, and (\ref{eq: irreg_me3}), (\ref{eq: irreg_me4}) through by $z^2$ in order to obtain expressions regular at $z=0$. We have also rescaled (\ref{eq: irreg_me1}) by dividing through by $2z^3$. This was not necessary to make the first equation regular at $z=0$ as it already was, but will allow us to perform the iterative differentiation of the field equations with greater ease. 
+
+We will now derive the asymptotic solutions to the field equations via the procedure outlined above. We will follow this procedure equation by equation, making use of the nested structure to move from one to the next. 
+
+To do this, we need to ensure the metric functions obey suitable fall off properties, namely those which ensure our solution is asymptotically locally $AdS$ in the limit as $r \rightarrow \infty$. These criteria will correspond to similar conditions that were imposed in \cite{Bondi:1962px} to ensure asymptotic flatness and only outgoing gravitational waves, The functions $\gamma$, $\beta$ and $U$ admit expansions of the form 
+\begin{equation}
+\gamma(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\gamma_n(u,\theta)}{r^n}, \quad \beta(u,r,\theta)=\sum_{n=0}^{\infty}\frac{\beta_n(u,\theta)}{r^n}, \quad U(u,r,\theta)=\sum_{n=0}^{\infty}\frac{U_n(u,\theta)}{r^n} 
 \end{equation}
-The integration scheme of the original work by BMS assumed knowledge of $\gamma$ for a given retarded time $u_0$, thus allowing one to solve this equation for $\beta(u_0, z,\theta)$. For the purpose of solving the $AdS$ equations asymptotically we will not assume knowledge of $\gamma$ although in a similar vein to the original work we will write the metric functions in terms of $\gamma$. We integrate the equation order by order in the radial expansion, with the first few terms in the expansion being: 
+and $V$ is of the form 
+\begin{equation}
+V(u, r, \theta)=\sum_{n=0}^{\infty} \frac {V_n(u, \theta)}{r^{n-3}}.
+\end{equation}
+These conditions will ensure that our metric coefficients do not grow exponentially with $r$ and that the metric has a pole of order two at the conformal boundary $\mathscr{I}$; this will be discussed in greater detail in section \ref{sec: Holographic_interpretation}.  
+To simplify the analysis of the problem it is convenient to use the substitution $r=1/z$; solving the equations as $r \rightarrow \infty$ reduces to the analytically simpler procedure of looking for solutions about $z=0$. 
+
+As a final comment before we solve these equations asymptotically, let us note that these forms for the asymptotic expansions follow from the boundary conditions of asymptotically locally $AdS_4$, in the absence of the matter. We do not assume the expansion a priori.
+It has been shown in previous literature that the metric function expansions can contain logarithmic terms of the form $\log^j(r)r^{-i}$, both for the asymptotically flat case in \cite{Andersson:1994ng, 0264-9381-16-5-314} and for arbitrary $\Lambda$ in \cite{Chrusciel:2016oux}. However, such logarithmic terms do not arise here. 
+
+
+\subsubsection{The First Equation}
+\noindent The first main equation reads  
+\begin{equation} \label{eq: reg_me1}
+2 \beta_{,z}+ z (\gamma_{,z})^2=0.
+\end{equation}
+As we mentioned earlier, the integration scheme requires us to know $\gamma$ on an initial hypersurface $\mathcal{N}_{u_0}$ and then solve for the other functions in terms of $\gamma(u_0)$. This means that we want to solve this equation for $\beta$ to be given in terms of $\gamma$. Before we do this, we remark upon a function of integration which will not be determined by the recursive differentiation method, namely $\beta_0(u, \theta)$ which can be added to a solution of (\ref{eq: reg_me1}). 
+
+We apply the differentiation procedure and solve at each order to obtain 
 \begin{align}
 \begin{cases}
-&\beta_1=0 \\
-&\beta_2=-\frac{1}{4} \gamma_1^2\\
+&\beta_{,z}(u,0, \theta)=0 \\
+&\beta_{,zz}(u, 0 ,\theta)=-\frac{1}{2} [\gamma_{,z}(u,0,\theta)]^2\\
 & \beta_3=-\frac{2}{3}  \gamma_1 \gamma_2 \\
 & \beta_4=\frac{1}{4}\left[ -2 \gamma_2^2-3 \gamma_1 \gamma_3 \right].
 \end{cases}
@@ -446,7 +545,7 @@ At this order $\gamma_4$ is determined in terms of $\gamma_3$ and its various de
 
 The presence of the cosmological constant in the Einstein equations couples the equations. This coupling of orders implies that if that if we are given suitable seed coefficients then we could obtain all the other coefficients. The initial coefficients are be $\gamma_0, \beta_0, U_0$ together with $\gamma_3, U_3, W_3$; from these the entire solution could be determined algebraically. We will  see below that these coefficients have an important holographic interpretation but first we look at the remaining field equations, the so-called {\it supplementary conditions}.
 
-\subsection{The Supplementary Conditions}
+\subsection{The Supplementary Conditions} \label{subsec: SC}
 Although the main equations give equations for each of our four metric functions, they do not form the full set of field equations. The full collection of field equations comprises of ten equations which reduces down to seven non-trivial equations as $R_{u \phi}=R_{r \phi}=R_{\theta \phi}=0$ identically. We have already considered the four main equations so this leaves us with three equations which we have yet to consider
 \begin{equation}
 R_{uu}=\Lambda g_{uu}=3(Wr^2e^{2\beta}-U^2r^2e^{2\gamma}) , \quad R_{u\theta}=\Lambda g_{u \theta}=3Ur^2e^{2\gamma}, \quad R_{u r}=\Lambda g_{u r}=3 e^{2\beta}.
